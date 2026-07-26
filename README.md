@@ -62,8 +62,8 @@
 
 - **正式 Current Synthesis**：尚未建立（目標路徑：`synthesis/04_current_synthesis.md`）。
 - **現階段主讀（Analysis；Review 流水線暫停）**：
-  - [1_speech_deep_analysis.md](1_speech_deep_analysis.md) — 講話心智模型拆解
-  - [2_StockWe_融資暫停串聯分析_核查.md](2_StockWe_融資暫停串聯分析_核查.md) — 事件核查
+  - [02_speech_deep_analysis.md](02_speech_deep_analysis.md) — 講話心智模型拆解
+  - [03_StockWe_融資暫停串聯分析_核查.md](03_StockWe_融資暫停串聯分析_核查.md) — 事件核查
   - [reviews/02_critic_review.md](reviews/02_critic_review.md) — **非必讀**（格式已暫停，價值評為低）
 
 未再指示前：不寫 `reviews/03_*`、不硬跑角色審查輪。
@@ -72,11 +72,11 @@
 
 | ID | 證據／來源 | 類型 | 支持或反對什麼 | 可信度 | 日期 |
 |---|---|---|---|---|---|
-| S01 | [0_speech.md](0_speech.md) 梁文鋒四小時發言精校（大宇 @BTCdayu） | Lead / 二次轉寫 | 開源、剋制、十個月回本、AGI 階梯等主張 | 中（非官方錄音原檔；轉寫精校） | 2026-07 外傳 |
-| S02 | [1_speech_deep_analysis.md](1_speech_deep_analysis.md) | Secondary 分析 | 將講話整理為可複用戰略模型 | 中高（依賴 S01） | 2026-07-24 |
+| S01 | [01_speech.md](01_speech.md) 梁文鋒四小時發言精校（大宇 @BTCdayu） | Lead / 二次轉寫 | 開源、剋制、十個月回本、AGI 階梯等主張 | 中（非官方錄音原檔；轉寫精校） | 2026-07 外傳 |
+| S02 | [02_speech_deep_analysis.md](02_speech_deep_analysis.md) | Secondary 分析 | 將講話整理為可複用戰略模型 | 中高（依賴 S01） | 2026-07-24 |
 | S03 | Bloomberg / Reuters 等二輪融資暫停報道（見 2_ 文內鏈） | Secondary 新聞（匿名信源） | 口頭暫停第二輪；部分因言論外傳 | 中高（主流媒體一致，非官方） | 2026-07-25 |
 | S04 | StockWe 推文 2081201760669200886（全文見 2_） | Lead / 評論 | 製造業降本、與 NVDA 協同、政策海關敘事 | 低–中（觀點文，非一手事實） | 2026-07-26 |
-| S05 | [2_StockWe_融資暫停串聯分析_核查.md](2_StockWe_融資暫停串聯分析_核查.md) | Evidence check + 評論 | 事實邊界與 StockWe 評價 | 中高（核查層） | 2026-07-27 |
+| S05 | [03_StockWe_融資暫停串聯分析_核查.md](03_StockWe_融資暫停串聯分析_核查.md) | Evidence check + 評論 | 事實邊界與 StockWe 評價 | 中高（核查層） | 2026-07-27 |
 | S06 | [reviews/02_critic_review.md](reviews/02_critic_review.md) | Critic 審查 | 挑戰 Writer 前提、主張分級、替代解釋 | 中高（方法論層） | 2026-07-27 |
 
 來源優先級：Primary（公司官方 / 監管）> Secondary（主流報道、有方法的分析）> Lead（X、論壇、未驗證轉寫）。
@@ -108,8 +108,8 @@
 
 | 日期 | 決定 | 理由 | 影響文件 |
 |---|---|---|---|
-| 2026-07-24 | 建立講話精校與深度拆解 | 外傳內容需結構化，避免只在聊天層 | `0_speech.md`, `1_speech_deep_analysis.md` |
-| 2026-07-27 | 歸檔 StockWe 並做融資新聞核查 | 區分事實層與故事層 | `2_StockWe_融資暫停串聯分析_核查.md` |
+| 2026-07-24 | 建立講話精校與深度拆解 | 外傳內容需結構化，避免只在聊天層 | `01_speech.md`, `02_speech_deep_analysis.md` |
+| 2026-07-27 | 歸檔 StockWe 並做融資新聞核查 | 區分事實層與故事層 | `03_StockWe_融資暫停串聯分析_核查.md` |
 | 2026-07-27 | 按 Hub 規範補齊專案骨架 | 升級為正式知識專案，可被 Hub 索引 | `README.md`, `AGENTS.md`, `00_inbox.md` |
 | 2026-07-27 | 將全站內容編譯為 HTML 互動研究門戶並發佈至 GitHub | 滿足視覺化閱讀、互動對比與 GitHub Live Report 需求 | `index.html`, `style.css`, `script.js`, `*.html` |
 | 2026-07-27 | 完成 Critic 輪；階段 Analysis → Review | 挑戰 Writer 前提與過度推論，不覆寫原稿 | `reviews/02_critic_review.md` |
@@ -125,9 +125,9 @@
 2. `index.html`（HTML 互動式戰略研究儀表板與文獻導覽首頁）
 3. `AGENTS.md`（作業規則；含 Review 暫停）
 4. `00_inbox.md` / `00_inbox.html`（未升級材料）
-5. `0_speech.md` / `0_speech.html`（原文）
-6. `1_speech_deep_analysis.md` / `1_speech_deep_analysis.html`（分析）
-7. `2_StockWe_融資暫停串聯分析_核查.md` / 對應 html（事件核查）
+5. `01_speech.md` / `01_speech.html`（原文）
+6. `02_speech_deep_analysis.md` / `02_speech_deep_analysis.html`（分析）
+7. `03_StockWe_融資暫停串聯分析_核查.md` / 對應 html（事件核查）
 8. `reviews/02_critic_review.md` — **非必讀**（已標價值低／格式暫停）
 
 ## Directory Layout（目標）
@@ -137,9 +137,9 @@
 ├── README.md / README.html
 ├── AGENTS.md / AGENTS.html
 ├── 00_inbox.md / 00_inbox.html
-├── 0_speech.md / 0_speech.html
-├── 1_speech_deep_analysis.md / 1_speech_deep_analysis.html
-├── 2_StockWe_融資暫停串聯分析_核查.md / 2_StockWe_...html
+├── 01_speech.md / 01_speech.html
+├── 02_speech_deep_analysis.md / 02_speech_deep_analysis.html
+├── 03_StockWe_融資暫停串聯分析_核查.md / 03_StockWe_...html
 ├── index.html            # 互動式戰略研究儀表板與文獻導覽首頁
 ├── style.css             # 深色矽谷科技風 (Silicon Dark Theme) CSS
 ├── script.js             # 頁面分頁與導航微交互腳本

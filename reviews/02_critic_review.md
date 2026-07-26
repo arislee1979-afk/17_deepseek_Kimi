@@ -1,9 +1,9 @@
-# Critic 審查：`1_speech_deep_analysis.md`
+# Critic 審查：`02_speech_deep_analysis.md`
 
 > **模型角色**：Critic（批判者）  
-> **審查對象**：`1_speech_deep_analysis.md`（Writer 級深度拆解，2026-07-24）  
-> **對照原文**：`0_speech.md`（大宇 @BTCdayu 精校）  
-> **輔助材料**：`2_StockWe_融資暫停串聯分析_核查.md`（事件層事實邊界）  
+> **審查對象**：`02_speech_deep_analysis.md`（Writer 級深度拆解，2026-07-24）  
+> **對照原文**：`01_speech.md`（大宇 @BTCdayu 精校）  
+> **輔助材料**：`03_StockWe_融資暫停串聯分析_核查.md`（事件層事實邊界）  
 > **審查日期**：2026-07-27  
 > **規則**：不重寫原報告、不覆寫原稿；只挑戰前提、過度推論、反例與分類判定
 
@@ -39,7 +39,7 @@
 | 項目 | 內容 |
 |------|------|
 | Writer 默認 | 精校稿足以支撐「DeepSeek 作業系統」級拆解 |
-| 問題 | `0_speech.md` 明確是 **二次轉寫／精校**（去語氣詞、糾錯、加小標題）。無公開原音對照、無公司確認、場合是否「內部對齊／投資人溝通／混合」亦未硬核實 |
+| 問題 | `01_speech.md` 明確是 **二次轉寫／精校**（去語氣詞、糾錯、加小標題）。無公開原音對照、無公司確認、場合是否「內部對齊／投資人溝通／混合」亦未硬核實 |
 | 風險 | 金句排序、小標題節奏、遺漏／潤飾都會改變「原則權重」；Writer 的工程化公式（`Maximize P(AGI) s.t. …`）是 **詮釋層**，易被後續讀者當成原話 |
 | 嚴重度 | **高**（整座建築的地基） |
 
@@ -261,7 +261,7 @@ Writer 隱含鏈：
 
 ## 10. Critic 結論（給後續角色的交接）
 
-### 10.1 對 `1_speech_deep_analysis.md` 的採用建議
+### 10.1 對 `02_speech_deep_analysis.md` 的採用建議
 
 | 用途 | 建議 |
 |------|------|
@@ -295,7 +295,7 @@ Writer 隱含鏈：
 | 項 | 內容 |
 |----|------|
 | 角色 | Critic |
-| 輸入 | `1_speech_deep_analysis.md`, `0_speech.md`, `2_StockWe_融資暫停串聯分析_核查.md`, `README.md` |
+| 輸入 | `02_speech_deep_analysis.md`, `01_speech.md`, `03_StockWe_融資暫停串聯分析_核查.md`, `README.md` |
 | 輸出 | `reviews/02_critic_review.md` |
 | 未改動 | 所有前序原稿 |
 | 語言 | 繁體中文 |

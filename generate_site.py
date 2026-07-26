@@ -13,58 +13,49 @@ import markdown
 # Define document list and metadata
 DOCS = [
     {
-        "file": "1_speech_deep_analysis.md",
-        "html": "1_speech_deep_analysis.html",
-        "title": "1_speech_deep_analysis · 梁文鋒講話心智模型拆解",
-        "short_title": "1_ 講話心智模型拆解",
-        "tag": "CORE ANALYSIS",
-        "tag_class": "badge-analysis",
-        "desc": "將四小時發言提煉為可複用的戰略心智模型：願景、剋制、開源、AGI 階梯與定價自洽邏輯。"
-    },
-    {
-        "file": "2_StockWe_融資暫停串聯分析_核查.md",
-        "html": "2_StockWe_融資暫停串聯分析_核查.html",
-        "title": "2_StockWe_融資暫停串聯分析_核查 · 新聞事實邊界與產業評論評估",
-        "short_title": "2_ 融資暫停事件核查",
-        "tag": "EVIDENCE CHECK",
-        "tag_class": "badge-live",
-        "desc": "二輪融資暫停報道的事實層 vs 故事層核查，評估 StockWe 二手串聯的製造業降本與算力協同敘事。"
-    },
-    {
-        "file": "06_NVIDIA_SK_5000億美元AI合作與市場情緒核查.md",
-        "html": "06_NVIDIA_SK_5000億美元AI合作與市場情緒核查.html",
-        "title": "06_NVIDIA_SK · 5000 億美元 AI 合作與市場情緒核查",
-        "short_title": "06_ NVIDIA-SK 合作核查",
-        "tag": "MARKET SENTIMENT",
-        "tag_class": "badge-live",
-        "desc": "核查 NVIDIA 與南韓 SK 集團 5000 億美元 AI 合作意向書，對照 PTT 股板輿情與美韓市場反差情緒的深層結構原因。"
-    },
-    {
-        "file": "0_speech.md",
-        "html": "0_speech.html",
-        "title": "0_speech · 梁文鋒四小時交流發言精校",
-        "short_title": "0_ 發言精校原文",
+        "file": "01_speech.md",
+        "html": "01_speech.html",
+        "title": "01_speech · 梁文鋒四小時交流發言精校",
+        "short_title": "01_ 發言精校原文",
         "tag": "PRIMARY LEAD",
         "tag_class": "badge-analysis",
         "desc": "梁文鋒關於開源、剋制、十個月回本、不搶 C 端芝麻與 AGI 路線的原始外傳交流文本記錄。"
     },
     {
-        "file": "README.md",
-        "html": "README.html",
-        "title": "README · 專案綱領與當前狀態",
-        "short_title": "README 專案綱領",
-        "tag": "KNOWLEDGE HUB",
-        "tag_class": "badge-live",
-        "desc": "專案身份、核心問題、範圍邊界、當前進度短摘要與研究優先級序列。"
+        "file": "02_speech_deep_analysis.md",
+        "html": "02_speech_deep_analysis.html",
+        "title": "02_speech_deep_analysis · 梁文鋒講話心智模型拆解",
+        "short_title": "02_ 講話心智模型拆解",
+        "tag": "CORE ANALYSIS",
+        "tag_class": "badge-analysis",
+        "desc": "將四小時發言提煉為可複用的戰略心智模型：願景、剋制、開源、AGI 階梯與定價自洽邏輯。"
     },
     {
-        "file": "AGENTS.md",
-        "html": "AGENTS.html",
-        "title": "AGENTS · 作業規則與多模型角色分工",
-        "short_title": "AGENTS 作業規則",
-        "tag": "GOVERNANCE",
+        "file": "03_StockWe_融資暫停串聯分析_核查.md",
+        "html": "03_StockWe_融資暫停串聯分析_核查.html",
+        "title": "03_StockWe_融資暫停串聯分析_核查 · 新聞事實邊界與產業評論評估",
+        "short_title": "03_ 融資暫停事件核查",
+        "tag": "EVIDENCE CHECK",
+        "tag_class": "badge-live",
+        "desc": "二輪融資暫停報道的事實層 vs 故事層核查，評估 StockWe 二手串聯的製造業降本與算力協同敘事。"
+    },
+    {
+        "file": "04_viewpoint_克制對準與算力底褲.md",
+        "html": "04_viewpoint_克制對準與算力底褲.html",
+        "title": "04_viewpoint · 克制對準與算力底褲",
+        "short_title": "04_ 觀點：克制對準與算力",
+        "tag": "VIEWPOINT",
         "tag_class": "badge-analysis",
-        "desc": "本知識研究專案的 10 大作業紀律、模型分工作與強制鏈接輸出規範。"
+        "desc": "深度詮釋停融資與外傳數值的情報增益，揭示內部場合的硬數據揭露如何成為中美競爭的自保斷點。"
+    },
+    {
+        "file": "05_NVIDIA_SK_5000億美元AI合作與市場情緒核查.md",
+        "html": "05_NVIDIA_SK_5000億美元AI合作與市場情緒核查.html",
+        "title": "05_NVIDIA_SK · 5000 億美元 AI 合作與市場情緒核查",
+        "short_title": "05_ NVIDIA-SK 合作核查",
+        "tag": "MARKET SENTIMENT",
+        "tag_class": "badge-live",
+        "desc": "核查 NVIDIA 與南韓 SK 集團 5000 億美元 AI 合作意向書，對照 PTT 股板輿情與美韓市場反差情緒的深層結構原因。"
     },
     {
         "file": "reviews/02_critic_review.md",
@@ -83,6 +74,24 @@ DOCS = [
         "tag": "INBOX",
         "tag_class": "badge-live",
         "desc": "尚未升級編入主線研究分析層的新聞線索、推文與臨時觀察記錄庫。"
+    },
+    {
+        "file": "README.md",
+        "html": "README.html",
+        "title": "README · 專案綱領與當前狀態",
+        "short_title": "README 專案綱領",
+        "tag": "KNOWLEDGE HUB",
+        "tag_class": "badge-live",
+        "desc": "專案身份、核心問題、範圍邊界、當前進度短摘要與研究優先級序列。"
+    },
+    {
+        "file": "AGENTS.md",
+        "html": "AGENTS.html",
+        "title": "AGENTS · 作業規則與多模型角色分工作",
+        "short_title": "AGENTS 作業規則",
+        "tag": "GOVERNANCE",
+        "tag_class": "badge-analysis",
+        "desc": "本知識研究專案的 10 大作業紀律、模型分工作與強制鏈接輸出規範。"
     }
 ]
 
@@ -293,7 +302,7 @@ def build_index():
           <tbody>
             <tr>
               <td><code>S01</code></td>
-              <td><a href="0_speech.html" style="color:#38bdf8;">0_speech.html</a> 梁文鋒發言精校 (大宇 @BTCdayu)</td>
+              <td><a href="01_speech.html" style="color:#38bdf8;">01_speech.html</a> 梁文鋒發言精校 (大宇 @BTCdayu)</td>
               <td><span style="color:#f59e0b;">Lead / 二次轉寫</span></td>
               <td>開源、剋制、十個月回本、AGI 階梯等主張</td>
               <td>中 (非官方錄音；精校轉寫)</td>
@@ -301,7 +310,7 @@ def build_index():
             </tr>
             <tr>
               <td><code>S02</code></td>
-              <td><a href="1_speech_deep_analysis.html" style="color:#38bdf8;">1_speech_deep_analysis.html</a></td>
+              <td><a href="02_speech_deep_analysis.html" style="color:#38bdf8;">02_speech_deep_analysis.html</a></td>
               <td><span style="color:#38bdf8;">Secondary 分析</span></td>
               <td>將講話整理為可複用戰略模型</td>
               <td>中高 (依賴 S01)</td>
@@ -325,7 +334,7 @@ def build_index():
             </tr>
             <tr>
               <td><code>S05</code></td>
-              <td><a href="2_StockWe_融資暫停串聯分析_核查.html" style="color:#38bdf8;">2_StockWe_...核查.html</a></td>
+              <td><a href="03_StockWe_融資暫停串聯分析_核查.html" style="color:#38bdf8;">03_StockWe_...核查.html</a></td>
               <td><span style="color:#10b981;">Evidence Check</span></td>
               <td>事實邊界與 StockWe 評價</td>
               <td>中高 (核查層)</td>
