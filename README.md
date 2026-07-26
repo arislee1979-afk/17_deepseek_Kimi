@@ -6,7 +6,7 @@
 - 狀態：Active Knowledge Project
 - 工作方式：CLI-first、Markdown-first、多模型角色分工（Writer / Critic / Evidence Checker / Synthesizer）
 - Hub 索引：[`30_investment_hub`](../30_investment_hub/README.md)
-- 最後更新：2026-07-27（Critic 輪完成）
+- 最後更新：2026-07-27（角色清單式 Review **已暫停**）
 
 ## Project Identity
 
@@ -14,7 +14,7 @@
 |---|---|
 | Project name | DeepSeek 梁文鋒講話與戰略敘事 |
 | Canonical path | `/home/arislee1979/0_project/17_deepseek_Kimi` |
-| Knowledge Stage | **Review** |
+| Knowledge Stage | **Analysis**（角色清單式 Review **已暫停**） |
 | Last updated | 2026-07-27 |
 | Current Synthesis | 尚未建立正式 `synthesis/`；目前最接近權威拆解見下方 |
 
@@ -61,12 +61,12 @@
 ## Current Synthesis
 
 - **正式 Current Synthesis**：尚未建立（目標路徑：`synthesis/04_current_synthesis.md`）。
-- **現階段閱讀順序（Review 級）**：
-  - [1_speech_deep_analysis.md](1_speech_deep_analysis.md) — Writer：講話心智模型拆解
-  - [reviews/02_critic_review.md](reviews/02_critic_review.md) — Critic：前提／反例／主張分級
-  - [2_StockWe_融資暫停串聯分析_核查.md](2_StockWe_融資暫停串聯分析_核查.md) — 事件核查（輔助）
+- **現階段主讀（Analysis；Review 流水線暫停）**：
+  - [1_speech_deep_analysis.md](1_speech_deep_analysis.md) — 講話心智模型拆解
+  - [2_StockWe_融資暫停串聯分析_核查.md](2_StockWe_融資暫停串聯分析_核查.md) — 事件核查
+  - [reviews/02_critic_review.md](reviews/02_critic_review.md) — **非必讀**（格式已暫停，價值評為低）
 
-進入 **Synthesis** 前：完成 `reviews/03_evidence_check.md`，再合併為正式 synthesis。
+未再指示前：不寫 `reviews/03_*`、不硬跑角色審查輪。
 
 ## Evidence Base（現有材料）
 
@@ -113,22 +113,22 @@
 | 2026-07-27 | 按 Hub 規範補齊專案骨架 | 升級為正式知識專案，可被 Hub 索引 | `README.md`, `AGENTS.md`, `00_inbox.md` |
 | 2026-07-27 | 將全站內容編譯為 HTML 互動研究門戶並發佈至 GitHub | 滿足視覺化閱讀、互動對比與 GitHub Live Report 需求 | `index.html`, `style.css`, `script.js`, `*.html` |
 | 2026-07-27 | 完成 Critic 輪；階段 Analysis → Review | 挑戰 Writer 前提與過度推論，不覆寫原稿 | `reviews/02_critic_review.md` |
+| 2026-07-27 | **暫停**角色清單式 Review 流水線 | 老大判定 `02_` 價值低；未再指示前不寫 03／不自動跑角色輪 | `AGENTS.md` §4、本 README |
 
 ## Next Action
 
-**產出 `reviews/03_evidence_check.md`：分表核對 S01 轉寫主張、S03 融資新聞鏈、Writer 文中可外部核查之數字與工程斷言（來源等級與時效）；完成後再寫 `synthesis/04_current_synthesis.md`。**
+**暫停角色清單式 Review。** 未再指示前不產出 `reviews/03_*`、不硬跑 Critic／Evidence／Synthesizer。有新材料或真正洞見時再落短檔；否則維持現狀（主讀 `0_`／`1_`／`2_`）。
 
 ## Suggested Reading Order
 
 1. 本 `README.md`（身份、範圍、階段、下一步）
 2. `index.html`（HTML 互動式戰略研究儀表板與文獻導覽首頁）
-3. `AGENTS.md`（作業規則）
+3. `AGENTS.md`（作業規則；含 Review 暫停）
 4. `00_inbox.md` / `00_inbox.html`（未升級材料）
 5. `0_speech.md` / `0_speech.html`（原文）
-6. `1_speech_deep_analysis.md` / `1_speech_deep_analysis.html`（Writer）
-7. `reviews/02_critic_review.md`（Critic）
-8. `2_StockWe_融資暫停串聯分析_核查.md` / 對應 html（事件核查）
-9. 未來：`reviews/03_evidence_check.md` → `synthesis/04_current_synthesis.md`
+6. `1_speech_deep_analysis.md` / `1_speech_deep_analysis.html`（分析）
+7. `2_StockWe_融資暫停串聯分析_核查.md` / 對應 html（事件核查）
+8. `reviews/02_critic_review.md` — **非必讀**（已標價值低／格式暫停）
 
 ## Directory Layout（目標）
 

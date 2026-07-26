@@ -24,6 +24,7 @@
           <li><a href="index.html" class="nav-link ">首頁導航</a></li>
           <li><a href="1_speech_deep_analysis.html" class="nav-link ">1_ 講話心智模型拆解</a></li>
 <li><a href="2_StockWe_融資暫停串聯分析_核查.html" class="nav-link ">2_ 融資暫停事件核查</a></li>
+<li><a href="06_NVIDIA_SK_5000億美元AI合作與市場情緒核查.html" class="nav-link ">06_ NVIDIA-SK 合作核查</a></li>
 <li><a href="0_speech.html" class="nav-link ">0_ 發言精校原文</a></li>
 <li><a href="README.html" class="nav-link active">README 專案綱領</a></li>
 <li><a href="AGENTS.html" class="nav-link ">AGENTS 作業規則</a></li>
@@ -54,6 +55,7 @@
           <ul class="sidebar-nav">
             <li><a href="1_speech_deep_analysis.html" class="sidebar-link" style="color:#38bdf8;">📄 1_ 講話心智模型拆解</a></li>
 <li><a href="2_StockWe_融資暫停串聯分析_核查.html" class="sidebar-link" style="color:#38bdf8;">📄 2_ 融資暫停事件核查</a></li>
+<li><a href="06_NVIDIA_SK_5000億美元AI合作與市場情緒核查.html" class="sidebar-link" style="color:#38bdf8;">📄 06_ NVIDIA-SK 合作核查</a></li>
 <li><a href="0_speech.html" class="sidebar-link" style="color:#38bdf8;">📄 0_ 發言精校原文</a></li>
 <li><a href="AGENTS.html" class="sidebar-link" style="color:#38bdf8;">📄 AGENTS 作業規則</a></li>
 <li><a href="02_critic_review.html" class="sidebar-link" style="color:#38bdf8;">📄 02_ Critic 批判審查</a></li>
@@ -72,7 +74,7 @@
 <li>狀態：Active Knowledge Project</li>
 <li>工作方式：CLI-first、Markdown-first、多模型角色分工（Writer / Critic / Evidence Checker / Synthesizer）</li>
 <li>Hub 索引：<a href="../30_investment_hub/README.md"><code>30_investment_hub</code></a></li>
-<li>最後更新：2026-07-27（Critic 輪完成）</li>
+<li>最後更新：2026-07-27（角色清單式 Review <strong>已暫停</strong>）</li>
 </ul>
 <h2 id="project-identity">Project Identity</h2>
 <table>
@@ -93,7 +95,7 @@
 </tr>
 <tr>
 <td>Knowledge Stage</td>
-<td><strong>Review</strong></td>
+<td><strong>Analysis</strong>（角色清單式 Review <strong>已暫停</strong>）</td>
 </tr>
 <tr>
 <td>Last updated</td>
@@ -145,12 +147,12 @@
 <h2 id="current-synthesis">Current Synthesis</h2>
 <ul>
 <li><strong>正式 Current Synthesis</strong>：尚未建立（目標路徑：<code>synthesis/04_current_synthesis.md</code>）。</li>
-<li><strong>現階段閱讀順序（Review 級）</strong>：</li>
-<li><a href="1_speech_deep_analysis.html">1_speech_deep_analysis.md</a> — Writer：講話心智模型拆解</li>
-<li><a href="reviews/02_critic_review.md">reviews/02_critic_review.md</a> — Critic：前提／反例／主張分級</li>
-<li><a href="2_StockWe_融資暫停串聯分析_核查.html">2_StockWe_融資暫停串聯分析_核查.md</a> — 事件核查（輔助）</li>
+<li><strong>現階段主讀（Analysis；Review 流水線暫停）</strong>：</li>
+<li><a href="1_speech_deep_analysis.html">1_speech_deep_analysis.md</a> — 講話心智模型拆解</li>
+<li><a href="2_StockWe_融資暫停串聯分析_核查.html">2_StockWe_融資暫停串聯分析_核查.md</a> — 事件核查</li>
+<li><a href="reviews/02_critic_review.md">reviews/02_critic_review.md</a> — <strong>非必讀</strong>（格式已暫停，價值評為低）</li>
 </ul>
-<p>進入 <strong>Synthesis</strong> 前：完成 <code>reviews/03_evidence_check.md</code>，再合併為正式 synthesis。</p>
+<p>未再指示前：不寫 <code>reviews/03_*</code>、不硬跑角色審查輪。</p>
 <h2 id="evidence-base">Evidence Base（現有材料）</h2>
 <table>
 <thead>
@@ -204,11 +206,19 @@
 <td>中高（核查層）</td>
 <td>2026-07-27</td>
 </tr>
+<tr>
+<td>S06</td>
+<td><a href="reviews/02_critic_review.md">reviews/02_critic_review.md</a></td>
+<td>Critic 審查</td>
+<td>挑戰 Writer 前提、主張分級、替代解釋</td>
+<td>中高（方法論層）</td>
+<td>2026-07-27</td>
+</tr>
 </tbody>
 </table>
 <p>來源優先級：Primary（公司官方 / 監管）&gt; Secondary（主流報道、有方法的分析）&gt; Lead（X、論壇、未驗證轉寫）。</p>
 <h2 id="open-question">Open Question</h2>
-<p><strong>第二輪融資暫停是否已由公司側以任何可核驗渠道確認？後續恢復條件與時間窗口是什麼？</strong></p>
+<p><strong>外傳精校稿在定價／開源／算力數字上失真風險有多高？以及二輪融資暫停是否已有任何可核驗的公司側確認？</strong></p>
 <h2 id="model-positions">Model Positions</h2>
 <table>
 <thead>
@@ -221,22 +231,22 @@
 </thead>
 <tbody>
 <tr>
-<td>Writer（已有：1_）</td>
+<td>Writer（<code>1_</code>）</td>
 <td>剋制 + 開源 + AGI 主線是自洽 OS</td>
-<td>S01 內在一致性</td>
-<td>依賴外傳轉寫</td>
+<td>S01 內在一致性；條件句拆假對立</td>
+<td>依賴外傳轉寫；總綱語氣偏「已證實」</td>
 </tr>
 <tr>
-<td>Evidence Checker（已有：2_ 部分）</td>
+<td>Critic（<code>reviews/02_</code>）</td>
+<td>宜當假說目錄；三弱環＝來源／單一目標函數／開源假設鏈</td>
+<td>原文張力抽樣；替代解釋 A–C</td>
+<td>未做系統性外部事實核查</td>
+</tr>
+<tr>
+<td>Evidence Checker（<code>2_</code> 部分；正式輪未完）</td>
 <td>停融資方向可信、非官方；惡意未證實</td>
 <td>S03 多家轉述一致</td>
-<td>無官方原文、無錄音鏈完整審計</td>
-</tr>
-<tr>
-<td>Critic</td>
-<td>尚未獨立成文</td>
-<td>—</td>
-<td>—</td>
+<td>尚未出 <code>03_evidence_check.md</code></td>
 </tr>
 <tr>
 <td>Synthesizer</td>
@@ -290,20 +300,32 @@
 <td>滿足視覺化閱讀、互動對比與 GitHub Live Report 需求</td>
 <td><code>index.html</code>, <code>style.css</code>, <code>script.js</code>, <code>*.html</code></td>
 </tr>
+<tr>
+<td>2026-07-27</td>
+<td>完成 Critic 輪；階段 Analysis → Review</td>
+<td>挑戰 Writer 前提與過度推論，不覆寫原稿</td>
+<td><code>reviews/02_critic_review.md</code></td>
+</tr>
+<tr>
+<td>2026-07-27</td>
+<td><strong>暫停</strong>角色清單式 Review 流水線</td>
+<td>老大判定 <code>02_</code> 價值低；未再指示前不寫 03／不自動跑角色輪</td>
+<td><code>AGENTS.md</code> §4、本 README</td>
+</tr>
 </tbody>
 </table>
 <h2 id="next-action">Next Action</h2>
-<p><strong>建立 <code>reviews/</code> 對 <code>1_speech_deep_analysis.md</code> 做一輪 Critic，並對 S01 轉寫可信度與 S03 融資新聞做 Evidence Check 清單，為正式 <code>synthesis/04_current_synthesis.md</code> 鋪路。</strong></p>
+<p><strong>暫停角色清單式 Review。</strong> 未再指示前不產出 <code>reviews/03_*</code>、不硬跑 Critic／Evidence／Synthesizer。有新材料或真正洞見時再落短檔；否則維持現狀（主讀 <code>0_</code>／<code>1_</code>／<code>2_</code>）。</p>
 <h2 id="suggested-reading-order">Suggested Reading Order</h2>
 <ol>
 <li>本 <code>README.md</code>（身份、範圍、階段、下一步）</li>
 <li><code>index.html</code>（HTML 互動式戰略研究儀表板與文獻導覽首頁）</li>
-<li><code>AGENTS.md</code>（作業規則）</li>
+<li><code>AGENTS.md</code>（作業規則；含 Review 暫停）</li>
 <li><code>00_inbox.md</code> / <code>00_inbox.html</code>（未升級材料）</li>
 <li><code>0_speech.md</code> / <code>0_speech.html</code>（原文）</li>
 <li><code>1_speech_deep_analysis.md</code> / <code>1_speech_deep_analysis.html</code>（分析）</li>
-<li><code>2_StockWe_融資暫停串聯分析_核查.md</code> / <code>2_StockWe_融資暫停串聯分析_核查.html</code>（事件核查）</li>
-<li>未來：<code>reviews/</code> → <code>synthesis/04_current_synthesis.md</code></li>
+<li><code>2_StockWe_融資暫停串聯分析_核查.md</code> / 對應 html（事件核查）</li>
+<li><code>reviews/02_critic_review.md</code> — <strong>非必讀</strong>（已標價值低／格式暫停）</li>
 </ol>
 <h2 id="directory-layout">Directory Layout（目標）</h2>
 <pre><code class="language-text">17_deepseek_Kimi/
@@ -319,10 +341,12 @@
 ├── generate_site.py      # Python 零外部依賴 HTML 靜態編譯器
 ├── sources/              # 可選：來源登記與摘錄
 ├── research/             # 可選：後續分析輪次
-├── reviews/              # Critic / Evidence Checker 產出
-└── synthesis/            # Current Synthesis 權威結論
+├── reviews/
+│   └── 02_critic_review.md   # 已完成
+│   # 03_evidence_check.md    # Next Action
+└── synthesis/            # 待建立 04_current_synthesis.md
 </code></pre>
-<p>資料夾可按需創建；<strong>文件少但角色清楚優於空殼目錄</strong>。現階段扁平編號文件有效，進入 Review/Synthesis 後再建子目錄。</p>
+<p>資料夾可按需創建；<strong>文件少但角色清楚優於空殼目錄</strong>。Review 產物放 <code>reviews/</code>，Synthesis 完成後再更新 Hub 的 Current Synthesis 連結。</p>
 <h2 id="cli-task-format">CLI Task Format</h2>
 <pre><code class="language-text">目標：
 輸入檔：

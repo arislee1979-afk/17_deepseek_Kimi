@@ -31,6 +31,15 @@ DOCS = [
         "desc": "二輪融資暫停報道的事實層 vs 故事層核查，評估 StockWe 二手串聯的製造業降本與算力協同敘事。"
     },
     {
+        "file": "06_NVIDIA_SK_5000億美元AI合作與市場情緒核查.md",
+        "html": "06_NVIDIA_SK_5000億美元AI合作與市場情緒核查.html",
+        "title": "06_NVIDIA_SK · 5000 億美元 AI 合作與市場情緒核查",
+        "short_title": "06_ NVIDIA-SK 合作核查",
+        "tag": "MARKET SENTIMENT",
+        "tag_class": "badge-live",
+        "desc": "核查 NVIDIA 與南韓 SK 集團 5000 億美元 AI 合作意向書，對照 PTT 股板輿情與美韓市場反差情緒的深層結構原因。"
+    },
+    {
         "file": "0_speech.md",
         "html": "0_speech.html",
         "title": "0_speech · 梁文鋒四小時交流發言精校",

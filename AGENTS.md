@@ -54,7 +54,11 @@ Archived
 
 ## 4. 多模型知識統合
 
-多個模型不等於多數決。需要時分配不同角色：
+> **2026-07-27 暫停**：老大指示 **先暫停用 Writer→Critic→Evidence Checker→Synthesizer 這套格式做 Review**。  
+> 未再指示前：不要自動開角色審查輪、不要為湊流程寫 `reviews/03_*`；`02_critic_review.md` 已判定價值低，勿當必讀範本。  
+> 有真正新洞見再落短檔；沒有就停。恢復時必須短、尖，禁止模板填空長文。
+
+多個模型不等於多數決。**僅在老大明確要求時**再分配角色：
 
 | 角色 | 職責 | 典型輸出 |
 |---|---|---|
@@ -63,13 +67,14 @@ Archived
 | Evidence Checker | 來源、數字、時實效核 | `reviews/NN_evidence_*.md` |
 | Synthesizer | 共識 / 分歧 / 未知 / 採用結論 | `synthesis/NN_current_synthesis.md` |
 
-規則：
+規則（恢復後仍適用）：
 
 1. 不覆寫前序模型原稿；審查與綜合寫新文件。
 2. 不為了形成「共識」而隱藏分歧。
 3. 事實、有條件推論、未知必須分欄或分節。
 4. Hub / README 的 Current Synthesis **只連到**當前權威 synthesis，不列全部中間產物。
 5. 社群帖、未驗證轉寫、匿名信源新聞默認是 Lead 或 Secondary，不得自動升格為 Primary 事實。
+6. **禁止**為過驗收清單而堆「最弱三環／替代解釋 A-B-C／長判定表」卻無新信息。
 
 ## 5. 來源與主張紀律
 
