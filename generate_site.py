@@ -10,25 +10,25 @@ import os
 import re
 import markdown
 
-# Define document list and metadata
+# Markdown is source of truth. Every entry must exist or build fails.
 DOCS = [
     {
         "file": "01_speech.md",
         "html": "01_speech.html",
         "title": "01_speech · 梁文鋒四小時交流發言精校",
         "short_title": "01_ 發言精校原文",
-        "tag": "PRIMARY LEAD",
+        "tag": "LEAD / UNVERIFIED",
         "tag_class": "badge-analysis",
-        "desc": "梁文鋒關於開源、剋制、十個月回本、不搶 C 端芝麻與 AGI 路線的原始外傳交流文本記錄。"
+        "desc": "未驗證外傳轉寫（非官方）。開源、剋制、十個月回本（payback）、AGI 路線等主張的原始載體。"
     },
     {
         "file": "02_speech_deep_analysis.md",
         "html": "02_speech_deep_analysis.html",
         "title": "02_speech_deep_analysis · 梁文鋒講話心智模型拆解",
         "short_title": "02_ 講話心智模型拆解",
-        "tag": "CORE ANALYSIS",
+        "tag": "ANALYSIS",
         "tag_class": "badge-analysis",
-        "desc": "將四小時發言提煉為可複用的戰略心智模型：願景、剋制、開源、AGI 階梯與定價自洽邏輯。"
+        "desc": "將外傳發言提煉為戰略心智模型；payback≠淨利；TileLang 等為歸因主張。"
     },
     {
         "file": "03_StockWe_融資暫停串聯分析_核查.md",
@@ -37,7 +37,7 @@ DOCS = [
         "short_title": "03_ 融資暫停事件核查",
         "tag": "EVIDENCE CHECK",
         "tag_class": "badge-live",
-        "desc": "二輪融資暫停報道的事實層 vs 故事層核查，評估 StockWe 二手串聯的製造業降本與算力協同敘事。"
+        "desc": "Bloomberg 單一匿名信源鏈；Reuters 轉載未獨立核實；StockWe 故事層分離。"
     },
     {
         "file": "04_viewpoint_克制對準與算力底褲.md",
@@ -46,25 +46,43 @@ DOCS = [
         "short_title": "04_ 觀點：克制對準與算力",
         "tag": "VIEWPOINT",
         "tag_class": "badge-analysis",
-        "desc": "深度詮釋停融資與外傳數值的情報增益，揭示內部場合的硬數據揭露如何成為中美競爭的自保斷點。"
+        "desc": "克制對準向量與算力硬約束；Eden「受限芯片」句已降為待查線索。"
     },
     {
-        "file": "05_NVIDIA_SK_5000億美元AI合作與市場情緒核查.md",
-        "html": "05_NVIDIA_SK_5000億美元AI合作與市場情緒核查.html",
-        "title": "05_NVIDIA_SK · 5000 億美元 AI 合作與市場情緒核查",
-        "short_title": "05_ NVIDIA-SK 合作核查",
-        "tag": "MARKET SENTIMENT",
+        "file": "05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md",
+        "html": "05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.html",
+        "title": "05_NVIDIA_SK · 美國隊聯盟與分層相位",
+        "short_title": "05_ NVIDIA-SK 美國隊",
+        "tag": "EVENT + FRAMEWORK",
         "tag_class": "badge-live",
-        "desc": "核查 NVIDIA 與南韓 SK 集團 5000 億美元 AI 合作意向書，對照 PTT 股板輿情與美韓市場反差情緒的深層結構原因。"
+        "desc": "以 NVIDIA 官方公告為 fact base 的 SK 合作詮釋；友岸 H 層綁定框架。"
+    },
+    {
+        "file": "05_1_source_NVIDIA_SK_對話輿情轉寫.md",
+        "html": "05_1_source_NVIDIA_SK_對話輿情轉寫.html",
+        "title": "05_1_source · NVIDIA-SK 來源與有界輿情",
+        "short_title": "05_1 來源與輿情",
+        "tag": "SOURCE CAPTURE",
+        "tag_class": "badge-live",
+        "desc": "官方 URL、平行事件分列、單一 PTT 串樣本；Grok 對話不作為 fact source。"
+    },
+    {
+        "file": "06_中美對立敘事_梁有意無意與兩隊結構.md",
+        "html": "06_中美對立敘事_梁有意無意與兩隊結構.html",
+        "title": "06 · 中美對立敘事與兩隊結構",
+        "short_title": "06_ 兩隊觀點統合",
+        "tag": "HYPOTHESIS（非 Synthesis）",
+        "tag_class": "badge-analysis",
+        "desc": "觀點統合：已知事實／歸因主張／工作假說三欄；非正式 Current Synthesis。"
     },
     {
         "file": "reviews/02_critic_review.md",
         "html": "02_critic_review.html",
         "title": "02_critic_review · Critic 批判與審查",
         "short_title": "02_ Critic 批判審查",
-        "tag": "CRITIC REVIEW",
+        "tag": "CRITIC（非必讀）",
         "tag_class": "badge-live",
-        "desc": "針對深度拆解報告的獨立 Critic 審查：挑戰過度推論與準定理封裝，提出替代解釋與偽證觸發條件。"
+        "desc": "針對深度拆解的 Critic 審查；格式已暫停，非必讀。"
     },
     {
         "file": "00_inbox.md",
@@ -73,7 +91,7 @@ DOCS = [
         "short_title": "00_inbox 未分類資料",
         "tag": "INBOX",
         "tag_class": "badge-live",
-        "desc": "尚未升級編入主線研究分析層的新聞線索、推文與臨時觀察記錄庫。"
+        "desc": "尚未升級編入主線的新聞線索、推文與臨時觀察。"
     },
     {
         "file": "README.md",
@@ -82,17 +100,22 @@ DOCS = [
         "short_title": "README 專案綱領",
         "tag": "KNOWLEDGE HUB",
         "tag_class": "badge-live",
-        "desc": "專案身份、核心問題、範圍邊界、當前進度短摘要與研究優先級序列。"
+        "desc": "專案身份、證據矩陣、Open Question 與 Next Action。"
     },
     {
         "file": "AGENTS.md",
         "html": "AGENTS.html",
-        "title": "AGENTS · 作業規則與多模型角色分工作",
+        "title": "AGENTS · 作業規則與多模型角色分工",
         "short_title": "AGENTS 作業規則",
         "tag": "GOVERNANCE",
         "tag_class": "badge-analysis",
-        "desc": "本知識研究專案的 10 大作業紀律、模型分工作與強制鏈接輸出規範。"
+        "desc": "作業紀律、來源分級與強制鏈接輸出規範。"
     }
+]
+
+# HTML pages that may exist but must be removed if no longer generated
+ORPHAN_HTML_CANDIDATES = [
+    "05_NVIDIA_SK_5000億美元AI合作與市場情緒核查.html",
 ]
 
 def render_navbar(active_html=""):
@@ -211,7 +234,7 @@ def build_index():
           <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:1rem;margin-top:1.5rem;">
             <div style="background:rgba(255,255,255,0.03);padding:1.2rem;border-radius:8px;border:1px solid rgba(255,255,255,0.05);">
               <h4 style="color:#f59e0b;margin-bottom:0.5rem;">🟢 開源與獲利自洽</h4>
-              <p style="font-size:0.9rem;color:#94a3b8;">十個月回本、約六倍利潤足以維持超算集群迭代；開源最頂級模型能吸引全球開發者共創生態，不與商業生存衝突。</p>
+              <p style="font-size:0.9rem;color:#94a3b8;">外傳稱十個月設備回本（payback）與口頭「六倍」口徑；分析上≠已證淨利。開源與收入無衝突是講者假設鏈，非正式財務驗證。</p>
             </div>
             <div style="background:rgba(255,255,255,0.03);padding:1.2rem;border-radius:8px;border:1px solid rgba(255,255,255,0.05);">
               <h4 style="color:#38bdf8;margin-bottom:0.5rem;">🟢 不搶 C 端芝麻</h4>
@@ -242,21 +265,21 @@ def build_index():
               <tbody>
                 <tr>
                   <td><strong>停融資動作</strong></td>
-                  <td>Bloomberg/Reuters 等權威引述匿名信源，稱口頭暫停第二輪融資。</td>
-                  <td>「遭到資本圍剿」或「資金斷裂內部危機」。</td>
-                  <td><span style="color:#10b981;font-weight:600;">事實層中高可信</span>（外媒一致，但公司尚無官方公告）。</td>
+                  <td>Bloomberg 單一匿名信源稱口頭暫停；Reuters 轉載且未能獨立核實。</td>
+                  <td>「多家 mainstream 獨立互證」或「資金斷裂內部危機」。</td>
+                  <td><span style="color:#f59e0b;font-weight:600;">Attributed／Unverified</span>（非官方、非獨立多方）。</td>
                 </tr>
                 <tr>
                   <td><strong>暫停原因</strong></td>
-                  <td>報道指部分原因是首輪交流內容外傳引起內部對保密與股東期待的重新評估。</td>
+                  <td>同源報道指部分原因是首輪交流內容外傳。</td>
                   <td>「競爭對手惡意舉報」或「監管強力介入封殺」。</td>
-                  <td><span style="color:#f59e0b;font-weight:600;">「惡意」指控未證實</span>，不應當成確定事實傳播。</td>
+                  <td><span style="color:#f59e0b;font-weight:600;">「惡意」未證實</span>；因果不可簡化。</td>
                 </tr>
                 <tr>
                   <td><strong>財務狀況</strong></td>
-                  <td>首輪交流提及十個月回本與可觀毛利；推理 API 定價維持極致性價比。</td>
-                  <td>燒錢模式無法持續或將迫轉高溢價閉源。</td>
-                  <td><span style="color:#38bdf8;font-weight:600;">符合剋制自洽 OS</span>，暫停融資反映主動選擇權。</td>
+                  <td>外傳稱十個月設備回本（payback 口徑）；≠ 已證淨利／單位經濟。</td>
+                  <td>「六倍淨利已驗證」或「將迫轉高溢價閉源」。</td>
+                  <td><span style="color:#38bdf8;font-weight:600;">僅歸因於外傳</span>，不作財務蓋章。</td>
                 </tr>
               </tbody>
             </table>
@@ -302,43 +325,35 @@ def build_index():
           <tbody>
             <tr>
               <td><code>S01</code></td>
-              <td><a href="01_speech.html" style="color:#38bdf8;">01_speech.html</a> 梁文鋒發言精校 (大宇 @BTCdayu)</td>
-              <td><span style="color:#f59e0b;">Lead / 二次轉寫</span></td>
-              <td>開源、剋制、十個月回本、AGI 階梯等主張</td>
-              <td>中 (非官方錄音；精校轉寫)</td>
+              <td><a href="01_speech.html" style="color:#38bdf8;">01_speech</a> 外傳精校</td>
+              <td><span style="color:#f59e0b;">Lead / Unverified</span></td>
+              <td>開源、剋制、payback 等主張來源</td>
+              <td>Derivative capture</td>
               <td>2026-07 外傳</td>
             </tr>
             <tr>
-              <td><code>S02</code></td>
-              <td><a href="02_speech_deep_analysis.html" style="color:#38bdf8;">02_speech_deep_analysis.html</a></td>
-              <td><span style="color:#38bdf8;">Secondary 分析</span></td>
-              <td>將講話整理為可複用戰略模型</td>
-              <td>中高 (依賴 S01)</td>
-              <td>2026-07-24</td>
-            </tr>
-            <tr>
               <td><code>S03</code></td>
-              <td>Bloomberg / Reuters 等二輪融資暫停報道</td>
-              <td><span style="color:#38bdf8;">Secondary 新聞</span></td>
-              <td>口頭暫停第二輪；部分因言論外傳</td>
-              <td>中高 (主流媒體一致，非官方)</td>
+              <td>Bloomberg 匿名信源；Reuters 轉載未核實</td>
+              <td><span style="color:#f59e0b;">Anonymous single-source</span></td>
+              <td>口頭暫停第二輪（Attributed）</td>
+              <td>非獨立互證</td>
               <td>2026-07-25</td>
             </tr>
             <tr>
-              <td><code>S04</code></td>
-              <td>StockWe 推文 2081201760669200886</td>
-              <td><span style="color:#f59e0b;">Lead / 評論</span></td>
-              <td>製造業降本、與 NVDA 協同、政策海關敘事</td>
-              <td>低–中 (觀點文，非一手事實)</td>
-              <td>2026-07-26</td>
+              <td><code>S08</code></td>
+              <td>NVIDIA 官方 SK partnership</td>
+              <td><span style="color:#10b981;">Official</span></td>
+              <td>&gt;$500B 級 LOI／HBM／2GW 敘事</td>
+              <td>Independent official</td>
+              <td>2026-07</td>
             </tr>
             <tr>
-              <td><code>S05</code></td>
-              <td><a href="03_StockWe_融資暫停串聯分析_核查.html" style="color:#38bdf8;">03_StockWe_...核查.html</a></td>
-              <td><span style="color:#10b981;">Evidence Check</span></td>
-              <td>事實邊界與 StockWe 評價</td>
-              <td>中高 (核查層)</td>
-              <td>2026-07-27</td>
+              <td><code>S02–S07/S09–S10</code></td>
+              <td>本專案分析／觀點／統合</td>
+              <td><span style="color:#38bdf8;">Analysis / Hypothesis</span></td>
+              <td>拆解、核查、兩隊框架（見 README）</td>
+              <td>不升級底層來源</td>
+              <td>2026-07～08</td>
             </tr>
           </tbody>
         </table>
@@ -356,30 +371,54 @@ def build_index():
         f.write(index_content)
     print("✓ Successfully generated index.html")
 
+def md_link_to_html(raw_text: str) -> str:
+    """Rewrite local .md links to generated .html; leave external URLs alone."""
+
+    def repl(m):
+        target = m.group(1)
+        anchor = m.group(2) or ""
+        # reviews/02_critic_review.md → 02_critic_review.html (flat output)
+        base = os.path.basename(target)
+        if base.endswith(".md"):
+            base = base[:-3] + ".html"
+        # Map known nested paths to DOCS html names
+        for doc in DOCS:
+            if doc["file"] == target or doc["file"].endswith("/" + os.path.basename(target)):
+                return f'({doc["html"]}{anchor})'
+            if os.path.basename(doc["file"]) == os.path.basename(target):
+                return f'({doc["html"]}{anchor})'
+        return f'({base}{anchor})'
+
+    return re.sub(
+        r'\((\.?/?[\w\-_\./\u4e00-\u9fa5]+)\.md(#[\w\-_\.]*)?\)',
+        repl,
+        raw_text,
+    )
+
+
 def build_docs():
     md = markdown.Markdown(extensions=['tables', 'fenced_code', 'toc', 'nl2br'])
-    
+    missing = []
+
     for doc in DOCS:
         md_file = doc["file"]
         html_file = doc["html"]
         if not os.path.exists(md_file):
-            print(f"⚠ Warning: {md_file} not found, skipping.")
+            missing.append(md_file)
+            print(f"✗ ERROR: source missing: {md_file}")
             continue
-            
+
         with open(md_file, "r", encoding="utf-8") as f:
             raw_text = f.read()
-            
-        # Convert markdown links .md -> .html
-        converted_text = re.sub(r'\((\.?/?[\w\-_\.\u4e00-\u9fa5]+)\.md(#[\w\-_\.]*)?\)', r'(\1.html\2)', raw_text)
-        
-        # Reset markdown instance for fresh conversion
+
+        converted_text = md_link_to_html(raw_text)
+
         md.reset()
         html_body = md.convert(converted_text)
-        
-        # Build sidebar TOC using regex without BeautifulSoup
+
         toc_items = ""
         header_idx = 0
-        
+
         def replace_header(match):
             nonlocal header_idx, toc_items
             tag = match.group(1)
@@ -387,14 +426,13 @@ def build_docs():
             clean_text = re.sub(r'<[^>]+>', '', content).strip()
             h_id = f"h-{header_idx}-" + re.sub(r'[^\w\u4e00-\u9fa5]', '', clean_text)[:20]
             header_idx += 1
-            
+
             indent = "0" if tag == 'h1' else ("12px" if tag == 'h2' else "24px")
             toc_items += f'<li><a href="#{h_id}" class="sidebar-link" style="margin-left: {indent};">{clean_text}</a></li>\n'
             return f'<{tag} id="{h_id}">{content}</{tag}>'
 
         updated_html_body = re.sub(r'<(h[123])>(.*?)</\1>', replace_header, html_body, flags=re.DOTALL)
-        
-        # Other documents in sidebar
+
         other_docs_html = ""
         for od in DOCS:
             if od["html"] != html_file:
@@ -402,7 +440,7 @@ def build_docs():
 
         navbar = render_navbar(html_file)
         footer = render_footer()
-        
+
         page_html = f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -454,8 +492,21 @@ def build_docs():
             f.write(page_html)
         print(f"✓ Successfully generated {html_file}")
 
+    if missing:
+        raise SystemExit(f"Build failed: {len(missing)} source file(s) missing: {missing}")
+
+
+def clean_orphan_html():
+    expected = {d["html"] for d in DOCS} | {"index.html"}
+    for name in ORPHAN_HTML_CANDIDATES:
+        if name not in expected and os.path.exists(name):
+            os.remove(name)
+            print(f"🗑 Removed orphan HTML: {name}")
+
+
 if __name__ == "__main__":
     print("🚀 Starting HTML generation for DeepSeek Research Portal...")
     build_index()
     build_docs()
+    clean_orphan_html()
     print("🎉 All HTML site files generated successfully!")

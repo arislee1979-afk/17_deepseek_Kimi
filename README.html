@@ -26,7 +26,9 @@
 <li><a href="02_speech_deep_analysis.html" class="nav-link ">02_ 講話心智模型拆解</a></li>
 <li><a href="03_StockWe_融資暫停串聯分析_核查.html" class="nav-link ">03_ 融資暫停事件核查</a></li>
 <li><a href="04_viewpoint_克制對準與算力底褲.html" class="nav-link ">04_ 觀點：克制對準與算力</a></li>
-<li><a href="05_NVIDIA_SK_5000億美元AI合作與市場情緒核查.html" class="nav-link ">05_ NVIDIA-SK 合作核查</a></li>
+<li><a href="05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.html" class="nav-link ">05_ NVIDIA-SK 美國隊</a></li>
+<li><a href="05_1_source_NVIDIA_SK_對話輿情轉寫.html" class="nav-link ">05_1 來源與輿情</a></li>
+<li><a href="06_中美對立敘事_梁有意無意與兩隊結構.html" class="nav-link ">06_ 兩隊觀點統合</a></li>
 <li><a href="02_critic_review.html" class="nav-link ">02_ Critic 批判審查</a></li>
 <li><a href="00_inbox.html" class="nav-link ">00_inbox 未分類資料</a></li>
 <li><a href="README.html" class="nav-link active">README 專案綱領</a></li>
@@ -58,7 +60,9 @@
 <li><a href="02_speech_deep_analysis.html" class="sidebar-link" style="color:#38bdf8;">📄 02_ 講話心智模型拆解</a></li>
 <li><a href="03_StockWe_融資暫停串聯分析_核查.html" class="sidebar-link" style="color:#38bdf8;">📄 03_ 融資暫停事件核查</a></li>
 <li><a href="04_viewpoint_克制對準與算力底褲.html" class="sidebar-link" style="color:#38bdf8;">📄 04_ 觀點：克制對準與算力</a></li>
-<li><a href="05_NVIDIA_SK_5000億美元AI合作與市場情緒核查.html" class="sidebar-link" style="color:#38bdf8;">📄 05_ NVIDIA-SK 合作核查</a></li>
+<li><a href="05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.html" class="sidebar-link" style="color:#38bdf8;">📄 05_ NVIDIA-SK 美國隊</a></li>
+<li><a href="05_1_source_NVIDIA_SK_對話輿情轉寫.html" class="sidebar-link" style="color:#38bdf8;">📄 05_1 來源與輿情</a></li>
+<li><a href="06_中美對立敘事_梁有意無意與兩隊結構.html" class="sidebar-link" style="color:#38bdf8;">📄 06_ 兩隊觀點統合</a></li>
 <li><a href="02_critic_review.html" class="sidebar-link" style="color:#38bdf8;">📄 02_ Critic 批判審查</a></li>
 <li><a href="00_inbox.html" class="sidebar-link" style="color:#38bdf8;">📄 00_inbox 未分類資料</a></li>
 <li><a href="AGENTS.html" class="sidebar-link" style="color:#38bdf8;">📄 AGENTS 作業規則</a></li>
@@ -74,9 +78,9 @@
 </blockquote>
 <ul>
 <li>狀態：Active Knowledge Project</li>
-<li>工作方式：CLI-first、Markdown-first、多模型角色分工（Writer / Critic / Evidence Checker / Synthesizer）</li>
-<li>Hub 索引：<a href="../30_investment_hub/README.md"><code>30_investment_hub</code></a></li>
-<li>最後更新：2026-07-27（角色清單式 Review <strong>已暫停</strong>）</li>
+<li>工作方式：CLI-first、Markdown-first；角色清單式 Review <strong>已暫停</strong>（2026-07-27）</li>
+<li>Hub 索引：<a href="https://github.com/arislee1979-afk/30_investment_hub"><code>30_investment_hub</code></a>（本機相對路徑僅在完整 vault 內有效）</li>
+<li>最後更新：2026-08-03（<a href="https://github.com/arislee1979-afk/17_deepseek_Kimi/issues/1">Issue #1</a> 證據鏈與建置修正）</li>
 </ul>
 <h2 id="project-identity">Project Identity</h2>
 <table>
@@ -97,32 +101,34 @@
 </tr>
 <tr>
 <td>Knowledge Stage</td>
-<td><strong>Analysis</strong>（角色清單式 Review <strong>已暫停</strong>）</td>
+<td><strong>Analysis</strong>（正式 Synthesis <strong>未建立</strong>；<code>06</code> 僅為觀點統合）</td>
 </tr>
 <tr>
 <td>Last updated</td>
-<td>2026-07-27</td>
+<td>2026-08-03</td>
 </tr>
 <tr>
 <td>Current Synthesis</td>
-<td>尚未建立正式 <code>synthesis/</code>；目前最接近權威拆解見下方</td>
+<td>尚未建立正式 <code>synthesis/</code>；<code>06</code> <strong>不是</strong> Current Synthesis</td>
 </tr>
 </tbody>
 </table>
 <h2 id="core-question">Core Question</h2>
 <p><strong>DeepSeek 的真實目標函數與商業邏輯是什麼？公開外傳講話、融資節奏與二手產業評論（如 StockWe）分別提供了哪些可核驗事實、有條件推論與過度敘事？</strong></p>
-<p>可拆成三個子問題：</p>
+<p>可拆成子問題：</p>
 <ol>
 <li>梁文鋒四小時交流稿主張了哪些可複用的戰略原則（願景、剋制、開源、AGI 階梯、定價）？</li>
 <li>「第二輪融資暫停」新聞鏈的可信度與因果邊界在哪裡？</li>
 <li>把 DeepSeek 與 NVIDIA / 芯片封鎖做成「商業協同」的敘事，哪些成立、哪些需打折？</li>
+<li>NVIDIA–SK 等友岸事件與「兩隊」框架如何對讀，而不把假說寫成事實？</li>
 </ol>
 <h2 id="scope">Scope</h2>
 <h3 id="included">Included</h3>
 <ul>
-<li>梁文鋒外傳講話精校與心智模型拆解。</li>
+<li>梁文鋒外傳講話精校與心智模型拆解（<strong>Lead／未驗證轉寫</strong>）。</li>
 <li>與融資、開源、API 定價、AGI 路線相關的公開報道核查。</li>
 <li>二手評論（X / 財經自媒體）的事實層 vs 故事層分離。</li>
+<li>NVIDIA–SK 等公開合作事件與輿情<strong>有界樣本</strong>。</li>
 <li>與「中國製造式降本 / 傑文斯悖論 / 開源擴散」相關的產業邏輯討論（<strong>研究級</strong>，非持倉建議）。</li>
 </ul>
 <h3 id="excluded">Excluded</h3>
@@ -131,94 +137,160 @@
 <li>不以社群轉述自動當成公司官方立場。</li>
 <li>不把本 repo 做成完整 AI 產業數據庫或每日新聞流水賬。</li>
 <li>不在此 repo 內存放 API key、未授權付費全文或敏感個資。</li>
+<li>不以轉載媒體數量充當獨立信源互證。</li>
 </ul>
 <h2 id="why-this-matters">Why This Matters</h2>
 <ul>
 <li>理解 DeepSeek 的「剋制即戰略」是否自洽，影響對開源模型、算力需求與中美 AI 競爭的判斷框架。</li>
 <li>外傳講話已成為市場敘事的原材料；需要把 <strong>原文 → 拆解 → 新聞 → 二手串聯</strong> 分層，避免把評論當事實。</li>
-<li>為 Hub 與其他產業專案（如產能/算力）提供可引用的 Current Synthesis 錨點。</li>
+<li>為 Hub 與其他產業專案提供可引用錨點——但錨點必須標清證據身分。</li>
 </ul>
 <h2 id="current-position">Current Position（短摘要）</h2>
 <ol>
 <li>Writer 將講話壓縮為 <strong>Maximize P(AGI) s.t. 合理利潤與團隊</strong>——<strong>好用的詮釋標籤</strong>，Critic 判定為有條件成立，非已證目標函數。  </li>
-<li>「十個月回本／六倍利潤下開源不衝突」在原文層成立；升成「商業模式已驗證」則資料不足。  </li>
-<li>Critic 最弱三環：<strong>(a)</strong> 轉寫當準官方 <strong>(b)</strong> 單一目標函數 <strong>(c)</strong> 開源⟂收入依賴脆弱假設鏈。  </li>
-<li>2026-07-25 Bloomberg 線：二輪融資口頭暫停、部分與外傳有關；強化「敘事控制 vs 分享戰略」張力。  </li>
-<li>正式 Current Synthesis 仍未建立；進入 Synthesis 前需完成 Evidence Checker。</li>
+<li>「十個月回本」是講者自述的 <strong>設備回收（payback）口徑</strong>；「六倍利潤」是口頭換算，<strong>≠ 已證淨利倍數／單位經濟已驗證</strong>。  </li>
+<li>Critic 最弱三環仍在：<strong>(a)</strong> 轉寫當準官方 <strong>(b)</strong> 單一目標函數 <strong>(c)</strong> 開源⟂收入依賴脆弱假設鏈。  </li>
+<li>2026-07-25 <strong>Bloomberg 單一匿名信源</strong> 線：二輪融資口頭暫停、部分與外傳有關；<strong>Reuters 轉載且未能獨立核實</strong>——不是多方獨立佐證。  </li>
+<li>TileLang／CUDA／「不用 NVIDIA 生態」等僅能 <strong>歸因於外傳</strong>；官方 repo 仍見高效 CUDA 路徑。  </li>
+<li><strong>正式 Current Synthesis 仍未建立</strong>；<code>06</code> 是觀點統合與工作假說，<strong>不得</strong>升格為 synthesis。  </li>
+<li>2026-08-03 已按 Issue #1 修正證據升級鏈與建置漂移。</li>
 </ol>
 <h2 id="current-synthesis">Current Synthesis</h2>
 <ul>
 <li><strong>正式 Current Synthesis</strong>：尚未建立（目標路徑：<code>synthesis/04_current_synthesis.md</code>）。</li>
-<li><strong>現階段主讀（Analysis；Review 流水線暫停）</strong>：</li>
-<li><a href="02_speech_deep_analysis.html">02_speech_deep_analysis.md</a> — 講話心智模型拆解</li>
-<li><a href="03_StockWe_融資暫停串聯分析_核查.html">03_StockWe_融資暫停串聯分析_核查.md</a> — 事件核查</li>
-<li><a href="reviews/02_critic_review.md">reviews/02_critic_review.md</a> — <strong>非必讀</strong>（格式已暫停，價值評為低）</li>
+<li><strong><code>06</code> 的定位</strong>：<strong>觀點統合／工作假說</strong>（Known / Attributed / Inference 三欄），<strong>不是</strong> Current Synthesis。</li>
+<li><strong>現階段主讀（Analysis）</strong>：</li>
+<li><a href="01_speech">01_speech.md</a> — 外傳轉寫（先讀來源鏈）</li>
+<li><a href="02_speech_deep_analysis">02_speech_deep_analysis.md</a> — 講話心智模型拆解</li>
+<li><a href="03_StockWe_融資暫停串聯分析_核查">03_StockWe_融資暫停串聯分析_核查.md</a> — 事件核查</li>
+<li><a href="04_viewpoint_克制對準與算力底褲">04_viewpoint_克制對準與算力底褲.md</a> — 觀點筆記</li>
+<li><a href="05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環">05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md</a> — NVIDIA–SK 詮釋</li>
+<li><a href="05_1_source_NVIDIA_SK_對話輿情轉寫">05_1_source_NVIDIA_SK_對話輿情轉寫.md</a> — 官方鏈＋有界輿情</li>
+<li><a href="06_中美對立敘事_梁有意無意與兩隊結構">06_中美對立敘事_梁有意無意與兩隊結構.md</a> — 觀點統合（非 synthesis）</li>
+<li><a href="02_critic_review">reviews/02_critic_review.md</a> — <strong>非必讀</strong>（格式已暫停，價值評為低）</li>
 </ul>
 <p>未再指示前：不寫 <code>reviews/03_*</code>、不硬跑角色審查輪。</p>
 <h2 id="evidence-base">Evidence Base（現有材料）</h2>
+<blockquote>
+<p><strong>規則</strong>：分析品質高，<strong>不會</strong>讓底層來源自動升級。文件角色與來源類型分開評。</p>
+</blockquote>
 <table>
 <thead>
 <tr>
 <th>ID</th>
 <th>證據／來源</th>
-<th>類型</th>
+<th>Source type</th>
+<th>Document role</th>
+<th>Independence</th>
+<th>Claim status（整體）</th>
 <th>支持或反對什麼</th>
-<th>可信度</th>
 <th>日期</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>S01</td>
-<td><a href="01_speech.html">01_speech.md</a> 梁文鋒四小時發言精校（大宇 @BTCdayu）</td>
-<td>Lead / 二次轉寫</td>
-<td>開源、剋制、十個月回本、AGI 階梯等主張</td>
-<td>中（非官方錄音原檔；轉寫精校）</td>
+<td><a href="01_speech">01_speech.md</a> 梁文鋒四小時發言精校（<a href="https://x.com/BTCdayu/article/2080291762736910528">@BTCdayu X Article</a>）</td>
+<td>Lead / Anonymous leak chain</td>
+<td>Raw capture</td>
+<td>Derivative</td>
+<td>Unverified attributed speech</td>
+<td>開源、剋制、十個月回本、AGI 階梯等<strong>主張來源</strong></td>
 <td>2026-07 外傳</td>
 </tr>
 <tr>
 <td>S02</td>
-<td><a href="02_speech_deep_analysis.html">02_speech_deep_analysis.md</a></td>
-<td>Secondary 分析</td>
+<td><a href="02_speech_deep_analysis">02_speech_deep_analysis.md</a></td>
+<td>Analysis（本專案）</td>
+<td>Analysis</td>
+<td>Derivative of S01</td>
+<td>Inference / attributed</td>
 <td>將講話整理為可複用戰略模型</td>
-<td>中高（依賴 S01）</td>
-<td>2026-07-24</td>
+<td>2026-07-24；2026-08-03 修</td>
 </tr>
 <tr>
 <td>S03</td>
-<td>Bloomberg / Reuters 等二輪融資暫停報道（見 2_ 文內鏈）</td>
-<td>Secondary 新聞（匿名信源）</td>
+<td>Bloomberg 二輪融資暫停報道；<a href="https://www.reuters.com/world/china/deepseek-tells-prospective-investors-funding-pause-bloomberg-news-reports-2026-07-25/">Reuters 轉述</a>（<em>could not immediately verify</em>）</td>
+<td>Anonymous single-source reporting</td>
+<td>News capture</td>
+<td><strong>非獨立互證</strong>（Reuters＝轉載）</td>
+<td>Attributed / Unverified</td>
 <td>口頭暫停第二輪；部分因言論外傳</td>
-<td>中高（主流媒體一致，非官方）</td>
 <td>2026-07-25</td>
 </tr>
 <tr>
 <td>S04</td>
-<td>StockWe 推文 2081201760669200886（全文見 2_）</td>
-<td>Lead / 評論</td>
-<td>製造業降本、與 NVDA 協同、政策海關敘事</td>
-<td>低–中（觀點文，非一手事實）</td>
+<td>StockWe 推文 2081201760669200886</td>
+<td>Lead / Commentary</td>
+<td>Commentary</td>
+<td>Independent opinion</td>
+<td>Unverified opinion</td>
+<td>製造業降本、與 NVDA 協同等敘事</td>
 <td>2026-07-26</td>
 </tr>
 <tr>
 <td>S05</td>
-<td><a href="03_StockWe_融資暫停串聯分析_核查.html">03_StockWe_融資暫停串聯分析_核查.md</a></td>
-<td>Evidence check + 評論</td>
+<td><a href="03_StockWe_融資暫停串聯分析_核查">03_StockWe_…核查.md</a></td>
+<td>Analysis（本專案）</td>
+<td>Evidence check + Commentary</td>
+<td>Derivative of S03+S01</td>
+<td>Mixed</td>
 <td>事實邊界與 StockWe 評價</td>
-<td>中高（核查層）</td>
-<td>2026-07-27</td>
+<td>2026-07-27；2026-08-03 修</td>
 </tr>
 <tr>
 <td>S06</td>
-<td><a href="reviews/02_critic_review.md">reviews/02_critic_review.md</a></td>
-<td>Critic 審查</td>
-<td>挑戰 Writer 前提、主張分級、替代解釋</td>
-<td>中高（方法論層）</td>
+<td><a href="02_critic_review">reviews/02_critic_review.md</a></td>
+<td>Analysis（本專案）</td>
+<td>Critic review</td>
+<td>Derivative</td>
+<td>Methodological</td>
+<td>挑戰 Writer 前提、主張分級</td>
 <td>2026-07-27</td>
+</tr>
+<tr>
+<td>S07</td>
+<td><a href="04_viewpoint_克制對準與算力底褲">04_viewpoint_….md</a></td>
+<td>Viewpoint</td>
+<td>Commentary</td>
+<td>Derivative</td>
+<td>Inference</td>
+<td>克制對準向量；Eden 受限芯片句<strong>待查</strong></td>
+<td>2026-07-27；2026-08-03 修</td>
+</tr>
+<tr>
+<td>S08</td>
+<td>NVIDIA 官方 <a href="https://nvidianews.nvidia.com/news/sk-group-and-nvidia-expand-strategic-partnership-across-ai-factories-and-next-generation-memory">SK partnership</a></td>
+<td>Official</td>
+<td>Primary event</td>
+<td>Independent</td>
+<td>Verified（合作方向／LOI 敘事）</td>
+<td>&gt;$500B 級長期商業關係、2GW、HBM 等</td>
+<td>2026-07</td>
+</tr>
+<tr>
+<td>S09</td>
+<td><a href="05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環">05_NVIDIA_SK_….md</a> / <a href="05_1_source_NVIDIA_SK_對話輿情轉寫">05_1</a></td>
+<td>Mixed</td>
+<td>Analysis + raw sentiment</td>
+<td>05 部分獨立；05_1 對話為歷史材料</td>
+<td>Mixed</td>
+<td>美國隊詮釋；PTT <strong>單串</strong>有界樣本</td>
+<td>2026-07-27；2026-08-03 修</td>
+</tr>
+<tr>
+<td>S10</td>
+<td><a href="06_中美對立敘事_梁有意無意與兩隊結構">06_中美對立敘事_….md</a></td>
+<td>Hypothesis</td>
+<td>Viewpoint synthesis（<strong>非正式</strong>）</td>
+<td>Derivative</td>
+<td>Working hypothesis</td>
+<td>兩隊結構、有意／無意分欄</td>
+<td>2026-07-27；2026-08-03 修</td>
 </tr>
 </tbody>
 </table>
-<p>來源優先級：Primary（公司官方 / 監管）&gt; Secondary（主流報道、有方法的分析）&gt; Lead（X、論壇、未驗證轉寫）。</p>
+<p>來源優先級：Primary（公司官方 / 監管）&gt; Independent reporting &gt; Anonymous single-source &gt; Lead（X、論壇、未驗證轉寫）&gt; 本專案 Analysis（永不自動升級底層）。</p>
 <h2 id="open-question">Open Question</h2>
 <p><strong>外傳精校稿在定價／開源／算力數字上失真風險有多高？以及二輪融資暫停是否已有任何可核驗的公司側確認？</strong></p>
 <h2 id="model-positions">Model Positions</h2>
@@ -233,22 +305,28 @@
 </thead>
 <tbody>
 <tr>
-<td>Writer（<code>1_</code>）</td>
+<td>Writer（<code>02_</code>）</td>
 <td>剋制 + 開源 + AGI 主線是自洽 OS</td>
 <td>S01 內在一致性；條件句拆假對立</td>
-<td>依賴外傳轉寫；總綱語氣偏「已證實」</td>
+<td>依賴外傳轉寫；曾有 payback＝淨利誤讀（已修）</td>
 </tr>
 <tr>
 <td>Critic（<code>reviews/02_</code>）</td>
 <td>宜當假說目錄；三弱環＝來源／單一目標函數／開源假設鏈</td>
-<td>原文張力抽樣；替代解釋 A–C</td>
+<td>原文張力抽樣；替代解釋</td>
 <td>未做系統性外部事實核查</td>
 </tr>
 <tr>
-<td>Evidence Checker（<code>2_</code> 部分；正式輪未完）</td>
-<td>停融資方向可信、非官方；惡意未證實</td>
-<td>S03 多家轉述一致</td>
-<td>尚未出 <code>03_evidence_check.md</code></td>
+<td>Evidence（<code>03_</code> 部分）</td>
+<td>停融資＝Bloomberg 單一鏈、非官方；惡意未證實</td>
+<td>S03 信源鏈釐清</td>
+<td>無公司側確認</td>
+</tr>
+<tr>
+<td><code>06</code> 觀點統合</td>
+<td>兩隊框架有解釋力</td>
+<td>S08 官方事件 + S01 外傳對偶</td>
+<td>易把 Inference 寫成事實（已三欄降權）</td>
 </tr>
 <tr>
 <td>Synthesizer</td>
@@ -266,6 +344,7 @@
 <li>出現可驗證的官方錄音/紀要，證明外傳稿系統性歪曲原意。</li>
 <li>API 定價邏輯被證偽（長期明顯虧本補貼或改為利潤最大化）。</li>
 <li>第二輪融資在無外傳爭議下仍無限期停擺，且公開原因變為監管/制裁/財務危機。</li>
+<li>官方技術文件證明生產路徑已全面脫離 CUDA——才可上調 TileLang 相關主張。</li>
 </ul>
 <h2 id="decision-log">Decision Log</h2>
 <table>
@@ -281,74 +360,87 @@
 <tr>
 <td>2026-07-24</td>
 <td>建立講話精校與深度拆解</td>
-<td>外傳內容需結構化，避免只在聊天層</td>
+<td>外傳內容需結構化</td>
 <td><code>01_speech.md</code>, <code>02_speech_deep_analysis.md</code></td>
 </tr>
 <tr>
 <td>2026-07-27</td>
 <td>歸檔 StockWe 並做融資新聞核查</td>
 <td>區分事實層與故事層</td>
-<td><code>03_StockWe_融資暫停串聯分析_核查.md</code></td>
+<td><code>03_StockWe_*.md</code></td>
 </tr>
 <tr>
 <td>2026-07-27</td>
 <td>按 Hub 規範補齊專案骨架</td>
-<td>升級為正式知識專案，可被 Hub 索引</td>
+<td>升級為正式知識專案</td>
 <td><code>README.md</code>, <code>AGENTS.md</code>, <code>00_inbox.md</code></td>
 </tr>
 <tr>
 <td>2026-07-27</td>
-<td>將全站內容編譯為 HTML 互動研究門戶並發佈至 GitHub</td>
-<td>滿足視覺化閱讀、互動對比與 GitHub Live Report 需求</td>
-<td><code>index.html</code>, <code>style.css</code>, <code>script.js</code>, <code>*.html</code></td>
+<td>編譯 HTML 研究門戶</td>
+<td>視覺化閱讀</td>
+<td><code>generate_site.py</code>, <code>*.html</code></td>
 </tr>
 <tr>
 <td>2026-07-27</td>
-<td>完成 Critic 輪；階段 Analysis → Review</td>
-<td>挑戰 Writer 前提與過度推論，不覆寫原稿</td>
-<td><code>reviews/02_critic_review.md</code></td>
-</tr>
-<tr>
-<td>2026-07-27</td>
-<td><strong>暫停</strong>角色清單式 Review 流水線</td>
-<td>老大判定 <code>02_</code> 價值低；未再指示前不寫 03／不自動跑角色輪</td>
+<td>完成 Critic 輪後 <strong>暫停</strong> 角色清單式 Review</td>
+<td>老大判定 <code>02_</code> 價值低</td>
 <td><code>AGENTS.md</code> §4、本 README</td>
+</tr>
+<tr>
+<td>2026-07-27</td>
+<td>新增 04–06 觀點與事件鏈</td>
+<td>克制對準、NVIDIA–SK、兩隊統合</td>
+<td><code>04_</code>–<code>06_</code></td>
+</tr>
+<tr>
+<td>2026-08-03</td>
+<td>Issue #1：證據鏈降級、來源鏈、建置修復</td>
+<td>阻止證據身分升級與幽靈 HTML</td>
+<td>見本 README／各主檔</td>
 </tr>
 </tbody>
 </table>
 <h2 id="next-action">Next Action</h2>
-<p><strong>暫停角色清單式 Review。</strong> 未再指示前不產出 <code>reviews/03_*</code>、不硬跑 Critic／Evidence／Synthesizer。有新材料或真正洞見時再落短檔；否則維持現狀（主讀 <code>0_</code>／<code>1_</code>／<code>2_</code>）。</p>
+<p><strong>維持 Analysis；不建立正式 Current Synthesis。</strong> 優先追蹤：(1) 外傳稿可驗證錄音／官方紀要；(2) 二輪融資是否有公司側確認。有新<strong>可核驗</strong>材料再落短檔；未再指示前不重開角色清單 Review。</p>
 <h2 id="suggested-reading-order">Suggested Reading Order</h2>
 <ol>
-<li>本 <code>README.md</code>（身份、範圍、階段、下一步）</li>
-<li><code>index.html</code>（HTML 互動式戰略研究儀表板與文獻導覽首頁）</li>
-<li><code>AGENTS.md</code>（作業規則；含 Review 暫停）</li>
-<li><code>00_inbox.md</code> / <code>00_inbox.html</code>（未升級材料）</li>
-<li><code>01_speech.md</code> / <code>01_speech.html</code>（原文）</li>
-<li><code>02_speech_deep_analysis.md</code> / <code>02_speech_deep_analysis.html</code>（分析）</li>
-<li><code>03_StockWe_融資暫停串聯分析_核查.md</code> / 對應 html（事件核查）</li>
-<li><code>reviews/02_critic_review.md</code> — <strong>非必讀</strong>（已標價值低／格式暫停）</li>
+<li>本 <code>README.md</code>（身份、範圍、證據矩陣、下一步）</li>
+<li><code>index.html</code>（HTML 導覽；由 <code>generate_site.py</code> 自 Markdown 重建）</li>
+<li><code>AGENTS.md</code>（作業規則）</li>
+<li><code>01_speech.md</code>（<strong>先讀文首來源鏈</strong>）</li>
+<li><code>02_speech_deep_analysis.md</code>（拆解；注意 payback 量綱）</li>
+<li><code>03_StockWe_融資暫停串聯分析_核查.md</code>（Bloomberg 單一鏈）</li>
+<li><code>04_viewpoint_克制對準與算力底褲.md</code>（觀點；Eden 待查句已降權）</li>
+<li><code>05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md</code> + <code>05_1_source_*.md</code>（官方 fact + 有界輿情）</li>
+<li><code>06_中美對立敘事_梁有意無意與兩隊結構.md</code>（觀點統合，非 synthesis）</li>
+<li><code>reviews/02_critic_review.md</code> — <strong>非必讀</strong></li>
 </ol>
-<h2 id="directory-layout">Directory Layout（目標）</h2>
+<h2 id="directory-layout">Directory Layout</h2>
 <pre><code class="language-text">17_deepseek_Kimi/
-├── README.md / README.html
-├── AGENTS.md / AGENTS.html
-├── 00_inbox.md / 00_inbox.html
-├── 01_speech.md / 01_speech.html
-├── 02_speech_deep_analysis.md / 02_speech_deep_analysis.html
-├── 03_StockWe_融資暫停串聯分析_核查.md / 03_StockWe_...html
-├── index.html            # 互動式戰略研究儀表板與文獻導覽首頁
-├── style.css             # 深色矽谷科技風 (Silicon Dark Theme) CSS
-├── script.js             # 頁面分頁與導航微交互腳本
-├── generate_site.py      # Python 零外部依賴 HTML 靜態編譯器
-├── sources/              # 可選：來源登記與摘錄
-├── research/             # 可選：後續分析輪次
+├── README.md
+├── AGENTS.md
+├── 00_inbox.md
+├── 01_speech.md
+├── 02_speech_deep_analysis.md
+├── 03_StockWe_融資暫停串聯分析_核查.md
+├── 04_viewpoint_克制對準與算力底褲.md
+├── 05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md
+├── 05_1_source_NVIDIA_SK_對話輿情轉寫.md
+├── 06_中美對立敘事_梁有意無意與兩隊結構.md
+├── generate_site.py      # Markdown → HTML（需 markdown 套件）
+├── requirements.txt
+├── .gitignore
+├── index.html / style.css / script.js
 ├── reviews/
-│   └── 02_critic_review.md   # 已完成
-│   # 03_evidence_check.md    # Next Action
-└── synthesis/            # 待建立 04_current_synthesis.md
+│   └── 02_critic_review.md
+└── synthesis/            # 待建立正式 Current Synthesis
 </code></pre>
-<p>資料夾可按需創建；<strong>文件少但角色清楚優於空殼目錄</strong>。Review 產物放 <code>reviews/</code>，Synthesis 完成後再更新 Hub 的 Current Synthesis 連結。</p>
+<p><code>*.html</code> 由生成器從 Markdown 產出；<strong>Markdown 為 source of truth</strong>。勿手動長期維護幽靈 HTML。</p>
+<h2 id="_1">建置網站</h2>
+<pre><code class="language-bash">python3 -m pip install -r requirements.txt
+python3 generate_site.py
+</code></pre>
 <h2 id="cli-task-format">CLI Task Format</h2>
 <pre><code class="language-text">目標：
 輸入檔：
@@ -362,6 +454,13 @@
 <li>詳細證據與全文只留在本 repo。</li>
 <li>Hub 只登記：路徑、Knowledge Stage、Current Synthesis 鏈接、一個 Open Question / Next Action、Last Updated。</li>
 <li>勿在 Hub 內複製本專案長文。</li>
+<li>公開 GitHub 上跨庫連結請用完整 URL，避免 <code>../30_…</code> 斷鏈。</li>
+</ul>
+<h2 id="_2">第三方全文與保存政策（摘要）</h2>
+<ul>
+<li><code>01</code>、<code>03</code>、<code>05_1</code> 含外傳長文／推文／討論串摘錄：研究必要範圍內保留；均須標 <strong>原始 URL、作者、時間、擷取語境</strong>。</li>
+<li>引文／轉寫／自行分析邊界必須清楚；整理稿 <strong>不得</strong> 標成 Primary。</li>
+<li>非必要全文以連結或允許的 archive 為優先。</li>
 </ul>
         </article>
       </div>
