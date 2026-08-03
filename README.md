@@ -6,7 +6,7 @@
 - 狀態：Active Knowledge Project
 - 工作方式：CLI-first、Markdown-first；角色清單式 Review **已暫停**（2026-07-27）
 - Hub 索引：[`30_investment_hub`](https://github.com/arislee1979-afk/30_investment_hub)（本機相對路徑僅在完整 vault 內有效）
-- 最後更新：2026-08-03（[Issue #1](https://github.com/arislee1979-afk/17_deepseek_Kimi/issues/1) 證據鏈與建置修正）
+- 最後更新：2026-08-03（[Issue #1](https://github.com/arislee1979-afk/17_deepseek_Kimi/issues/1)、[Issue #2](https://github.com/arislee1979-afk/17_deepseek_Kimi/issues/2)）
 
 ## Project Identity
 
@@ -61,7 +61,7 @@
 4. 2026-07-25 **Bloomberg 單一匿名信源** 線：二輪融資口頭暫停、部分與外傳有關；**Reuters 轉載且未能獨立核實**——不是多方獨立佐證。  
 5. TileLang／CUDA／「不用 NVIDIA 生態」等僅能 **歸因於外傳**；官方 repo 仍見高效 CUDA 路徑。  
 6. **正式 Current Synthesis 仍未建立**；`06` 是觀點統合與工作假說，**不得**升格為 synthesis。  
-7. 2026-08-03 已按 Issue #1 修正證據升級鏈與建置漂移。
+7. 2026-08-03 已按 Issue #1／#2 修正證據升級鏈、HTML 內文連結、首頁硬編碼與第三方全文縮減。
 
 ## Current Synthesis
 
@@ -92,7 +92,7 @@
 | S05 | [03_StockWe_…核查.md](03_StockWe_融資暫停串聯分析_核查.md) | Analysis（本專案） | Evidence check + Commentary | Derivative of S03+S01 | Mixed | 事實邊界與 StockWe 評價 | 2026-07-27；2026-08-03 修 |
 | S06 | [reviews/02_critic_review.md](reviews/02_critic_review.md) | Analysis（本專案） | Critic review | Derivative | Methodological | 挑戰 Writer 前提、主張分級 | 2026-07-27 |
 | S07 | [04_viewpoint_….md](04_viewpoint_克制對準與算力底褲.md) | Viewpoint | Commentary | Derivative | Inference | 克制對準向量；Eden 受限芯片句**待查** | 2026-07-27；2026-08-03 修 |
-| S08 | NVIDIA 官方 [SK partnership](https://nvidianews.nvidia.com/news/sk-group-and-nvidia-expand-strategic-partnership-across-ai-factories-and-next-generation-memory) | Official | Primary event | Independent | Verified（合作方向／LOI 敘事） | >$500B 級長期商業關係、2GW、HBM 等 | 2026-07 |
+| S08 | NVIDIA 官方 [SK partnership](https://nvidianews.nvidia.com/news/sk-group-and-nvidia-expand-strategic-partnership-across-ai-factories-and-next-generation-memory) | **First-party official**（第一方） | Primary event notice | 非落地獨立審計 | **Verified**：已發布 LOI／計畫語言；**Not verified**：支出、訂單、2GW 完工 | >$500B 出現在官宣（組成／期間未由官方清楚定義，勿自補）；2GW／2027＝Attributed plan | 2026-07 |
 | S09 | [05_NVIDIA_SK_….md](05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md) / [05_1](05_1_source_NVIDIA_SK_對話輿情轉寫.md) | Mixed | Analysis + raw sentiment | 05 部分獨立；05_1 對話為歷史材料 | Mixed | 美國隊詮釋；PTT **單串**有界樣本 | 2026-07-27；2026-08-03 修 |
 | S10 | [06_中美對立敘事_….md](06_中美對立敘事_梁有意無意與兩隊結構.md) | Hypothesis | Viewpoint synthesis（**非正式**） | Derivative | Working hypothesis | 兩隊結構、有意／無意分欄 | 2026-07-27；2026-08-03 修 |
 
@@ -134,6 +134,7 @@
 | 2026-07-27 | 完成 Critic 輪後 **暫停** 角色清單式 Review | 老大判定 `02_` 價值低 | `AGENTS.md` §4、本 README |
 | 2026-07-27 | 新增 04–06 觀點與事件鏈 | 克制對準、NVIDIA–SK、兩隊統合 | `04_`–`06_` |
 | 2026-08-03 | Issue #1：證據鏈降級、來源鏈、建置修復 | 阻止證據身分升級與幽靈 HTML | 見本 README／各主檔 |
+| 2026-08-03 | Issue #2：HTML 內文連結、首頁證據矩陣、官宣vs落地、全文縮減 | md→html bug、Jevons 硬編碼、第三方重刊 | `generate_site.py`、`05*`、`03`、`reviews/02` |
 
 ## Next Action
 

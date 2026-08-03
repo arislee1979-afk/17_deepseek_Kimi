@@ -76,9 +76,9 @@
 <p><strong>日期</strong>：2026-07-27<br />
 <strong>性質</strong>：事件銜接＋框架詮釋；<strong>非</strong>投資建議<br />
 <strong>時效</strong>：合作意向於約 <strong>2026-07-24～25</strong>（撰寫前約 20–48 小時窗口內）密集官宣與轉載<br />
-<strong>事實底稿</strong>：<a href="05_1_source_NVIDIA_SK_對話輿情轉寫">05_1_source_NVIDIA_SK_對話輿情轉寫.md</a><br />
-<strong>跨庫框架</strong>：<a href="09_dual_phase_model_restraint_and_advanced_compute_scarcity">20_china-overcapacity/09_dual_phase…</a>、<code>06</code>／<code>08</code> 供需相位／資本同源／硬體共生<br />
-<strong>本庫對偶</strong>：<a href="04_viewpoint_克制對準與算力底褲">04_viewpoint_克制對準與算力底褲.md</a>、<code>01_speech.md</code> 算力自述</p>
+<strong>事實底稿</strong>：<a href="05_1_source_NVIDIA_SK_對話輿情轉寫.html">05_1_source_NVIDIA_SK_對話輿情轉寫.md</a><br />
+<strong>跨庫框架</strong>：<a href="https://github.com/arislee1979-afk/20_china-overcapacity">20_china-overcapacity（分層相位）</a>（完整 GitHub URL；本獨立 repo 不用 <code>../</code> 相對路徑）<br />
+<strong>本庫對偶</strong>：<a href="04_viewpoint_克制對準與算力底褲.html">04_viewpoint_克制對準與算力底褲.md</a>、<code>01_speech.md</code> 算力自述</p>
 </blockquote>
 <hr />
 <h2 id="0">0. 一句話</h2>
@@ -87,72 +87,98 @@
 </blockquote>
 <hr />
 <h2 id="1">1. 事實邊界（先鎖死，再談框架）</h2>
-<h3 id="11-primary-secondary">1.1 已較穩的公開表述（以官方公告為 Primary；媒體為 Secondary）</h3>
-<p><strong>權威 fact source（請優先於此，勿以 AI 對話轉寫為事實來源）</strong>：</p>
+<h3 id="11-vs-vs">1.1 官宣事實 vs 計畫 vs 尚未核實（強制三欄）</h3>
+<p><strong>權威 fact source（第一方官方；勿以 AI 對話轉寫為事實來源）</strong>：</p>
 <ul>
 <li>NVIDIA 官方：<a href="https://nvidianews.nvidia.com/news/sk-group-and-nvidia-expand-strategic-partnership-across-ai-factories-and-next-generation-memory">SK Group and NVIDIA Expand Strategic Partnership Across AI Factories and Next-Generation Memory</a></li>
-<li>細節數字以官方稿與主流轉載對讀；<strong>Naver／Brookfield、日本 Physical AI 等為平行事件，非同一合約</strong>。</li>
+<li>平行事件（<strong>非同一合約</strong>）：<a href="https://nvidianews.nvidia.com/news/naver-nvidia-and-brookfield-to-expand-koreas-national-ai-factory-infrastructure-buildout">NAVER + NVIDIA + Brookfield 主權 AI factory 公告</a></li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>欄</th>
+<th>可寫什麼</th>
+<th>不可寫什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Verified（已發布）</strong></td>
+<td>雙方確實發布 <code>$500B+</code> initiative 敘事；簽的是 <strong>letters of intent</strong>；宣布 SKT AI factory 計畫、與 SK hynix 長期次世代記憶體合作方向</td>
+<td>把「官宣」當「已投資／已下單／已完工」</td>
+</tr>
+<tr>
+<td><strong>Attributed plan（公開計畫）</strong></td>
+<td>官方／稿件中的 <strong>2GW</strong>、首座約 <strong>2027</strong>、HBM 長期合作語言</td>
+<td>保證時程與規模必達</td>
+</tr>
+<tr>
+<td><strong>Not yet verified（落地）</strong></td>
+<td>—</td>
+<td>實際支出、確定訂單量、產能、完工與營運結果</td>
+</tr>
+</tbody>
+</table>
 <table>
 <thead>
 <tr>
 <th>項</th>
 <th>內容</th>
-<th>注意</th>
-<th>來源層</th>
+<th>Claim status</th>
+<th>來源</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>主體</td>
-<td>NVIDIA 與南韓 <strong>SK Group</strong>；含 <strong>SK hynix</strong>（記憶體）、<strong>SK Telecom</strong>（AI 基礎設施）</td>
-<td>意向層級為主</td>
-<td>Official / Independent reporting</td>
+<td>NVIDIA 與南韓 <strong>SK Group</strong>（含 hynix 記憶體、SKT 基礎設施）</td>
+<td>Verified：已官宣合作主體</td>
+<td>First-party official</td>
 </tr>
 <tr>
-<td>規模</td>
-<td>官方／媒體表述 <strong>逾 5000 億美元（&gt;$500B）</strong> 合作／商業關係</td>
-<td><strong>多為多年累計商業活動規模</strong>，非一次現金注資、非已全額簽約訂單</td>
-<td>Official</td>
+<td>金額</td>
+<td>官方表述 <strong>逾 $500B</strong> initiative</td>
+<td>Verified：數字<strong>出現在官宣</strong>；金額<strong>組成與期間官方未清楚定義</strong> → <strong>不要</strong>自行補成「多年累計商業活動」</td>
+<td>Official wording only</td>
 </tr>
 <tr>
 <td>形式</td>
-<td><strong>LOI／意向與長期夥伴關係</strong></td>
-<td>落地取決於電力、產能、CapEx、監管</td>
+<td><strong>LOI／意向</strong></td>
+<td>Verified：意向層級；官方稿含 forward-looking 免責</td>
 <td>Official</td>
 </tr>
 <tr>
 <td>記憶體</td>
-<td>NVIDIA–SK hynix：<strong>長期供應＋共同開發</strong> 次世代 HBM（含 HBM4 敘事）</td>
-<td>鎖的是 <strong>H 層稀缺部件</strong></td>
+<td>宣布與 SK hynix <strong>長期合作</strong>、使 NVIDIA 可取得穩定供應／共同開發次世代 HBM 敘事</td>
+<td>Verified：合作方向已宣布；<strong>Not</strong> 已核實的預購量</td>
 <td>Official</td>
 </tr>
 <tr>
 <td>資料中心</td>
-<td>SKT 規劃約 <strong>2GW</strong> 級 AI factory；首座時間表媒體／官方敘事多寫 <strong>2027</strong> 起</td>
-<td><strong>電力與時程</strong> 是執行風險核心</td>
-<td>Official + reporting</td>
+<td>SKT <strong>計畫</strong>約 2GW AI factory；首座<strong>計畫</strong>約 2027</td>
+<td>Attributed plan</td>
+<td>Official + plan language</td>
 </tr>
 <tr>
-<td>平行線（<strong>非同一合約</strong>）</td>
-<td>Naver 主權 AI／資料中心擴建＋ NVIDIA／Brookfield 融資敘事；日系 Physical AI 聯盟</td>
-<td>同波「友岸＋主權 AI」族譜，<strong>分開記</strong></td>
-<td>Independent reporting</td>
+<td>平行線</td>
+<td>NAVER／Brookfield 主權 AI factory（上列官方平行公告）；日本 Physical AI 等</td>
+<td>分開登記；非 SK LOI 同一合約</td>
+<td>First-party / reporting</td>
 </tr>
 <tr>
 <td>政治場景</td>
-<td>南韓總統率企業團與黃仁勛等高調互動；「黃金時代」「一家人」等公開話術</td>
-<td>外交＋產業雙語境</td>
+<td>元首級互動、「黃金時代」等話術</td>
 <td>Secondary</td>
+<td>Media</td>
 </tr>
 </tbody>
 </table>
 <h3 id="12">1.2 不應寫成的過度句</h3>
 <ul>
-<li>❌ 「5000 億已全部落袋／已是確定訂單」  </li>
-<li>❌ 「台灣被韓國取代」  </li>
-<li>❌ 「AI 泡沫已證偽或已確認」  </li>
-<li>❌ 「此單一事件證明美國隊必勝／中國必敗」</li>
+<li>❌ 「5000 億已全部落袋／已是確定訂單／已投資到位」  </li>
+<li>❌ 「金額＝多年累計商業活動」（<strong>無直接官方定義時不得自補口徑</strong>）  </li>
+<li>❌ 「NVIDIA 已預購／鎖死全部下一代 HBM 產能」  </li>
+<li>❌ 「台灣被韓國取代」／「此事件證明美國隊必勝」</li>
 </ul>
 <h3 id="13-lead">1.3 市場情緒（Lead／輿情層；<strong>樣本有界</strong>）</h3>
 <table>
@@ -205,25 +231,25 @@
 <thead>
 <tr>
 <th>角色</th>
-<th>本事件中的功能</th>
+<th>本事件中的功能（不超出 LOI 可支持範圍）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>美國（NVIDIA）</strong></td>
-<td>定義架構與採購權力；用長期意向 <strong>預購／鎖住</strong> 下一代記憶體與系統出海口</td>
+<td>定義架構與採購敘事；宣布與 SK hynix <strong>長期合作以取得穩定供應</strong>（≠ 已核實「預購／鎖死產能」）</td>
 </tr>
 <tr>
 <td><strong>韓國（SK）</strong></td>
-<td>以 HBM＋2GW 級設施爭取「不可替代節點」；政府話術抬升國家定位</td>
+<td>hynix 供應記憶體敘事 ＋ SKT <strong>計畫</strong> NVIDIA-powered AI factory；政府話術抬升國家定位</td>
 </tr>
 <tr>
 <td><strong>台灣</strong></td>
-<td><strong>不在此 LOI 主文</strong>，但美國隊中仍握 <strong>邏輯晶圓＋高階封裝＋組裝</strong> 深護城河；短線股板情緒≠供應鏈被置換</td>
+<td><strong>不在此 LOI 主文</strong>；結構上仍握邏輯／封裝／組裝位置（框架推論）；<strong>單一 PTT 串情緒 ≠ 供應鏈被置換</strong></td>
 </tr>
 <tr>
 <td><strong>日本</strong></td>
-<td>同週期另線 Physical AI／工廠自動化；強化「友岸完整堆疊」而非取代台韓</td>
+<td>同週期另線 Physical AI（平行事件）；強化「友岸完整堆疊」敘事而非取代台韓</td>
 </tr>
 </tbody>
 </table>
@@ -246,13 +272,13 @@
 </tr>
 <tr>
 <td><strong>台日韓 K 型</strong></td>
-<td>韓記憶體波動大、台先進製程相對穩——PTT 空頭有週期直覺，但「不看好韓國＝台灣不受惠」不成立</td>
+<td>結構假說：記憶體與先進邏輯報酬曲線不同——<strong>不得</strong>用單一 PTT 串證明</td>
 </tr>
 </tbody>
 </table>
-<h3 id="23-opus">2.3 單點集中度（Opus 線）提醒</h3>
-<p>美系少數 CSP＋NVIDIA 生態的 CapEx 決策，仍是東亞硬體的 <strong>急性暴露面</strong>。<br />
-SK 鎖 NVIDIA，是 <strong>加深</strong> 而非分散這條暴露：好處是訂單可見度，代價是週期與單一架構綁定。</p>
+<h3 id="23-inference">2.3 單點集中度提醒（Inference）</h3>
+<p>美系少數 CSP＋NVIDIA 生態的 CapEx 決策，仍可能是東亞硬體的 <strong>急性暴露面</strong>（工作假說）。<br />
+方向應分清：<strong>SK hynix → 供應 NVIDIA 記憶體</strong>；<strong>SKT → 建 NVIDIA-powered factory</strong>。說「SK 鎖 NVIDIA 記憶體」方向混亂，已廢棄。</p>
 <hr />
 <h2 id="3-vs">3. 分層相位鏡像：美國隊加固 vs 中系模型「克制」</h2>
 <p>對讀本庫 <code>04</code> 與 <code>20_/09</code> 的 <strong>分層相位</strong>：</p>
@@ -291,59 +317,63 @@ SK 鎖 NVIDIA，是 <strong>加深</strong> 而非分散這條暴露：好處是
 </tr>
 <tr>
 <td>情緒面</td>
-<td>官產正、股板可空（估值與週期）</td>
-<td>外傳後融資節奏敏感、資訊自保</td>
+<td>官產話術可偏正；<strong>單一 PTT 串</strong>可偏嘲諷</td>
+<td>外傳後融資節奏敏感（Bloomberg 線＝Attributed）</td>
 </tr>
 </tbody>
 </table>
-<p><strong>對偶命題（本篇核心見解）：</strong></p>
+<p><strong>對偶命題（工作假說 C，非已證）：</strong></p>
 <blockquote>
-<p>同一 24–48 小時資訊窗裡，市場同時看到：<br />
-<strong>（甲）美國隊在 H 層用國家＋財閥＋平台商語言加固供給同盟</strong>；<br />
-<strong>（乙）中系模型在 S 層用克制與效率敘事競爭，卻在 H 層公開暴露約束。</strong><br />
-兩者不是互相取消，而是 <strong>分層異相的同一全球結構</strong>。</p>
+<p>同一資訊窗裡可並置：<br />
+<strong>（甲）</strong> 美韓側以國家＋財閥＋平台商語言官宣 H 層供給同盟（LOI／計畫）；<br />
+<strong>（乙）</strong> 中系模型外傳在 S 層講克制、在 H 層講短缺。<br />
+並置有解釋力，<strong>不是</strong>已證「美國隊使用外傳」或「兩隊已開戰」。</p>
 </blockquote>
-<p>PTT 推文裡已有人點到：「deepseek kimi 都說算力不足了」——這正是把 <strong>S 層口碑</strong> 與 <strong>H 層約束</strong> 接在一起的直覺，比「一家人一起崩」更接近機制。</p>
+<p>該 PTT 串中有留言點到「deepseek kimi 都說算力不足了」——僅能說明<strong>該留言</strong>把 S 層口碑與 H 層約束接在一起，不能代表看板或市場。</p>
 <hr />
-<h2 id="4">4. 為何台灣股板「不看好」與基本面可以並存</h2>
+<h2 id="4-ptt">4. 為何「該 PTT 串」呈現負面嘲諷（樣本有界）</h2>
+<blockquote>
+<p>樣本：單一 PTT Stock 串（見 <code>05_1</code>）。可支持「<strong>該串留言</strong>多為負面嘲諷」。<br />
+<strong>不可</strong>支持：「台灣股板」「台灣網友」「台灣市場」不看好。</p>
+</blockquote>
 <table>
 <thead>
 <tr>
 <th>層次</th>
-<th>說明</th>
+<th>可寫</th>
+<th>不可寫</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>情緒合理核</strong></td>
-<td>大數字 LOI 歷史上常延遲；記憶體高波動；韓股去槓桿後仍敏感；政治高調易觸發不信任</td>
+<td><strong>該串可見語氣</strong></td>
+<td>「一家人一起下去」、質疑 LOI 大數字、政治表演嘲諷；「99」＝救救 ≠ 空單</td>
+<td>持倉推定、看板全體化</td>
 </tr>
 <tr>
-<td><strong>情緒過度核</strong></td>
-<td>推成「AI 整體完了」「台灣硬體出口因此無意義」——與台積／封裝／組裝的結構位置不符</td>
+<td><strong>結構位置（Inference）</strong></td>
+<td>台＝邏輯／封裝／組裝敘事；韓＝HBM 週期敘事——報酬曲線<strong>可能</strong>不同</td>
+<td>用一串留言「證明」K 型報酬或韓股去槓桿</td>
 </tr>
 <tr>
-<td><strong>結構位置</strong></td>
-<td>台灣吃的是 <strong>邏輯＋封裝＋系統</strong> 租值；韓國吃的是 <strong>HBM 週期租值</strong>；同屬美國隊，<strong>報酬與回撤曲線不同</strong></td>
-</tr>
-<tr>
-<td><strong>與 20_ 一致</strong></td>
-<td>台日韓不是鐵板一塊繁榮；是 <strong>K 型</strong>：先進節點亮、記憶體與傳產另一套 beta</td>
+<td><strong>投資結論</strong></td>
+<td>本檔不給</td>
+<td>「該做多／做空」</td>
 </tr>
 </tbody>
 </table>
 <p>較穩表述：</p>
 <blockquote>
-<p>短期「全面做多韓股因 5000 億敘事」理由不充分；<br />
-中期「美國隊 H 層短缺仍在、台灣硬體鏈仍在軸上」與本合作 <strong>相容</strong>。</p>
+<p>從<strong>該串</strong>看不到對 5000 億敘事的樂觀共識；<br />
+這<strong>不能</strong>推出台灣硬體鏈出局，也<strong>不能</strong>代替分層供應鏈分析。</p>
 </blockquote>
 <hr />
-<h2 id="5-deepseek-review">5. 對 DeepSeek／本庫主線的含義（不搞角色 Review）</h2>
+<h2 id="5-deepseekinference-review">5. 對 DeepSeek／本庫主線的含義（Inference；不搞角色 Review）</h2>
 <ol>
-<li><strong>出口管制與友岸不是標語</strong>：當 SK 以國家元首級場景鎖 NVIDIA 記憶體時，中系「買得到多少卡買多少」的約束被對照得更清楚。  </li>
-<li><strong>克制戰略的外部條件</strong>：低價開源要持續，仍需 <strong>某種</strong> 算力來源（存量優化、國產爬坡、合規可及之採購等）。<strong>不暗示、不主張</strong>無證據的規避出口管制行為；「灰色可及性」一詞易被誤讀為規避，本檔<strong>廢棄該暗示</strong>。美國隊每鎖深一寸 H 層，S 層克制就更依賴 <strong>效率與配給</strong>，而非無限擴產。  </li>
-<li><strong>資訊紀律</strong>：中系外傳算力帳本引發融資敏感；美韓側則用 <strong>公開巨型意向</strong> 做市場與外交訊號——兩邊對「什麼可以公開說」的策略相反，但都服務於 <strong>H 層可及性政治</strong>。  </li>
-<li><strong>不要用本事件證偽「模型通縮」</strong>：API 便宜與 HBM 短缺可同時成立（杰文斯式用量 vs 部件瓶頸）。</li>
+<li><strong>出口管制與友岸不是標語</strong>：美韓官宣 H 層合作時，中系外傳「能買多少卡買多少」的約束敘事被對照得更清楚（對照＝閱讀框架，非情報結論）。  </li>
+<li><strong>克制戰略的外部條件</strong>：低價開源若要持續，仍需某種算力來源（存量優化、國產爬坡、合規採購等）。<strong>不主張</strong>無證據的規避管制。  </li>
+<li><strong>資訊紀律</strong>：中系外傳算力帳本與美韓巨型意向——兩邊「公開說什麼」策略不同（假說）。  </li>
+<li><strong>不要用本事件「證明」傑文斯或模型通縮</strong>：API 便宜與 HBM 短缺<strong>可同時成立</strong>是邏輯可能，不是已測結果。</li>
 </ol>
 <hr />
 <h2 id="6">6. 可觀察指標（落地後再更新本檔，不預支結論）</h2>
@@ -395,11 +425,11 @@ SK 鎖 NVIDIA，是 <strong>加深</strong> 而非分散這條暴露：好處是
 <tbody>
 <tr>
 <td><code>05_1_source_*</code></td>
-<td>對話全文、PTT 推文、初輪真偽與輿情</td>
+<td>官方 URL、有界 PTT 樣本摘要（非全文庫）</td>
 </tr>
 <tr>
 <td><strong>本檔 <code>05_*</code></strong></td>
-<td>事件→美國隊→分層相位→DeepSeek 對偶的統合</td>
+<td>官宣邊界→框架詮釋→DeepSeek 對偶（假說）</td>
 </tr>
 <tr>
 <td><code>04_viewpoint_*</code></td>
@@ -409,27 +439,15 @@ SK 鎖 NVIDIA，是 <strong>加深</strong> 而非分散這條暴露：好處是
 <td><code>03_StockWe_*</code></td>
 <td>融資暫停與二手產業敘事核查</td>
 </tr>
-<tr>
-<td><code>20_…/09_dual_phase_*</code></td>
-<td>分層相位正式定義與可證偽條件</td>
-</tr>
-<tr>
-<td><code>20_…/08</code></td>
-<td>雙循環、台日韓分化、變現牆</td>
-</tr>
 </tbody>
 </table>
-<p><strong>建議閱讀</strong>：<code>05_1</code>（事實與輿情）→ <strong>本篇</strong> → 需要理論深度時讀 <code>20_/09</code>。</p>
+<p><strong>建議閱讀</strong>：<code>05_1</code>（fact base）→ <strong>本篇</strong> → 跨庫理論用完整 GitHub URL 另開。</p>
 <hr />
 <h2 id="8">8. 結語</h2>
-<p>NVIDIA–SK 逾 5000 億美元級合作，在事實層是 <strong>多年商業規模的意向加固</strong>（HBM＋GW 級設施）；在結構層是 <strong>美國隊 H 層供給同盟再上鎖</strong>；在對偶層，它把本庫關心的問題照得更亮：</p>
-<ul>
-<li>中系模型可以用 <strong>克制</strong> 打 S 層價格戰；  </li>
-<li>美日韓台軸心仍用 <strong>資本、國家與平台權力</strong> 分配 H 層稀缺；  </li>
-<li>股板嘲諷可以是有用的風險嗅覺，但 <strong>不能替代分層看供應鏈</strong>。</li>
-</ul>
+<p>NVIDIA–SK：<strong>Verified</strong> 是雙方發布了 <code>$500B+</code> LOI／計畫語言；<strong>Not verified</strong> 是支出、訂單與 2GW 落地。<br />
+結構層的「美國隊 H 層再綁定」是<strong>閱讀框架</strong>；單一 PTT 串嘲諷是<strong>有界樣本</strong>，不能代替分層供應鏈。</p>
 <hr />
-<p><em>撰寫：Grok 4.5｜2026-07-27｜有新落地數據再修 §1／§6，不為情緒改結構。</em></p>
+<p><em>撰寫：Grok 4.5｜2026-07-27；Issue #2 修訂 2026-08-03｜有新落地數據再修 §1／§6。</em></p>
         </article>
       </div>
     </main>
