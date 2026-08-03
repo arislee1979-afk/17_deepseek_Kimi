@@ -87,8 +87,8 @@
 |---|---|---|---|---|---|---|---|
 | S01 | [01_speech.md](01_speech.md) 梁文鋒四小時發言精校（[@BTCdayu X Article](https://x.com/BTCdayu/article/2080291762736910528)） | Lead / Anonymous leak chain | Raw capture | Derivative | Unverified attributed speech | 開源、剋制、十個月回本、AGI 階梯等**主張來源** | 2026-07 外傳 |
 | S02 | [02_speech_deep_analysis.md](02_speech_deep_analysis.md) | Analysis（本專案） | Analysis | Derivative of S01 | Inference / attributed | 將講話整理為可複用戰略模型 | 2026-07-24；2026-08-03 修 |
-| S03 | Bloomberg 二輪融資暫停報道；[Reuters 轉述](https://www.reuters.com/world/china/deepseek-tells-prospective-investors-funding-pause-bloomberg-news-reports-2026-07-25/)（*could not immediately verify*） | Anonymous single-source reporting | News capture | **非獨立互證**（Reuters＝轉載） | Attributed / Unverified | 口頭暫停第二輪；部分因言論外傳 | 2026-07-25 |
-| S04 | StockWe 推文 2081201760669200886 | Lead / Commentary | Commentary | Independent opinion | Unverified opinion | 製造業降本、與 NVDA 協同等敘事 | 2026-07-26 |
+| S03 | [Bloomberg Law 首發](https://news.bloomberglaw.com/antitrust/deepseek-said-to-tell-backers-of-funding-pause-after-viral-posts)（匿名信源）；[Reuters 轉述](https://www.reuters.com/world/china/deepseek-tells-prospective-investors-funding-pause-bloomberg-news-reports-2026-07-25/)（*could not immediately verify*） | Anonymous single-source reporting | News capture | **非獨立互證**（Reuters＝轉載） | Attributed / Unverified | 口頭暫停第二輪；部分因言論外傳 | 2026-07-25 |
+| S04 | StockWe 推文 2081201760669200886 | Lead / Commentary | Commentary | **Evidentially derivative of S01/S03**（作者可編輯獨立；**非**獨立事實互證） | Unverified opinion | 製造業降本、與 NVDA 協同等敘事 | 2026-07-26 |
 | S05 | [03_StockWe_…核查.md](03_StockWe_融資暫停串聯分析_核查.md) | Analysis（本專案） | Evidence check + Commentary | Derivative of S03+S01 | Mixed | 事實邊界與 StockWe 評價 | 2026-07-27；2026-08-03 修 |
 | S06 | [reviews/02_critic_review.md](reviews/02_critic_review.md) | Analysis（本專案） | Critic review | Derivative | Methodological | 挑戰 Writer 前提、主張分級 | 2026-07-27 |
 | S07 | [04_viewpoint_….md](04_viewpoint_克制對準與算力底褲.md) | Viewpoint | Commentary | Derivative | Inference | 克制對準向量；Eden 受限芯片句**待查** | 2026-07-27；2026-08-03 修 |
@@ -135,6 +135,7 @@
 | 2026-07-27 | 新增 04–06 觀點與事件鏈 | 克制對準、NVIDIA–SK、兩隊統合 | `04_`–`06_` |
 | 2026-08-03 | Issue #1：證據鏈降級、來源鏈、建置修復 | 阻止證據身分升級與幽靈 HTML | 見本 README／各主檔 |
 | 2026-08-03 | Issue #2：HTML 內文連結、首頁證據矩陣、官宣vs落地、全文縮減 | md→html bug、Jevons 硬編碼、第三方重刊 | `generate_site.py`、`05*`、`03`、`reviews/02` |
+| 2026-08-03 | Issue #3：broken-link 假陰性、manifest 無 basename fallback | ghost 路徑／殘留 .md／typo 路徑 | `generate_site.py` self-tests；S04／Bloomberg URL |
 
 ## Next Action
 

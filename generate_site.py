@@ -374,36 +374,38 @@ def build_index():
         f.write(index_content)
     print("✓ Successfully generated index.html")
 
-def _docs_lookup():
-    """Map source markdown paths (and basenames) to generated HTML filenames."""
+def _docs_path_to_html():
+    """Exact DOCS manifest path → generated HTML. No basename fallback."""
     by_path = {}
-    by_base = {}
     for doc in DOCS:
         by_path[doc["file"]] = doc["html"]
         by_path[doc["file"].lstrip("./")] = doc["html"]
-        by_base[os.path.basename(doc["file"])] = doc["html"]
-    return by_path, by_base
+    return by_path
 
 
 def md_link_to_html(raw_text: str) -> str:
-    """Rewrite *local* Markdown links that are in DOCS to their .html outputs.
+    """Rewrite *local* Markdown links that are **exactly** in DOCS to .html outputs.
 
     Critical: the regex captures the path *without* the ``.md`` suffix, so we
-    must rebuild ``target_md = stem + ".md"`` before looking up DOCS.
-    Cross-repo (``../…``) and absolute ``http(s)://`` links are left untouched.
+    rebuild ``target_md = stem + ".md"`` before looking up the manifest.
+
+    Rules:
+    - Only exact normalized paths in DOCS map (e.g. ``01_speech.md``,
+      ``reviews/02_critic_review.md``).
+    - **No basename fallback**: ``bogus/01_speech.md`` and
+      ``review/02_critic_review.md`` (typo dir) stay unchanged so the verifier
+      can fail the build.
+    - Cross-repo (``../…``) and absolute URLs are left untouched.
     """
-    by_path, by_base = _docs_lookup()
+    by_path = _docs_path_to_html()
 
     def repl(m):
         stem = m.group(1)  # path without .md
         anchor = m.group(2) or ""
         original = m.group(0)
 
-        # Never rewrite absolute URLs (defensive; pattern should not match them)
         if stem.startswith("http://") or stem.startswith("https://"):
             return original
-
-        # Cross-repo / parent paths: keep as-is (caller should use full GitHub URLs in source)
         if stem.startswith("../") or stem.startswith("/"):
             return original
 
@@ -414,12 +416,7 @@ def md_link_to_html(raw_text: str) -> str:
         if target_md in by_path:
             return f"({by_path[target_md]}{anchor})"
 
-        base = os.path.basename(target_md)
-        # Only basename-fallback for paths that look like same-repo docs (no parent climb)
-        if base in by_base and ".." not in stem:
-            return f"({by_base[base]}{anchor})"
-
-        # Unknown local .md — leave unchanged so verify step can flag it
+        # Unknown / typo path: keep .md so verify_local_href rejects it in HTML
         return original
 
     return re.sub(
@@ -429,12 +426,44 @@ def md_link_to_html(raw_text: str) -> str:
     )
 
 
+def verify_local_href(href, path_exists=os.path.exists):
+    """Return error reason if local href is invalid for the site; else None.
+
+    Rejects (Issue #3):
+    - extension-less local paths (``01_speech``)
+    - residual ``*.md`` (must be mapped to generated ``*.html``)
+    - any missing full relative path (``ghost/01_speech.html``) — **no**
+      basename allowlist that would false-negative when only the leaf name
+      matches a known page
+    """
+    if href.startswith(("#", "http://", "https://", "mailto:", "data:")):
+        return None
+
+    path = href.split("?")[0].split("#")[0]
+    if not path:
+        return None
+
+    base = os.path.basename(path)
+
+    # extension-less: "01_speech"
+    if "." not in base and not path.endswith("/"):
+        return "extension-less local href (likely md→html bug)"
+
+    # site pages must not point at Markdown sources
+    if base.endswith(".md") or path.endswith(".md"):
+        return "local .md href residual (must map to generated .html)"
+
+    # full relative path must exist — basename matching a known page is NOT enough
+    if not path_exists(path):
+        return "target file missing"
+
+    return None
+
+
 def verify_internal_links():
-    """Fail build if any generated HTML has local hrefs that do not exist on disk."""
-    expected_pages = {d["html"] for d in DOCS} | {"index.html", "style.css", "script.js"}
+    """Fail build if any generated HTML has invalid local hrefs."""
     html_files = [d["html"] for d in DOCS] + ["index.html"]
     broken = []
-
     href_re = re.compile(r'href="([^"]+)"')
 
     for html_file in html_files:
@@ -444,21 +473,9 @@ def verify_internal_links():
         with open(html_file, "r", encoding="utf-8") as f:
             text = f.read()
         for href in href_re.findall(text):
-            if href.startswith(("#", "http://", "https://", "mailto:", "data:")):
-                continue
-            # strip query/fragment
-            path = href.split("?")[0].split("#")[0]
-            if not path:
-                continue
-            # reject extension-less local links like "01_speech"
-            base = os.path.basename(path)
-            if "." not in base and not path.endswith("/"):
-                broken.append((html_file, href, "extension-less local href (likely md→html bug)"))
-                continue
-            if not os.path.exists(path):
-                # allow only known static assets
-                if base not in expected_pages and not os.path.exists(path):
-                    broken.append((html_file, href, "target file missing"))
+            why = verify_local_href(href)
+            if why:
+                broken.append((html_file, href, why))
 
     if broken:
         print("✗ Broken internal links:")
@@ -467,6 +484,78 @@ def verify_internal_links():
         raise SystemExit(f"Build failed: {len(broken)} broken internal link(s)")
 
     print(f"✓ Internal link check passed ({len(html_files)} HTML pages)")
+
+
+def run_self_tests():
+    """Minimal regression tests (Issue #3). Fail build if any assertion breaks."""
+    errors = []
+
+    def check(cond, msg):
+        if not cond:
+            errors.append(msg)
+
+    # --- md_link_to_html: exact manifest only ---
+    check(
+        md_link_to_html("[a](01_speech.md)") == "[a](01_speech.html)",
+        "01_speech.md should map to 01_speech.html",
+    )
+    check(
+        md_link_to_html("[c](reviews/02_critic_review.md)") == "[c](02_critic_review.html)",
+        "reviews/02_critic_review.md should map to 02_critic_review.html",
+    )
+    check(
+        md_link_to_html("[b](bogus/01_speech.md)") == "[b](bogus/01_speech.md)",
+        "bogus/01_speech.md must NOT basename-fallback to 01_speech.html",
+    )
+    check(
+        md_link_to_html("[r](review/02_critic_review.md)") == "[r](review/02_critic_review.md)",
+        "review/ (typo) must NOT basename-fallback to 02_critic_review.html",
+    )
+    check(
+        md_link_to_html("[e](https://example.com/x.md)") == "[e](https://example.com/x.md)",
+        "absolute URLs must be left untouched",
+    )
+    check(
+        md_link_to_html("[f](../20_china-overcapacity/foo.md)")
+        == "[f](../20_china-overcapacity/foo.md)",
+        "cross-repo ../ paths must be left untouched",
+    )
+
+    # --- verify_local_href: no false negatives ---
+    def exists_none(_p):
+        return False
+
+    def exists_only_readme(p):
+        return p == "README.md" or p.endswith("/README.md")
+
+    why = verify_local_href("ghost/01_speech.html", path_exists=exists_none)
+    check(why == "target file missing", f"ghost/01_speech.html must fail, got {why!r}")
+
+    why = verify_local_href("README.md", path_exists=exists_only_readme)
+    check(
+        why == "local .md href residual (must map to generated .html)",
+        f"README.md residual must fail even if file exists, got {why!r}",
+    )
+
+    why = verify_local_href("01_speech", path_exists=exists_none)
+    check(
+        why == "extension-less local href (likely md→html bug)",
+        f"extension-less must fail, got {why!r}",
+    )
+
+    why = verify_local_href("01_speech.html", path_exists=lambda p: p == "01_speech.html")
+    check(why is None, f"valid 01_speech.html must pass, got {why!r}")
+
+    why = verify_local_href("https://example.com/a.html", path_exists=exists_none)
+    check(why is None, "absolute https must pass")
+
+    if errors:
+        print("✗ Self-tests failed:")
+        for e in errors:
+            print(f"  - {e}")
+        raise SystemExit(f"Build failed: {len(errors)} self-test(s) failed")
+
+    print("✓ Self-tests passed (md_link mapping + verify_local_href cases)")
 
 
 def build_docs():
@@ -579,6 +668,7 @@ def clean_orphan_html():
 
 if __name__ == "__main__":
     print("🚀 Starting HTML generation for DeepSeek Research Portal...")
+    run_self_tests()
     build_index()
     build_docs()
     clean_orphan_html()

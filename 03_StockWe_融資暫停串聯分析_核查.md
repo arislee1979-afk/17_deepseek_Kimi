@@ -160,7 +160,7 @@ StockWe 對 **戰略邏輯**（剋制、十個月回本、開源、不做中國�
 
 ## 5. 參考鏈接（核查用）
 
-- Bloomberg：DeepSeek Said to Tell Backers of Funding Pause After Viral Posts（2026-07-25）—**首發、匿名信源**  
+- Bloomberg Law（首發、匿名信源）：[DeepSeek Said to Tell Backers of Funding Pause After Viral Posts](https://news.bloomberglaw.com/antitrust/deepseek-said-to-tell-backers-of-funding-pause-after-viral-posts)（2026-07-25）  
 - Reuters：[DeepSeek tells prospective investors of funding pause, Bloomberg News reports](https://www.reuters.com/world/china/deepseek-tells-prospective-investors-funding-pause-bloomberg-news-reports-2026-07-25/)（2026-07-25）—**轉述 Bloomberg**；文內註明 *Reuters could not immediately verify the report*  
 - Yahoo 財經（港）等：二次轉載，非獨立核實  
 - 本專案：`01_speech.md`、`02_speech_deep_analysis.md`
