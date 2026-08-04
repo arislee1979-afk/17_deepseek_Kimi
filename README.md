@@ -139,7 +139,7 @@
 
 ## Next Action
 
-**在公司側或可獨立核實來源確認後，建立 synthesis/ 正式 Current Synthesis。** 未再指示前不重開角色清單 Review；有新可核驗材料再落短檔。Stage 維持 **Analysis**（有 critic 檔 ≠ Review exit；非正式 Synthesis）。
+**對下一筆公司側或獨立可核實來源完成一次短版 Evidence Gate，並在 README 採納結果。** 未再指示前不重開角色清單 Review；無新來源時不虛構 Review 檔。Stage 維持 **Analysis**（有 critic 檔 ≠ Review exit）。
 
 ## Suggested Reading Order
 
