@@ -47,10 +47,17 @@ Maintenance
 Archived
 ```
 
+語義（與 Hub Issue #2 對齊）：
+
+- **`stage` = 最高已通過的 maturity gate**（不是「本週正在做的工作」）。
+- **`Next Action` = 唯一進行中工作**。
+- 缺正式 Current Synthesis **只**阻擋 `Synthesis`，不自動打回 `Analysis`。
+- 現行：**Review**（已有 critic／evidence 產物與弱環標示；`synthesis/` 未建）。
+
 階段變更時：
 
 1. 更新本專案 `README.md` 的 Knowledge Stage 與 Last Updated。
-2. 若已在 Hub 註冊，同步更新 `30_investment_hub/README.md` 對應列（只改索引字段，不貼全文）。
+2. 若已在 Hub 註冊，同步更新 Hub **`projects.yaml`**（再對齊 README Active 表），只改索引字段，不貼全文。
 
 ## 4. 多模型知識統合
 
@@ -104,9 +111,11 @@ Archived
 5. API key、帳密、個資、未授權付費全文不得進入 repository。
 6. 既有正文覆寫、權限、刪除、外部發布等高風險操作必須檢查 diff 或取得人工確認。
 
-## 8. 強制鏈接輸出格式
+## 8. 輸出格式（capability-aware）
 
-所有 agent 完成文件建立或修改後，最終回覆必須提供以下四行，禁止只給其中一種：
+### 8.1 本機 agent（可存取 vault + shortlink）
+
+最終回覆提供：
 
 ```text
 Path: <本機絕對路徑>
@@ -115,40 +124,24 @@ ChromeOS: [<短檔名>](http://100.115.92.198:8084/s/<code>.md)
 IDE: [<檔名>](file:///本機絕對路徑)
 ```
 
-### 8.1 Path
-
-- 必須是 canonical absolute path。
-- 不得只給相對路徑。
-- 路徑必須指向實際存在的文件。
-
-### 8.2 Tailscale 與 ChromeOS
-
-- 必須使用 Markdown inline link：`[顯示文字](URL)`。
-- 禁止只輸出裸 URL。
-- Tailscale：`http://100.83.106.59:8084/`
-- ChromeOS：`http://100.115.92.198:8084/`
-
-### 8.3 長路徑或中文檔名
-
-先建立 shortlink：
+長路徑或中文檔名先：
 
 ```bash
 /home/arislee1979/bin/shortlink <absolute-file-path> <short-code>
 ```
 
-然後使用：
+### 8.2 GitHub-only／雲端 agent
+
+**禁止偽造** Path／Tailscale／ChromeOS／IDE。改為：
 
 ```text
-Tailscale: [<short-code>](http://100.83.106.59:8084/s/<short-code>.md)
-ChromeOS: [<short-code>](http://100.115.92.198:8084/s/<short-code>.md)
+Remote: https://github.com/arislee1979-afk/17_deepseek_Kimi/blob/<branch>/<path>
+Commit: <sha 或 PR URL>
+Issue: <相關 issue URL，若有>
+Note: 未存取本機 vault；未建立 Tailscale／IDE 連結。
 ```
 
-### 8.4 IDE
-
-- 使用 `file:///` absolute path。
-- 顯示文字使用檔名。
-
-### 8.5 本專案範例
+### 8.3 本專案範例（本機）
 
 ```markdown
 Path: /home/arislee1979/0_project/17_deepseek_Kimi/README.md
@@ -157,7 +150,7 @@ ChromeOS: [17_ds_readme](http://100.115.92.198:8084/s/17_ds_readme.md)
 IDE: [README.md](file:///home/arislee1979/0_project/17_deepseek_Kimi/README.md)
 ```
 
-若同時修改多個重要文件，至少對主要產物提供四行格式；其他文件可另外列出，但仍須提供 Path。
+若同時修改多個重要文件，至少對主要產物提供對應格式。
 
 ## 9. 與 Hub 同步與跨專案引用
 
@@ -175,10 +168,12 @@ IDE: [README.md](file:///home/arislee1979/0_project/17_deepseek_Kimi/README.md)
 |---|---|
 | 專案 | DeepSeek 梁文鋒講話與戰略敘事 |
 | 專案路徑 | `17_deepseek_Kimi` |
-| 知識階段 | 與本 README 一致 |
+| 知識階段 | 與本 README 一致（maturity gate） |
 | 當前 synthesis | 鏈接到本 repo 權威文件；未建立則寫「尚未建立」（**勿**連 `06` 當 synthesis） |
-| 未決問題／下一行動 | 各最多一項，簡短 |
+| 未決問題／下一行動 | 各最多一項，簡短；禁止分號串列 |
 | 最後更新 | YYYY-MM-DD |
+
+先改 Hub `projects.yaml`，再對齊 Hub README Active 表，並跑 Hub validator。
 
 若影響中美×台灣主軸命題，可薄更新 Hub `02` 策略卡（如 S3）上游連結與狀態；禁止把 synthesis 或講話全文貼進 Hub。
 

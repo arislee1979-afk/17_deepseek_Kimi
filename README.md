@@ -6,7 +6,7 @@
 - 狀態：Active Knowledge Project
 - 工作方式：CLI-first、Markdown-first；角色清單式 Review **已暫停**（2026-07-27）
 - Hub 索引：[`30_investment_hub`](https://github.com/arislee1979-afk/30_investment_hub)（本機相對路徑僅在完整 vault 內有效）
-- 最後更新：2026-08-03（[Issue #1](https://github.com/arislee1979-afk/17_deepseek_Kimi/issues/1)、[Issue #2](https://github.com/arislee1979-afk/17_deepseek_Kimi/issues/2)）
+- 最後更新：2026-08-05（Hub Issue #2：Stage=maturity gate → **Review**）
 
 ## Project Identity
 
@@ -14,8 +14,8 @@
 |---|---|
 | Project name | DeepSeek 梁文鋒講話與戰略敘事 |
 | Canonical path | `/home/arislee1979/0_project/17_deepseek_Kimi` |
-| Knowledge Stage | **Analysis**（正式 Synthesis **未建立**；`06` 僅為觀點統合） |
-| Last updated | 2026-08-03 |
+| Knowledge Stage | **Review**（maturity gate：已有 critic／evidence 產物；正式 Synthesis **未建立**；`06` 僅為觀點統合） |
+| Last updated | 2026-08-05 |
 | Current Synthesis | 尚未建立正式 `synthesis/`；`06` **不是** Current Synthesis |
 
 ## Core Question
@@ -139,7 +139,7 @@
 
 ## Next Action
 
-**維持 Analysis；不建立正式 Current Synthesis。** 優先追蹤：(1) 外傳稿可驗證錄音／官方紀要；(2) 二輪融資是否有公司側確認。有新**可核驗**材料再落短檔；未再指示前不重開角色清單 Review。
+**在公司側或可獨立核實來源確認後，建立 synthesis/ 正式 Current Synthesis。** 未再指示前不重開角色清單 Review；有新可核驗材料再落短檔。Stage 維持 **Review**（maturity gate），非正式 Synthesis。
 
 ## Suggested Reading Order
 
@@ -212,7 +212,7 @@ python3 generate_site.py
 |---|---|
 | Hub **可以引用**本庫 | Active 表、`02` 策略卡上游；本機自 Hub：`../17_deepseek_Kimi/…` |
 | Hub **不可**複製長文 | 講話全文、長分析不得 paste 進 `30` |
-| 本庫回寫 Hub | 階段／權威入口／Open Question 變更時，更新 `30_investment_hub/README.md` 對應列 |
+| 本庫回寫 Hub | 階段／權威入口／Open Question 變更時，更新 Hub `projects.yaml` 再對齊 README Active 表 |
 | 正式 synthesis | 仍未建立時，Hub 必須寫「尚未建立」；**不得**把 `06` 升格為 Current Synthesis |
 | 與 13／20 | 需要半導體法說或供給指標時，連到對方權威檔；禁止把對方報告搬進本 repo |
 | 公開遠端連結 | 跨庫用完整 GitHub／Pages URL，避免斷鏈 |
