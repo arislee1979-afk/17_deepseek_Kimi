@@ -197,12 +197,29 @@ python3 generate_site.py
 驗收條件：
 ```
 
-## 與 Hub 的關係
+## 與 Hub／兄弟專案的關係
 
-- 詳細證據與全文只留在本 repo。
-- Hub 只登記：路徑、Knowledge Stage、Current Synthesis 鏈接、一個 Open Question / Next Action、Last Updated。
-- 勿在 Hub 內複製本專案長文。
-- 公開 GitHub 上跨庫連結請用完整 URL，避免 `../30_…` 斷鏈。
+本專案是 **中美×台灣策略軸上的「敘事／算力邏輯層」**；跨層地圖與策略卡在 Hub，不在本庫。
+
+```text
+30_investment_hub  ← 可引用本庫（連結 + 一句摘要）；策略卡 S3 等上游指向此
+17_deepseek_Kimi   ← 本庫（詳細證據與全文只留在此）
+13_semiconductor   ← 實業層（對讀用連結，不 mirror）
+20_china-overcapacity ← 供給層（對讀用連結，不 mirror）
+```
+
+| 規則 | 說明 |
+|---|---|
+| Hub **可以引用**本庫 | Active 表、`02` 策略卡上游；本機自 Hub：`../17_deepseek_Kimi/…` |
+| Hub **不可**複製長文 | 講話全文、長分析不得 paste 進 `30` |
+| 本庫回寫 Hub | 階段／權威入口／Open Question 變更時，更新 `30_investment_hub/README.md` 對應列 |
+| 正式 synthesis | 仍未建立時，Hub 必須寫「尚未建立」；**不得**把 `06` 升格為 Current Synthesis |
+| 與 13／20 | 需要半導體法說或供給指標時，連到對方權威檔；禁止把對方報告搬進本 repo |
+| 公開遠端連結 | 跨庫用完整 GitHub／Pages URL，避免斷鏈 |
+
+**Hub 優先引用入口：** `README.md`（Current Position）· `02_speech_deep_analysis.md` ·（有正式 synthesis 後改連 `synthesis/`）
+
+完整協定：`/home/arislee1979/0_project/30_investment_hub/AGENTS.md` §1.1 · [Hub README](https://github.com/arislee1979-afk/30_investment_hub)
 
 ## 第三方全文與保存政策（摘要）
 

@@ -159,24 +159,34 @@ IDE: [README.md](file:///home/arislee1979/0_project/17_deepseek_Kimi/README.md)
 
 若同時修改多個重要文件，至少對主要產物提供四行格式；其他文件可另外列出，但仍須提供 Path。
 
-## 9. 與 Hub 同步
+## 9. 與 Hub 同步與跨專案引用
 
-當且僅當符合 Hub 更新條件時，編輯：
+### 9.1 關係
 
-`/home/arislee1979/0_project/30_investment_hub/README.md`
+- 本 repo = 敘事／算力邏輯層的**生產者**。
+- `30_investment_hub` = 索引與策略卡；**允許讀取並引用**本庫路徑，禁止複製長文。
+- `13_semiconductor`／`20_china-overcapacity` = 兄弟深挖庫；只連不抄。
 
-的 Active Knowledge Projects 對應列：
+### 9.2 當且僅當符合 Hub 更新條件時
+
+編輯 `/home/arislee1979/0_project/30_investment_hub/README.md` 的 Active 列：
 
 | 字段 | 內容 |
 |---|---|
 | 專案 | DeepSeek 梁文鋒講話與戰略敘事 |
 | 專案路徑 | `17_deepseek_Kimi` |
 | 知識階段 | 與本 README 一致 |
-| 當前 synthesis | 鏈接到本 repo 權威文件；未建立則寫「尚未建立」 |
+| 當前 synthesis | 鏈接到本 repo 權威文件；未建立則寫「尚未建立」（**勿**連 `06` 當 synthesis） |
 | 未決問題／下一行動 | 各最多一項，簡短 |
 | 最後更新 | YYYY-MM-DD |
 
-禁止把 synthesis 全文貼進 Hub。
+若影響中美×台灣主軸命題，可薄更新 Hub `02` 策略卡（如 S3）上游連結與狀態；禁止把 synthesis 或講話全文貼進 Hub。
+
+### 9.3 Hub 如何引用本庫（供對照）
+
+- 本機：`../17_deepseek_Kimi/README.md` 等（自 Hub 目錄出發）
+- 權威入口優先：`README.md` · `02_speech_deep_analysis.md`
+- 證據身分：外傳講話＝Lead；`06`＝觀點統合，非正式 Current Synthesis
 
 ## 10. 完成驗收
 
