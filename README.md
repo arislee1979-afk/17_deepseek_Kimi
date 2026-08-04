@@ -6,7 +6,7 @@
 - 狀態：Active Knowledge Project
 - 工作方式：CLI-first、Markdown-first；角色清單式 Review **已暫停**（2026-07-27）
 - Hub 索引：[`30_investment_hub`](https://github.com/arislee1979-afk/30_investment_hub)（本機相對路徑僅在完整 vault 內有效）
-- 最後更新：2026-08-05（Hub Issue #2：Stage=maturity gate → **Review**）
+- 最後更新：2026-08-05（Hub Issue #2：Stage=maturity gate；Review exit 未過 → **Analysis**）
 
 ## Project Identity
 
@@ -14,7 +14,7 @@
 |---|---|
 | Project name | DeepSeek 梁文鋒講話與戰略敘事 |
 | Canonical path | `/home/arislee1979/0_project/17_deepseek_Kimi` |
-| Knowledge Stage | **Review**（maturity gate：已有 critic／evidence 產物；正式 Synthesis **未建立**；`06` 僅為觀點統合） |
+| Knowledge Stage | **Analysis**（maturity gate：有 critic 檔但**未採納**為 review gate／角色 Review 暫停 → 未過 Review exit；正式 Synthesis **未建立**；`06` 僅觀點統合） |
 | Last updated | 2026-08-05 |
 | Current Synthesis | 尚未建立正式 `synthesis/`；`06` **不是** Current Synthesis |
 
@@ -139,7 +139,7 @@
 
 ## Next Action
 
-**在公司側或可獨立核實來源確認後，建立 synthesis/ 正式 Current Synthesis。** 未再指示前不重開角色清單 Review；有新可核驗材料再落短檔。Stage 維持 **Review**（maturity gate），非正式 Synthesis。
+**在公司側或可獨立核實來源確認後，建立 synthesis/ 正式 Current Synthesis。** 未再指示前不重開角色清單 Review；有新可核驗材料再落短檔。Stage 維持 **Analysis**（有 critic 檔 ≠ Review exit；非正式 Synthesis）。
 
 ## Suggested Reading Order
 

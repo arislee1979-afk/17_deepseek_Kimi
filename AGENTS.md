@@ -51,8 +51,9 @@ Archived
 
 - **`stage` = 最高已通過的 maturity gate**（不是「本週正在做的工作」）。
 - **`Next Action` = 唯一進行中工作**。
-- 缺正式 Current Synthesis **只**阻擋 `Synthesis`，不自動打回 `Analysis`。
-- 現行：**Review**（已有 critic／evidence 產物與弱環標示；`synthesis/` 未建）。
+- Review **entry** ≠ Review **exit**（exit 需弱點整理且結果被 README／正式 gate 採納）。
+- 缺正式 Current Synthesis **只**阻擋 `Synthesis`。
+- 現行：**Analysis**（critic 存在但未採納為 gate；角色清單 Review 暫停）。
 
 階段變更時：
 
