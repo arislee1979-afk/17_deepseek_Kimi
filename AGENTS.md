@@ -4,6 +4,18 @@
 > 本文件是 **知識研究專案** 規則，與 Hub（`30_investment_hub`）規則不同；不要照搬 Hub 的寫入邊界到此 repo。  
 > **語言規範**：本專案所有 Markdown 文件、研究報告、Review、Synthesis 以及 Agent 的所有輸出內容，必須統一使用 **繁體中文**（Traditional Chinese）。
 
+## Investment Research Workspace
+
+本 repo 參與 **Investment Research Workspace**（VS Code multi-root 邏輯分組；**非** monorepo）。
+
+跨庫任務（涉及 13／20／30 或改動會回寫 Hub）開始前，先讀：
+
+- `/home/arislee1979/0_project/30_investment_hub/WORKSPACE.md`
+- `/home/arislee1979/0_project/30_investment_hub/REPOS.md`
+
+本檔（repo-local `AGENTS.md`）對**本庫檔案**仍優先。  
+勿假設 VS Code multi-root 會改變 AGENTS 自動載入；Codex／Grok 從 cwd／project root 搜尋，不會自動讀 sibling 的 `30/WORKSPACE.md`。
+
 ## 1. 專案任務
 
 本 repository 研究：
