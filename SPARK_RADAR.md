@@ -131,6 +131,38 @@ Overlap 不代表重複寫入。
 
 ---
 
+# 4.1 HARD FRESHNESS GATE
+
+每個 candidate 在進入 Evidence Gate 前，必須先通過本節；未通過者直接標記 `STALE — DROP`，不得進入 Candidate Report 的可批准清單，也不得寫入 GitHub。
+
+## Freshness 判定
+
+1. 先記錄本輪：
+   - `RUN_STARTED_AT`（Asia/Taipei）
+   - `WINDOW_START = RUN_STARTED_AT - 8 hours`
+   - `WINDOW_END = RUN_STARTED_AT`
+2. Candidate 必須有來源可驗證的原始發布時間 `PUBLISHED_AT`，並滿足：
+   - `WINDOW_START <= PUBLISHED_AT <= WINDOW_END`
+3. 來源沒有明確發布日期／時間、只有「數小時前」、搜尋結果時間、或無法確認時區者：
+   - Freshness：`UNKNOWN`
+   - Gate：`FAIL`
+4. 「本輪才搜尋到」不等於新事件。Retrieved time、搜尋索引時間、轉載時間都不得替代原始發布時間。
+5. 新文章重述窗口外的舊事件，不得因新網址或新標題重設 freshness。只有文章本身提供可辨識且具 materiality 的新 evidence，才可將「新增 evidence」視為本輪 candidate。
+6. 為核查 origin 可引用窗口外來源，但只能列為 context，不得把它計為本輪新增事件。
+7. 若 Primary source 與 Secondary source 時間不同，以真正承載新增 evidence 的來源時間判定，不得挑較新的轉載時間繞過 gate。
+
+每個 Candidate Report 項目必須輸出：
+
+- `Published at:`
+- `Retrieved at:`
+- `Freshness window:`
+- `Freshness: PASS | FAIL | UNKNOWN`
+- `Freshness reason:`
+
+只有 `Freshness: PASS` 可繼續進入 dedup、evidence 與 materiality gates。
+
+---
+
 # 5. Research Scope
 
 ## A. DeepSeek
@@ -399,6 +431,70 @@ Reuters 轉述 Bloomberg，
 「另一家媒體也報導」
 
 就重新收錄。
+
+---
+
+# 9.1 SEEN-CANDIDATE DEDUP GATE
+
+Freshness PASS 後，必須再做跨 run 去重。去重對象不只包含已寫入 GitHub 的事件，也包含先前排程已輸出、但尚未被 USER YES 批准的 Candidate Report。
+
+## Candidate ID
+
+每個候選事件先產生穩定的 `CANDIDATE_ID`：
+
+`<entity>|<event-type>|<underlying-event-or-claim>|<primary-source-or-origin-domain>|<origin-date>`
+
+正規化規則：
+
+- entity、event type 使用固定名稱
+- 移除標題措辭、追蹤參數、語言差異與媒體轉載差異
+- URL canonicalize：移除 `utm_*`、fragment、無關 query
+- 同一 underlying source chain 只算一個 candidate
+- 不得以新標題、新媒體、新網址或新 run timestamp 產生新 ID
+
+## Seen set
+
+每輪必須建立 `SEEN_CANDIDATES`，至少比對：
+
+1. 本輪較早已找到的 candidates
+2. 可取得的先前 Candidate Reports／排程執行紀錄
+3. `DAILY_RESEARCH.md`
+4. `00_inbox.md`
+5. 相關正式研究文件
+6. 最近 commits
+
+若 `CANDIDATE_ID` 相同，或即使 ID 不同但 underlying event／claim／source chain 相同：
+
+- `Dedup: DUPLICATE`
+- `Gate: FAIL`
+- 不得再次列為等待 USER YES 的 candidate
+- 只在 dropped summary 簡短記錄一次
+
+## Evidence Update 例外
+
+只有出現可明確指出的增量 evidence，才可建立：
+
+`<original-candidate-id>|update|<new-evidence-date>|<new-evidence-type>`
+
+允許的 update 僅限：
+
+- 官方確認或否認
+- 新 Primary 文件
+- 新數字、benchmark、pricing 或政策正式落地
+- source quality 明顯升級
+- 原 Fact 被推翻
+- 對既有 hypothesis 提供實質新支持或反證
+
+「另一家媒體也報導」「同一匿名來源被轉載」「舊聞重新上熱榜」不是 Evidence Update。
+
+每個 Candidate Report 項目必須輸出：
+
+- `Candidate ID:`
+- `Dedup checked against:`
+- `Dedup: NEW | EVIDENCE_UPDATE | DUPLICATE`
+- `Delta from prior candidate:`
+
+只有 `NEW` 或具有具體 delta 的 `EVIDENCE_UPDATE` 可繼續進入 Evidence Gate 與 Materiality Gate。
 
 ---
 
