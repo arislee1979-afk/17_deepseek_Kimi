@@ -8,8 +8,12 @@
 >
 > Automated writable target: `DAILY_RESEARCH.md`
 >
+> Contract version: `2026-08-09.2`
+>
 > 本文件是 Gemini Spark 定時研究工作的執行契約。
 > Spark 可以蒐集、核查、分類與寫入候選 evidence，但不是最終研究裁判。
+>
+> **BLOCKING RULE：任何 Candidate 缺少 `Candidate ID`、精確 `Published at`、Freshness 結果、Dedup 結果或原始來源 URL，整個 Candidate 不得輸出到可批准清單。**
 
 ---
 
@@ -17,14 +21,37 @@
 
 每次排程執行時：
 
-1. 先讀取 GitHub 現有研究狀態。
-2. 再搜尋最新外部資訊。
-3. 找出相對於 repository 現況真正新增的 evidence。
-4. 做來源分級、事實狀態與 materiality 判斷。
-5. 去除重複事件。
-6. 只有存在 Material Change 時才更新 `DAILY_RESEARCH.md`。
-7. 寫入後必須重新讀取並驗證 commit。
-8. 沒有 Material Change 時不得修改 repository，不得建立空 commit。
+1. 先透過 GitHub MCP 讀取本檔，確認存在 `Contract version: 2026-08-09.2`；讀不到或版本不符時立即停止，輸出 `CONFIG READ FAILURE`。
+2. 記錄 `RUN_STARTED_AT`（Asia/Taipei）與 30 小時 Freshness Window。
+3. 讀取 GitHub 現有研究狀態與 Seen set。
+4. 再搜尋最新外部資訊。
+5. 找出相對於 repository 現況真正新增的 evidence。
+6. 依順序執行 Freshness → Candidate ID → Dedup → Source → Evidence → Materiality Gates。
+7. 任一 Gate 失敗就 DROP；不得出現在 `WAITING FOR USER APPROVAL` 清單。
+8. 只有存在全部 Gates PASS 的 Material Change 時才更新 `DAILY_RESEARCH.md`。
+9. 寫入後必須重新讀取並驗證 commit。
+10. 沒有 Material Change 時不得修改 repository，不得建立空 commit。
+
+## 0.1 Fail-closed output validator
+
+輸出前逐一檢查每個 candidate。下列欄位缺一即 `VALIDATION FAIL — DROP`：
+
+- `Candidate ID:`
+- `Published at:`（完整日期、時間、時區）
+- `Retrieved at:`（完整日期、時間、時區）
+- `Freshness window:`
+- `Freshness: PASS`
+- `Dedup checked against:`
+- `Dedup: NEW` 或有具體 delta 的 `EVIDENCE_UPDATE`
+- `Delta from prior candidate:`
+- 與 Source 名稱相符的直接原始 URL
+- `Source Tier:`
+- `Evidence status:`
+- `Existing repo relationship:`
+
+禁止先生成 Candidate Report，再在結尾口頭宣稱已通過 Gate。Gate 必須先算完，只有 PASS 項目才能進 Candidate Report。
+
+若沒有任何完整通過者，只能輸出 `Scheduled Research: NO MATERIAL CHANGE`，並可在 `Dropped summary` 簡列被淘汰事件與理由；不得輸出 `WAITING FOR USER APPROVAL`。
 
 核心原則：
 
@@ -110,13 +137,13 @@ Branch:
 
 標準搜尋窗口：
 
-**最近約 8 小時**
+**最近 30 小時**
 
 理由：
 
-排程約每 6 小時執行一次。
+排程每日 14:30（Asia/Taipei）執行一次。
 
-使用約 8 小時窗口提供 overlap，避免：
+使用 30 小時窗口提供約 6 小時 overlap，避免：
 
 - 排程延遲
 - 新聞發布時間差
@@ -139,7 +166,7 @@ Overlap 不代表重複寫入。
 
 1. 先記錄本輪：
    - `RUN_STARTED_AT`（Asia/Taipei）
-   - `WINDOW_START = RUN_STARTED_AT - 8 hours`
+   - `WINDOW_START = RUN_STARTED_AT - 30 hours`
    - `WINDOW_END = RUN_STARTED_AT`
 2. Candidate 必須有來源可驗證的原始發布時間 `PUBLISHED_AT`，並滿足：
    - `WINDOW_START <= PUBLISHED_AT <= WINDOW_END`
@@ -153,8 +180,8 @@ Overlap 不代表重複寫入。
 
 每個 Candidate Report 項目必須輸出：
 
-- `Published at:`
-- `Retrieved at:`
+- `Published at:`（必須是 `YYYY-MM-DD HH:mm TZ`；只有日期視為 `UNKNOWN`）
+- `Retrieved at:`（必須是 `YYYY-MM-DD HH:mm TZ`）
 - `Freshness window:`
 - `Freshness: PASS | FAIL | UNKNOWN`
 - `Freshness reason:`
@@ -454,6 +481,13 @@ Freshness PASS 後，必須再做跨 run 去重。去重對象不只包含已寫
 
 ## Seen set
 
+### Bootstrap seen candidates（不得再次列為 NEW）
+
+- `bytedance|frontier-model-training|10tn-parameter-model-mythos-comparison|ft.com|2026-08-07`
+- `apple|qwen-integration|mac-china-siri-writing-tools|reuters.com|2026-08-08`
+
+上述兩項及其任何轉載、改標題、改語言或換網址版本均為 `DUPLICATE`。只有出現本節允許的 Evidence Update 才可重新進入。
+
 每輪必須建立 `SEEN_CANDIDATES`，至少比對：
 
 1. 本輪較早已找到的 candidates
@@ -462,6 +496,8 @@ Freshness PASS 後，必須再做跨 run 去重。去重對象不只包含已寫
 4. `00_inbox.md`
 5. 相關正式研究文件
 6. 最近 commits
+
+若平台無法讀取先前 Candidate Reports／排程紀錄，必須至少比對本檔 Bootstrap seen candidates 與 GitHub canonical files，不得假裝已完成跨 run 比對。
 
 若 `CANDIDATE_ID` 相同，或即使 ID 不同但 underlying event／claim／source chain 相同：
 
@@ -739,6 +775,12 @@ YES / NO
 
 優先保存 Primary URL，而不是搜尋結果 URL。
 
+`Source` 名稱與 URL domain 必須一致：
+
+- 標示 Financial Times，URL 必須直接指向 `ft.com` 原始報導。
+- 標示 Reuters，URL 必須直接指向 `reuters.com` 原始報導。
+- TNW、Bilyonaryo 或其他轉載／聚合頁不得繼承 FT／Reuters 的 Tier S；若只能取得轉載頁，須以該網站實際名稱標示並降級為 Tier L，且不得藉轉載時間通過 Freshness。
+
 禁止只保存：
 
 - Google Search result
@@ -796,7 +838,7 @@ YES / NO
 
 一般情報更新：
 
-`intel: 6h DeepSeek/Kimi radar YYYY-MM-DD HH:mm`
+`intel: daily DeepSeek/Kimi radar YYYY-MM-DD HH:mm`
 
 重大 P0：
 
