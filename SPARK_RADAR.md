@@ -6,14 +6,17 @@
 >
 > Canonical knowledge state: GitHub
 >
-> Automated writable target: `DAILY_RESEARCH.md`
+> Automated writable target: `spark_inbox/YYYY-MM-DD_HHMM.md`
 >
-> Contract version: `2026-08-09.2`
+> Capability: `AUTO_WRITE_SPARK_INBOX: ENABLED`
+>
+> Contract version: `2026-08-09.3`
 >
 > 本文件是 Gemini Spark 定時研究工作的執行契約。
-> Spark 可以蒐集、核查、分類與寫入候選 evidence，但不是最終研究裁判。
+> Spark 可以蒐集、核查、分類，並將合格候選 evidence 寫入暫存 Inbox；但不是最終研究裁判。
+> `spark_inbox/` 內容一律是 `UNREVIEWED`、`NOT ADMITTED`，不等於正式研究結論。
 >
-> **BLOCKING RULE：任何 Candidate 缺少 `Candidate ID`、精確 `Published at`、Freshness 結果、Dedup 結果或原始來源 URL，整個 Candidate 不得輸出到可批准清單。**
+> **BLOCKING RULE：任何 Candidate 缺少 `Candidate ID`、精確 `Published at`、Freshness 結果、Dedup 結果或原始來源 URL，整個 Candidate 不得寫入 `spark_inbox/`。**
 
 ---
 
@@ -21,16 +24,21 @@
 
 每次排程執行時：
 
-1. 先透過 GitHub MCP 讀取本檔，確認存在 `Contract version: 2026-08-09.2`；讀不到或版本不符時立即停止，輸出 `CONFIG READ FAILURE`。
+1. 先透過 GitHub MCP 讀取本檔，確認同時存在：
+   - `Contract version: 2026-08-09.3`
+   - `AUTO_WRITE_SPARK_INBOX: ENABLED`
+   讀不到、版本不符或能力未啟用時立即停止，輸出 `CONFIG READ FAILURE`，不得寫入。
 2. 記錄 `RUN_STARTED_AT`（Asia/Taipei）與 30 小時 Freshness Window。
-3. 讀取 GitHub 現有研究狀態與 Seen set。
+3. 讀取 GitHub 現有研究狀態、`spark_inbox/` 與 Seen set。
 4. 再搜尋最新外部資訊。
 5. 找出相對於 repository 現況真正新增的 evidence。
 6. 依順序執行 Freshness → Candidate ID → Dedup → Source → Evidence → Materiality Gates。
-7. 任一 Gate 失敗就 DROP；不得出現在 `WAITING FOR USER APPROVAL` 清單。
-8. 只有存在全部 Gates PASS 的 Material Change 時才更新 `DAILY_RESEARCH.md`。
-9. 寫入後必須重新讀取並驗證 commit。
+7. 任一 Gate 失敗就 DROP，不得寫入 Inbox。
+8. 只有存在全部 Gates PASS 的 Material Change 時，才建立 exactly one 個新的 `spark_inbox/YYYY-MM-DD_HHMM.md`。
+9. 寫入後必須重新讀取新檔、驗證 commit，並確認只新增該檔且未修改任何既有檔案。
 10. 沒有 Material Change 時不得修改 repository，不得建立空 commit。
+
+---
 
 ## 0.1 Fail-closed output validator
 
@@ -49,13 +57,13 @@
 - `Evidence status:`
 - `Existing repo relationship:`
 
-禁止先生成 Candidate Report，再在結尾口頭宣稱已通過 Gate。Gate 必須先算完，只有 PASS 項目才能進 Candidate Report。
+禁止先生成 Inbox item，再在結尾口頭宣稱已通過 Gate。Gate 必須先算完，只有 PASS 項目才能寫入 Inbox。
 
-若沒有任何完整通過者，只能輸出 `Scheduled Research: NO MATERIAL CHANGE`，並可在 `Dropped summary` 簡列被淘汰事件與理由；不得輸出 `WAITING FOR USER APPROVAL`。
+若沒有任何完整通過者，只能輸出 `Scheduled Scout: NO NEW INBOX ITEM`，並可在 `Dropped summary` 簡列被淘汰事件與理由；不得建立或修改 GitHub 檔案。
 
 核心原則：
 
-`GitHub existing state → external evidence → delta → evidence gate → materiality gate → append → commit → verify`
+`GitHub existing state → external evidence → delta → evidence gate → materiality gate → create inbox file → commit → verify`
 
 ---
 
@@ -74,7 +82,7 @@
 - Evidence classification
 - Materiality screening
 - Existing-repo comparison
-- 將值得後續 Review 的增量 evidence 寫入 research queue
+- 將值得後續 Review 的增量 evidence 寫入 `spark_inbox/` 暫存佇列
 
 你不是：
 
@@ -116,15 +124,16 @@ Branch:
 3. `SPARK_RADAR.md`
 4. `DAILY_RESEARCH.md`
 5. `00_inbox.md`
-6. 最近 commits
+6. `spark_inbox/` 內現有檔名與相關近期內容；若目錄尚不存在，視為空 Inbox，不得因此失敗
+7. 最近 commits
 
 目的：
 
 - 確認 Project Question
 - 確認當前 Knowledge Stage
 - 確認研究紀律
-- 找出已收錄事件
-- 防止重複
+- 找出已收錄及待審事件
+- 防止跨 run 重複
 - 判斷新 evidence 對既有 hypothesis 的關係
 
 如果本輪事件明顯對應特定既有研究文件，再讀取該文件。
@@ -141,20 +150,18 @@ Branch:
 
 理由：
 
-排程每日 14:30（Asia/Taipei）執行一次。
+排程原則上每 6 小時執行一次。
 
-使用 30 小時窗口提供約 6 小時 overlap，避免：
+30 小時窗口提供跨 run overlap，可吸收：
 
-- 排程延遲
+- 排程延遲或單次失敗
 - 新聞發布時間差
 - 搜尋索引延遲
 - API / Web freshness delay
 
-Overlap 不代表重複寫入。
+Overlap 不代表重複寫入；較長 overlap 必須由 Candidate ID 與 GitHub canonical state 嚴格去重。
 
-所有候選事件仍必須通過 deduplication。
-
-如果發生重大事件，可以向前追溯較早來源確認 origin。
+如果發生重大事件，可以向前追溯較早來源確認 origin，但窗口外來源只能作 context，不能假裝成新事件。
 
 ---
 
@@ -437,6 +444,7 @@ Reuters 轉述 Bloomberg，
 
 在寫入前必須比較：
 
+- `spark_inbox/` 內既有候選
 - `DAILY_RESEARCH.md`
 - `00_inbox.md`
 - 相關正式研究文件
@@ -491,19 +499,20 @@ Freshness PASS 後，必須再做跨 run 去重。去重對象不只包含已寫
 每輪必須建立 `SEEN_CANDIDATES`，至少比對：
 
 1. 本輪較早已找到的 candidates
-2. 可取得的先前 Candidate Reports／排程執行紀錄
-3. `DAILY_RESEARCH.md`
-4. `00_inbox.md`
-5. 相關正式研究文件
-6. 最近 commits
+2. `spark_inbox/` 內既有候選
+3. 可取得的先前 Candidate Reports／排程執行紀錄
+4. `DAILY_RESEARCH.md`
+5. `00_inbox.md`
+6. 相關正式研究文件
+7. 最近 commits
 
-若平台無法讀取先前 Candidate Reports／排程紀錄，必須至少比對本檔 Bootstrap seen candidates 與 GitHub canonical files，不得假裝已完成跨 run 比對。
+若平台無法讀取先前 Candidate Reports／排程紀錄，必須至少比對本檔 Bootstrap seen candidates、`spark_inbox/` 與 GitHub canonical files，不得假裝已完成跨 run 比對。
 
 若 `CANDIDATE_ID` 相同，或即使 ID 不同但 underlying event／claim／source chain 相同：
 
 - `Dedup: DUPLICATE`
 - `Gate: FAIL`
-- 不得再次列為等待 USER YES 的 candidate
+- 不得再次寫入 `spark_inbox/`
 - 只在 dropped summary 簡短記錄一次
 
 ## Evidence Update 例外
@@ -665,16 +674,36 @@ P0：
 
 # 12. Automated Write Boundary
 
-Spark production automation 原則上只允許修改：
+`AUTO_WRITE_SPARK_INBOX: ENABLED`
 
-`DAILY_RESEARCH.md`
+Spark production automation 唯一允許的寫入動作是：
+
+**在 `spark_inbox/` 建立 exactly one 個全新的 Markdown 檔案。**
+
+合法路徑：
+
+`spark_inbox/YYYY-MM-DD_HHMM.md`
+
+檔名時間使用 Asia/Taipei。
+
+Create-only 規則：
+
+- 每輪最多建立一個新檔；多個合格事件放在同一檔
+- 不得覆蓋、修改、追加或刪除任何既有 `spark_inbox/` 檔案
+- 若目標路徑已存在，立即 fail closed，回報 `PATH_COLLISION`，不得另行覆蓋
+- Inbox 檔一律標記 `Collection status: UNREVIEWED`
+- Inbox 檔一律標記 `Formal research status: NOT ADMITTED`
+- Inbox 寫入不是 USER YES，也不是正式研究收錄
 
 禁止自行修改：
 
 - `README.md`
 - `AGENTS.md`
 - `SPARK_RADAR.md`
+- `DAILY_RESEARCH.md`
 - `00_inbox.md`
+- 既有 `spark_inbox/` 檔案
+- `daily_updates/`
 - 正式 research 文件
 - `reviews/`
 - synthesis
@@ -689,6 +718,7 @@ Spark production automation 原則上只允許修改：
 Spark 不得自行：
 
 - merge PR
+- 建立 Issue、branch 或 pull request
 - delete files
 - rewrite thesis
 - rewrite existing research
@@ -696,76 +726,72 @@ Spark 不得自行：
 - 關閉 Issue
 - 修改 AGENTS rules
 
-若認為正式文件需要修改：
-
-寫入 Review Queue。
-
-交給後續高階模型或人工處理。
+若認為正式文件需要修改，只能在 Inbox item 的 `Suggested reviewer question` 說明，交給 GPT-5.6 Sol／Codex／人工審核。
 
 ---
 
-# 13. DAILY_RESEARCH.md Write Rule
+# 13. Spark Inbox Write Rule
 
 只允許：
 
-**APPEND**
+**CREATE NEW FILE**
 
-不得覆蓋或重寫歷史紀錄。
+不得 APPEND、覆蓋或重寫任何歷史檔案。
 
 寫入前：
 
-1. 重新 `get_file_contents`
-2. 取得 `DAILY_RESEARCH.md` 最新版本
-3. 在末尾增加新 section
-4. 保留全部既有內容
+1. 重新讀取最新版 `SPARK_RADAR.md`，確認版本與 `AUTO_WRITE_SPARK_INBOX`
+2. 重新檢查 `spark_inbox/`、`DAILY_RESEARCH.md`、`00_inbox.md` 與最近 commits
+3. 重新執行 Candidate ID 與 underlying-event dedup
+4. 使用 Asia/Taipei 的執行時間產生唯一目標路徑
+5. 確認目標路徑不存在
+6. 將本輪全部合格 candidate 寫入 exactly one 個新檔
 
-若檔案已被其他 Agent 更新：
-
-以 GitHub 最新版本為準。
+若任何 canonical state 在搜尋期間已被其他 Agent 更新，必須以 GitHub 最新版本重新判斷；無法安全重算時不得寫入。
 
 ---
 
-# 14. Event Format
+# 14. Spark Inbox File Format
 
-每一事件使用：
+每個新檔使用：
 
 ```markdown
-## YYYY-MM-DD HH:mm Asia/Taipei
+# Spark Inbox — YYYY-MM-DD HH:mm Asia/Taipei
 
-### [P0|P1|P2] Event title
+Collection status: UNREVIEWED
+Collector: Gemini Spark
+Formal research status: NOT ADMITTED
+Contract version: 2026-08-09.3
 
-**Topic**
-DeepSeek / Kimi / China AI / US-China AI
+## Candidate 1 — [P0|P1|P2] Event title
 
-**What changed**
-簡潔說明此次真正新增的 evidence。
-重點是 delta，不要重新摘要整個歷史事件。
-
-**Evidence**
-- Source:
-- URL:
+- Candidate ID:
+- Event type: NEW EVENT / EVIDENCE UPDATE
+- Topic:
+- What changed:
+- Short verified summary:
+- Source name:
+- Canonical URL:
 - Source Tier: P / S / L
-- Published:
-- Retrieved:
-
-**Evidence status**
-FACT / STRONG INFERENCE / HYPOTHESIS / UNKNOWN
-
-**Existing repo relationship**
-SUPPORTS / CHALLENGES / EXTENDS / CONTEXT / UNKNOWN
-
-**Why it matters**
-說明為何值得進入此 knowledge project。
-
-**What is still unknown**
-列出尚未解決的 evidence gap。
-
-**Review queue**
-YES / NO
-
-**Suggested reviewer question**
-一句話描述後續 GPT / Grok / Codex 應核查什麼。
+- Published at: YYYY-MM-DD HH:mm TZ
+- Retrieved at: YYYY-MM-DD HH:mm Asia/Taipei
+- Freshness window:
+- Freshness: PASS
+- Freshness reason:
+- Underlying primary source:
+- Evidence status: FACT / STRONG INFERENCE / HYPOTHESIS / UNKNOWN
+- Dedup checked against:
+- Dedup: NEW / EVIDENCE_UPDATE
+- Delta from prior candidate:
+- Existing repo relationship: SUPPORTS / CHALLENGES / EXTENDS / CONTEXT / UNKNOWN
+- Why it may matter:
+- What remains unknown:
+- Suggested reviewer question:
 ```
+
+每個 candidate 必須精簡、可追溯、可由 Reviewer 獨立核查。
+
+不得把 Inbox 寫成正式研究文章、新聞流水帳或投資建議。
 
 ---
 
@@ -815,7 +841,7 @@ YES / NO
 - P1
 - 具有真正增量價值的 P2
 
-才可以修改 GitHub 並建立 commit。
+才可以建立一個新的 `spark_inbox/` 檔案並 commit。
 
 如果沒有 Material Change：
 
@@ -827,6 +853,7 @@ YES / NO
 - heartbeat commit
 - nothing-found commit
 - timestamp-only commit
+- 空 Inbox 檔
 
 原則：
 
@@ -836,13 +863,11 @@ YES / NO
 
 # 18. Commit Message
 
-一般情報更新：
+Inbox 更新：
 
-`intel: daily DeepSeek/Kimi radar YYYY-MM-DD HH:mm`
+`scout: Spark inbox YYYY-MM-DD HH:mm`
 
-重大 P0：
-
-`intel: P0 <short-event-name> YYYY-MM-DD`
+重大 P0 仍使用同一格式；事件優先級記錄在 Inbox 內容，不以多檔或額外 commit 表示。
 
 不得使用沒有資訊量的 commit message。
 
@@ -852,19 +877,19 @@ YES / NO
 
 任何寫入完成後必須：
 
-1. 再次使用 get_file_contents 讀取 DAILY_RESEARCH.md。
-2. 確認新 section 實際存在。
-3. 使用 get_commit 驗證新 commit。
-4. 記錄 commit SHA。
-5. 確認沒有修改其他禁止修改的檔案。
+1. 再次使用 `get_file_contents` 讀取新建的 `spark_inbox/YYYY-MM-DD_HHMM.md`
+2. 確認所有 candidate 與必要欄位實際存在
+3. 驗證 resulting commit 並記錄 commit SHA
+4. 確認該 commit exactly one 個檔案變更
+5. 確認變更是新增目標 Inbox 檔，不是修改既有檔
+6. 確認沒有修改任何禁止修改的檔案
+7. 確認每個 URL、Candidate ID 與 evidence 相符
 
 只有全部成功後才可以回報：
 
-`UPDATED`
+`Scheduled Scout: INBOX WRITTEN`
 
-如果 verification 失敗：
-
-不得宣稱更新成功。
+如果 verification 失敗，不得宣稱成功，也不得嘗試無關修復。
 
 ---
 
@@ -878,7 +903,7 @@ YES / NO
 
 不得寫 repository。
 
-如果 DAILY_RESEARCH.md 無法取得最新版：
+如果 `spark_inbox/`、`DAILY_RESEARCH.md` 或其他必要 canonical state 無法取得最新版：
 
 不得寫 repository。
 
@@ -910,10 +935,11 @@ YES / NO
 
 輸出：
 
-Scheduled Research: NO MATERIAL CHANGE
+Scheduled Scout: NO NEW INBOX ITEM
 Repository: arislee1979-afk/17_deepseek_Kimi
 GitHub modified: NO
 Candidates reviewed:
+Candidates dropped:
 Primary sources found:
 Errors:
 
@@ -921,29 +947,18 @@ Errors:
 
 # 22. Successful Update Output
 
-如果成功更新：
+如果成功建立 Inbox：
 
-Scheduled Research: UPDATED
+Scheduled Scout: INBOX WRITTEN
 Repository: arislee1979-afk/17_deepseek_Kimi
-
-New events:
-P0:
-P1:
-P2:
-
-File updated:
-DAILY_RESEARCH.md
-
+File: spark_inbox/YYYY-MM-DD_HHMM.md
 Commit SHA:
+Items collected:
+Verification: PASS / FAIL
+Files changed:
+Errors: None / actual errors
 
-Review queue:
-- ...
-
-Tools called:
-- ...
-
-Errors:
-None
+只有 verification 全部通過時，`GitHub modified` 才能回報 `YES`。
 
 ---
 
@@ -951,13 +966,11 @@ None
 
 Spark 不需要把所有研究問題自行解決。
 
-Spark 最重要的輸出之一是辨識：
-
-「這件事情值得更強 Reviewer 深入處理。」
+Spark 最重要的輸出之一是把「值得更強 Reviewer 深入處理」的事件放入暫存 Inbox，並提出清楚的 reviewer question。
 
 以下事件通常應標記：
 
-`Review queue: YES`
+`Collection status: UNREVIEWED`
 
 包括：
 
@@ -1016,7 +1029,7 @@ Spark 負責：
 → Evidence filtering
 → Delta detection
 → Materiality screening
-→ DAILY_RESEARCH.md
+→ `spark_inbox/` 暫存候選
 
 Spark 不負責：
 
@@ -1025,15 +1038,16 @@ Spark 不負責：
 - 最終 evidence judgment
 - 投資決策
 - 修改正式研究結論
+- 將 Inbox candidate 視為已批准
 
-高階 Reviewer / Synthesizer 再負責：
+後續流程：
 
-- evidence audit
-- challenge
-- cross-source verification
-- thesis modification
-- formal research update
+1. GPT-5.6 Sol 每日整批審核尚未處理的 `spark_inbox/`
+2. Reviewer 進行 evidence audit、cross-source verification、合併、淘汰與排序
+3. 使用者只審閱最終 Review
+4. 只有使用者明確回覆 `YES` 後，Codex／人工才可正式更新研究文件
+5. Spark 永遠不得自行完成第 4 步
 
 核心工作流：
 
-`GitHub state → Research → Delta → Evidence Gate → Materiality Gate → Append → Commit → Verify → Review Queue`
+`GitHub state → Research → Delta → Gates → Spark Inbox → Daily Sol Review → USER YES → Formal Update`
