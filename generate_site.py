@@ -40,15 +40,6 @@ DOCS = [
         "desc": "Bloomberg 單一匿名信源鏈；Reuters 轉載未獨立核實；StockWe 故事層分離。"
     },
     {
-        "file": "04_viewpoint_克制對準與算力底褲.md",
-        "html": "04_viewpoint_克制對準與算力底褲.html",
-        "title": "04_viewpoint · 克制對準與算力底褲",
-        "short_title": "04_ 觀點：克制對準與算力",
-        "tag": "VIEWPOINT",
-        "tag_class": "badge-analysis",
-        "desc": "克制對準向量與算力硬約束；Eden「受限芯片」句已降為待查線索。"
-    },
-    {
         "file": "05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md",
         "html": "05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.html",
         "title": "05_NVIDIA_SK · 美國隊聯盟與分層相位",
@@ -65,24 +56,6 @@ DOCS = [
         "tag": "SOURCE CAPTURE",
         "tag_class": "badge-live",
         "desc": "官方 URL、平行事件分列、單一 PTT 串樣本；Grok 對話不作為 fact source。"
-    },
-    {
-        "file": "06_中美對立敘事_梁有意無意與兩隊結構.md",
-        "html": "06_中美對立敘事_梁有意無意與兩隊結構.html",
-        "title": "06 · 中美對立敘事與兩隊結構",
-        "short_title": "06_ 兩隊觀點統合",
-        "tag": "HYPOTHESIS（非 Synthesis）",
-        "tag_class": "badge-analysis",
-        "desc": "觀點統合：已知事實／歸因主張／工作假說三欄；非正式 Current Synthesis。"
-    },
-    {
-        "file": "reviews/02_critic_review.md",
-        "html": "02_critic_review.html",
-        "title": "02_critic_review · Critic 批判與審查",
-        "short_title": "02_ Critic 批判審查",
-        "tag": "CRITIC（非必讀）",
-        "tag_class": "badge-live",
-        "desc": "針對深度拆解的 Critic 審查；格式已暫停，非必讀。"
     },
     {
         "file": "00_inbox.md",
@@ -391,10 +364,9 @@ def md_link_to_html(raw_text: str) -> str:
 
     Rules:
     - Only exact normalized paths in DOCS map (e.g. ``01_speech.md``,
-      ``reviews/02_critic_review.md``).
-    - **No basename fallback**: ``bogus/01_speech.md`` and
-      ``review/02_critic_review.md`` (typo dir) stay unchanged so the verifier
-      can fail the build.
+      ``05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md``).
+    - **No basename fallback**: ``bogus/01_speech.md`` and typo dirs stay
+      unchanged so the verifier can fail the build.
     - Cross-repo (``../…``) and absolute URLs are left untouched.
     """
     by_path = _docs_path_to_html()
@@ -500,16 +472,18 @@ def run_self_tests():
         "01_speech.md should map to 01_speech.html",
     )
     check(
-        md_link_to_html("[c](reviews/02_critic_review.md)") == "[c](02_critic_review.html)",
-        "reviews/02_critic_review.md should map to 02_critic_review.html",
+        md_link_to_html("[c](05_1_source_NVIDIA_SK_對話輿情轉寫.md)")
+        == "[c](05_1_source_NVIDIA_SK_對話輿情轉寫.html)",
+        "05_1_source_*.md should map to matching .html",
     )
     check(
         md_link_to_html("[b](bogus/01_speech.md)") == "[b](bogus/01_speech.md)",
         "bogus/01_speech.md must NOT basename-fallback to 01_speech.html",
     )
     check(
-        md_link_to_html("[r](review/02_critic_review.md)") == "[r](review/02_critic_review.md)",
-        "review/ (typo) must NOT basename-fallback to 02_critic_review.html",
+        md_link_to_html("[r](reviews/02_critic_review.md)")
+        == "[r](reviews/02_critic_review.md)",
+        "deleted/typo paths must NOT basename-fallback to a known page",
     )
     check(
         md_link_to_html("[e](https://example.com/x.md)") == "[e](https://example.com/x.md)",

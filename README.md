@@ -6,7 +6,7 @@
 - 狀態：Active Knowledge Project
 - 工作方式：CLI-first、Markdown-first；角色清單式 Review **已暫停**（2026-07-27）
 - Hub 索引：[`30_investment_hub`](https://github.com/arislee1979-afk/30_investment_hub)（本機相對路徑僅在完整 vault 內有效）
-- 最後更新：2026-08-05（Hub Issue #2：Stage=maturity gate；Review exit 未過 → **Analysis**）
+- 最後更新：2026-08-10（完整故事線＋刪重複檔精簡；Stage 仍 **Analysis**）
 
 ## Project Identity
 
@@ -14,9 +14,9 @@
 |---|---|
 | Project name | DeepSeek 梁文鋒講話與戰略敘事 |
 | Canonical path | `/home/arislee1979/0_project/17_deepseek_Kimi` |
-| Knowledge Stage | **Analysis**（maturity gate：有 critic 檔但**未採納**為 review gate／角色 Review 暫停 → 未過 Review exit；正式 Synthesis **未建立**；`06` 僅觀點統合） |
-| Last updated | 2026-08-05 |
-| Current Synthesis | 尚未建立正式 `synthesis/`；`06` **不是** Current Synthesis |
+| Knowledge Stage | **Analysis**（角色 Review 暫停；正式 Synthesis **未建立**） |
+| Last updated | 2026-08-10 |
+| Current Synthesis | 尚未建立正式 `synthesis/` |
 
 ## Core Question
 
@@ -55,29 +55,25 @@
 
 ## Current Position（短摘要）
 
-1. Writer 將講話壓縮為 **Maximize P(AGI) s.t. 合理利潤與團隊**——**好用的詮釋標籤**，Critic 判定為有條件成立，非已證目標函數。  
-2. 「十個月回本」是講者自述的 **設備回收（payback）口徑**；「六倍利潤」是口頭換算，**≠ 已證淨利倍數／單位經濟已驗證**。  
-3. Critic 最弱三環仍在：**(a)** 轉寫當準官方 **(b)** 單一目標函數 **(c)** 開源⟂收入依賴脆弱假設鏈。  
-4. 2026-07-25 **Bloomberg 單一匿名信源** 線：二輪融資口頭暫停、部分與外傳有關；**Reuters 轉載且未能獨立核實**——不是多方獨立佐證。  
-5. TileLang／CUDA／「不用 NVIDIA 生態」等僅能 **歸因於外傳**；官方 repo 仍見高效 CUDA 路徑。  
-6. **正式 Current Synthesis 仍未建立**；`06` 是觀點統合與工作假說，**不得**升格為 synthesis。  
-7. 2026-08-03 已按 Issue #1／#2 修正證據升級鏈、HTML 內文連結、首頁硬編碼與第三方全文縮減。
+1. 講話可壓縮為 **Maximize P(AGI) s.t. 合理利潤與團隊**——**詮釋標籤**，有條件成立，非已證目標函數。  
+2. 「十個月回本」是講者自述的 **設備回收（payback）口徑**；「六倍利潤」是口頭換算，**≠ 已證淨利**。  
+3. 最弱三環仍在：**(a)** 轉寫當準官方 **(b)** 單一目標函數 **(c)** 開源⟂收入依賴脆弱。  
+4. 2026-07-25 **Bloomberg 單一匿名信源**：二輪融資口頭暫停、部分與外傳有關；**Reuters 轉載且未能獨立核實**。  
+5. TileLang／CUDA 等僅能 **歸因於外傳**；官方 repo 仍見高效 CUDA 路徑。  
+6. **正式 Current Synthesis 仍未建立**。  
+7. 2026-08-10：`02` **§0.1** 完整故事線（講話 B ＋ 正確君等 C）；§G 併入原 `04` 要點。  
+8. 同日精簡：刪 **`04`／`06`／critic／MCP 測試檔** 及其 HTML；主線維持 **`01`–`03` + `05`／`05_1`**。
 
 ## Current Synthesis
 
 - **正式 Current Synthesis**：尚未建立（目標路徑：`synthesis/04_current_synthesis.md`）。
-- **`06` 的定位**：**觀點統合／工作假說**（Known / Attributed / Inference 三欄），**不是** Current Synthesis。
 - **現階段主讀（Analysis）**：
   - [01_speech.md](01_speech.md) — 外傳轉寫（先讀來源鏈）
-  - [02_speech_deep_analysis.md](02_speech_deep_analysis.md) — 講話心智模型拆解
-  - [03_StockWe_融資暫停串聯分析_核查.md](03_StockWe_融資暫停串聯分析_核查.md) — 事件核查
-  - [04_viewpoint_克制對準與算力底褲.md](04_viewpoint_克制對準與算力底褲.md) — 觀點筆記
-  - [05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md](05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md) — NVIDIA–SK 詮釋
-  - [05_1_source_NVIDIA_SK_對話輿情轉寫.md](05_1_source_NVIDIA_SK_對話輿情轉寫.md) — 官方鏈＋有界輿情
-  - [06_中美對立敘事_梁有意無意與兩隊結構.md](06_中美對立敘事_梁有意無意與兩隊結構.md) — 觀點統合（非 synthesis）
-  - [reviews/02_critic_review.md](reviews/02_critic_review.md) — **非必讀**（格式已暫停，價值評為低）
+  - [02_speech_deep_analysis.md](02_speech_deep_analysis.md) — 心智模型＋**§0.1 完整故事**（B／C 分層）
+  - [03_StockWe_融資暫停串聯分析_核查.md](03_StockWe_融資暫停串聯分析_核查.md) — 融資新聞邊界
+  - [05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md](05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md) + [05_1](05_1_source_NVIDIA_SK_對話輿情轉寫.md) — 友岸事件
 
-未再指示前：不寫 `reviews/03_*`、不硬跑角色審查輪。
+未再指示前：不寫角色清單 Review、不虛構 synthesis。
 
 ## Evidence Base（現有材料）
 
@@ -86,15 +82,15 @@
 | ID | 證據／來源 | Source type | Document role | Independence | Claim status（整體） | 支持或反對什麼 | 日期 |
 |---|---|---|---|---|---|---|---|
 | S01 | [01_speech.md](01_speech.md) 梁文鋒四小時發言精校（[@BTCdayu X Article](https://x.com/BTCdayu/article/2080291762736910528)） | Lead / Anonymous leak chain | Raw capture | Derivative | Unverified attributed speech | 開源、剋制、十個月回本、AGI 階梯等**主張來源** | 2026-07 外傳 |
-| S02 | [02_speech_deep_analysis.md](02_speech_deep_analysis.md) | Analysis（本專案） | Analysis | Derivative of S01 | Inference / attributed | 將講話整理為可複用戰略模型 | 2026-07-24；2026-08-03 修 |
+| S02 | [02_speech_deep_analysis.md](02_speech_deep_analysis.md) | Analysis（本專案） | Analysis | Derivative of S01＋S11（§0.1 標 C） | Inference / attributed | 戰略模型＋完整故事線（B／C 分層） | 2026-07-24–2026-08-10 |
 | S03 | [Bloomberg Law 首發](https://news.bloomberglaw.com/antitrust/deepseek-said-to-tell-backers-of-funding-pause-after-viral-posts)（匿名信源）；[Reuters 轉述](https://www.reuters.com/world/china/deepseek-tells-prospective-investors-funding-pause-bloomberg-news-reports-2026-07-25/)（*could not immediately verify*） | Anonymous single-source reporting | News capture | **非獨立互證**（Reuters＝轉載） | Attributed / Unverified | 口頭暫停第二輪；部分因言論外傳 | 2026-07-25 |
-| S04 | StockWe 推文 2081201760669200886 | Lead / Commentary | Commentary | **Evidentially derivative of S01/S03**（作者可編輯獨立；**非**獨立事實互證） | Unverified opinion | 製造業降本、與 NVDA 協同等敘事 | 2026-07-26 |
+| S04 | StockWe 推文 2081201760669200886 | Lead / Commentary | Commentary | **Evidentially derivative of S01/S03** | Unverified opinion | 製造業降本、與 NVDA 協同等敘事 | 2026-07-26 |
 | S05 | [03_StockWe_…核查.md](03_StockWe_融資暫停串聯分析_核查.md) | Analysis（本專案） | Evidence check + Commentary | Derivative of S03+S01 | Mixed | 事實邊界與 StockWe 評價 | 2026-07-27；2026-08-03 修 |
-| S06 | [reviews/02_critic_review.md](reviews/02_critic_review.md) | Analysis（本專案） | Critic review | Derivative | Methodological | 挑戰 Writer 前提、主張分級 | 2026-07-27 |
-| S07 | [04_viewpoint_….md](04_viewpoint_克制對準與算力底褲.md) | Viewpoint | Commentary | Derivative | Inference | 克制對準向量；Eden 受限芯片句**待查** | 2026-07-27；2026-08-03 修 |
-| S08 | NVIDIA 官方 [SK partnership](https://nvidianews.nvidia.com/news/sk-group-and-nvidia-expand-strategic-partnership-across-ai-factories-and-next-generation-memory) | **First-party official**（第一方） | Primary event notice | 非落地獨立審計 | **Verified**：已發布 LOI／計畫語言；**Not verified**：支出、訂單、2GW 完工 | >$500B 出現在官宣（組成／期間未由官方清楚定義，勿自補）；2GW／2027＝Attributed plan | 2026-07 |
-| S09 | [05_NVIDIA_SK_….md](05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md) / [05_1](05_1_source_NVIDIA_SK_對話輿情轉寫.md) | Mixed | Analysis + raw sentiment | 05 部分獨立；05_1 對話為歷史材料 | Mixed | 美國隊詮釋；PTT **單串**有界樣本 | 2026-07-27；2026-08-03 修 |
-| S10 | [06_中美對立敘事_….md](06_中美對立敘事_梁有意無意與兩隊結構.md) | Hypothesis | Viewpoint synthesis（**非正式**） | Derivative | Working hypothesis | 兩隊結構、有意／無意分欄 | 2026-07-27；2026-08-03 修 |
+| S08 | NVIDIA 官方 [SK partnership](https://nvidianews.nvidia.com/news/sk-group-and-nvidia-expand-strategic-partnership-across-ai-factories-and-next-generation-memory) | **First-party official** | Primary event notice | 非落地獨立審計 | **Verified** 官宣語言；**Not verified** 支出／完工 | LOI／計畫語言；勿自補組成與期間 | 2026-07 |
+| S09 | [05](05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md) / [05_1](05_1_source_NVIDIA_SK_對話輿情轉寫.md) | Mixed | Analysis + source | 05 部分獨立 | Mixed | 美國隊詮釋；PTT 單串有界樣本 | 2026-07-27；2026-08-03 修 |
+| S11 | 正確君 YouTube：[DEEPSEEK梁文锋内部讲话流出…](https://youtu.be/zbi1MKAQKL4) | Lead / Secondary commentary | Story-layer input | Derivative of S01 | Unverified opinion | 事件剪法、經驗斷層、蒸餾盲點、飛輪與雙市場 | 2026-08-10 |
+
+> **已刪併（2026-08-10）**：原 S06 critic、S07 `04` 觀點、S10 `06` 兩隊統合 → 要點併入 `02` §0.1／§G；檔案移除。
 
 來源優先級：Primary（公司官方 / 監管）> Independent reporting > Anonymous single-source > Lead（X、論壇、未驗證轉寫）> 本專案 Analysis（永不自動升級底層）。
 
@@ -106,10 +102,9 @@
 
 | 模型／角色 | 核心主張 | 最強證據 | 最大弱點 |
 |---|---|---|---|
-| Writer（`02_`） | 剋制 + 開源 + AGI 主線是自洽 OS | S01 內在一致性；條件句拆假對立 | 依賴外傳轉寫；曾有 payback＝淨利誤讀（已修） |
-| Critic（`reviews/02_`） | 宜當假說目錄；三弱環＝來源／單一目標函數／開源假設鏈 | 原文張力抽樣；替代解釋 | 未做系統性外部事實核查 |
-| Evidence（`03_` 部分） | 停融資＝Bloomberg 單一鏈、非官方；惡意未證實 | S03 信源鏈釐清 | 無公司側確認 |
-| `06` 觀點統合 | 兩隊框架有解釋力 | S08 官方事件 + S01 外傳對偶 | 易把 Inference 寫成事實（已三欄降權） |
+| Writer（`02_`） | 剋制 + 開源 + AGI 主線；§0.1 完整故事分 B／C | S01 內在一致性 | 依賴外傳；S11 數字未核 |
+| Evidence（`03_`） | 停融資＝Bloomberg 單一鏈、非官方 | S03 信源鏈 | 無公司側確認 |
+| Event（`05_`） | 友岸 H 層綁定框架 | S08 官宣 | 計畫≠落地 |
 | Synthesizer | 尚未產出正式 Current Synthesis | — | — |
 
 ## Falsification Conditions
@@ -131,50 +126,41 @@
 | 2026-07-27 | 歸檔 StockWe 並做融資新聞核查 | 區分事實層與故事層 | `03_StockWe_*.md` |
 | 2026-07-27 | 按 Hub 規範補齊專案骨架 | 升級為正式知識專案 | `README.md`, `AGENTS.md`, `00_inbox.md` |
 | 2026-07-27 | 編譯 HTML 研究門戶 | 視覺化閱讀 | `generate_site.py`, `*.html` |
-| 2026-07-27 | 完成 Critic 輪後 **暫停** 角色清單式 Review | 老大判定 `02_` 價值低 | `AGENTS.md` §4、本 README |
-| 2026-07-27 | 新增 04–06 觀點與事件鏈 | 克制對準、NVIDIA–SK、兩隊統合 | `04_`–`06_` |
-| 2026-08-03 | Issue #1：證據鏈降級、來源鏈、建置修復 | 阻止證據身分升級與幽靈 HTML | 見本 README／各主檔 |
-| 2026-08-03 | Issue #2：HTML 內文連結、首頁證據矩陣、官宣vs落地、全文縮減 | md→html bug、Jevons 硬編碼、第三方重刊 | `generate_site.py`、`05*`、`03`、`reviews/02` |
-| 2026-08-03 | Issue #3：broken-link 假陰性、manifest 無 basename fallback | ghost 路徑／殘留 .md／typo 路徑 | `generate_site.py` self-tests；S04／Bloomberg URL |
+| 2026-07-27 | 完成 Critic 輪後 **暫停** 角色清單式 Review | 老大判定價值低 | `AGENTS.md` §4、本 README |
+| 2026-07-27 | 新增 04–06 觀點與事件鏈 | 克制對準、NVIDIA–SK、兩隊統合 | 後於 2026-08-10 精簡 |
+| 2026-08-03 | Issue #1–#3：證據鏈／HTML／broken-link | 防證據升級與幽靈連結 | `generate_site.py` 等 |
+| 2026-08-10 | `02` §0.1 完整故事線；正確君＝S11 | 維持 01／02 主軸、B／C 分層 | `02`、`01`、本 README |
+| 2026-08-10 | **刪重複／低價值檔精簡** | 04 要點併 `02` §G；06／critic 價值低；MCP 測試噪音 | 刪 04／06／reviews／MCP* 及對應 HTML |
 
 ## Next Action
 
-**對下一筆公司側或獨立可核實來源完成一次短版 Evidence Gate，並在 README 採納結果。** 未再指示前不重開角色清單 Review；無新來源時不虛構 Review 檔。Stage 維持 **Analysis**（有 critic 檔 ≠ Review exit）。
+**對下一筆公司側或獨立可核實來源完成一次短版 Evidence Gate，並在 README 採納結果。** 未再指示前不重開角色清單 Review。Stage 維持 **Analysis**。
 
 ## Suggested Reading Order
 
-1. 本 `README.md`（身份、範圍、證據矩陣、下一步）
-2. `index.html`（HTML 導覽；由 `generate_site.py` 自 Markdown 重建）
-3. `AGENTS.md`（作業規則）
-4. `01_speech.md`（**先讀文首來源鏈**）
-5. `02_speech_deep_analysis.md`（拆解；注意 payback 量綱）
-6. `03_StockWe_融資暫停串聯分析_核查.md`（Bloomberg 單一鏈）
-7. `04_viewpoint_克制對準與算力底褲.md`（觀點；Eden 待查句已降權）
-8. `05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md` + `05_1_source_*.md`（官方 fact + 有界輿情）
-9. `06_中美對立敘事_梁有意無意與兩隊結構.md`（觀點統合，非 synthesis）
-10. `reviews/02_critic_review.md` — **非必讀**
+1. 本 `README.md`
+2. `01_speech.md`（**先讀文首來源鏈**）
+3. `02_speech_deep_analysis.md`（**§0.1 完整故事** → 分章拆解）
+4. `03_StockWe_融資暫停串聯分析_核查.md`
+5. `05_NVIDIA_SK_…md` + `05_1_source_*.md`（友岸／官宣）
+6. `AGENTS.md`（需要寫檔時）
 
 ## Directory Layout
 
 ```text
 17_deepseek_Kimi/
-├── README.md
-├── AGENTS.md
+├── README.md / AGENTS.md
 ├── 00_inbox.md
 ├── 01_speech.md
 ├── 02_speech_deep_analysis.md
 ├── 03_StockWe_融資暫停串聯分析_核查.md
-├── 04_viewpoint_克制對準與算力底褲.md
 ├── 05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.md
 ├── 05_1_source_NVIDIA_SK_對話輿情轉寫.md
-├── 06_中美對立敘事_梁有意無意與兩隊結構.md
-├── generate_site.py      # Markdown → HTML（需 markdown 套件）
-├── requirements.txt
-├── .gitignore
+├── generate_site.py / requirements.txt
 ├── index.html / style.css / script.js
-├── reviews/
-│   └── 02_critic_review.md
-└── synthesis/            # 待建立正式 Current Synthesis
+├── daily_updates/ / spark_inbox/   # 排程收件（未准入）
+├── DAILY_RESEARCH.md / SPARK_RADAR.md
+└── synthesis/                     # 待建立正式 Current Synthesis
 ```
 
 `*.html` 由生成器從 Markdown 產出；**Markdown 為 source of truth**。勿手動長期維護幽靈 HTML。
@@ -217,7 +203,8 @@ python3 generate_site.py
 | 與 13／20 | 需要半導體法說或供給指標時，連到對方權威檔；禁止把對方報告搬進本 repo |
 | 公開遠端連結 | 跨庫用完整 GitHub／Pages URL，避免斷鏈 |
 
-**Hub 優先引用入口：** `README.md`（Current Position）· `02_speech_deep_analysis.md` ·（有正式 synthesis 後改連 `synthesis/`）
+**Hub 優先引用入口：** `README.md`（Current Position）· `02_speech_deep_analysis.md`（§0.1 故事線）·（有正式 synthesis 後改連 `synthesis/`）  
+**勿再引用已刪檔：** `04_*`、`06_*`、`reviews/02_critic_review.md`
 
 完整協定：`/home/arislee1979/0_project/30_investment_hub/AGENTS.md` §1.1 · [Hub README](https://github.com/arislee1979-afk/30_investment_hub)
 

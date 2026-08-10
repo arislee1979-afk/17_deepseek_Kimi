@@ -25,11 +25,8 @@
           <li><a href="01_speech.html" class="nav-link ">01_ 發言精校原文</a></li>
 <li><a href="02_speech_deep_analysis.html" class="nav-link ">02_ 講話心智模型拆解</a></li>
 <li><a href="03_StockWe_融資暫停串聯分析_核查.html" class="nav-link ">03_ 融資暫停事件核查</a></li>
-<li><a href="04_viewpoint_克制對準與算力底褲.html" class="nav-link ">04_ 觀點：克制對準與算力</a></li>
 <li><a href="05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.html" class="nav-link ">05_ NVIDIA-SK 美國隊</a></li>
 <li><a href="05_1_source_NVIDIA_SK_對話輿情轉寫.html" class="nav-link ">05_1 來源與輿情</a></li>
-<li><a href="06_中美對立敘事_梁有意無意與兩隊結構.html" class="nav-link ">06_ 兩隊觀點統合</a></li>
-<li><a href="02_critic_review.html" class="nav-link ">02_ Critic 批判審查</a></li>
 <li><a href="00_inbox.html" class="nav-link ">00_inbox 未分類資料</a></li>
 <li><a href="README.html" class="nav-link ">README 專案綱領</a></li>
 <li><a href="AGENTS.html" class="nav-link active">AGENTS 作業規則</a></li>
@@ -59,11 +56,8 @@
             <li><a href="01_speech.html" class="sidebar-link" style="color:#38bdf8;">📄 01_ 發言精校原文</a></li>
 <li><a href="02_speech_deep_analysis.html" class="sidebar-link" style="color:#38bdf8;">📄 02_ 講話心智模型拆解</a></li>
 <li><a href="03_StockWe_融資暫停串聯分析_核查.html" class="sidebar-link" style="color:#38bdf8;">📄 03_ 融資暫停事件核查</a></li>
-<li><a href="04_viewpoint_克制對準與算力底褲.html" class="sidebar-link" style="color:#38bdf8;">📄 04_ 觀點：克制對準與算力</a></li>
 <li><a href="05_NVIDIA_SK_美國隊聯盟_分層相位與雙循環.html" class="sidebar-link" style="color:#38bdf8;">📄 05_ NVIDIA-SK 美國隊</a></li>
 <li><a href="05_1_source_NVIDIA_SK_對話輿情轉寫.html" class="sidebar-link" style="color:#38bdf8;">📄 05_1 來源與輿情</a></li>
-<li><a href="06_中美對立敘事_梁有意無意與兩隊結構.html" class="sidebar-link" style="color:#38bdf8;">📄 06_ 兩隊觀點統合</a></li>
-<li><a href="02_critic_review.html" class="sidebar-link" style="color:#38bdf8;">📄 02_ Critic 批判審查</a></li>
 <li><a href="00_inbox.html" class="sidebar-link" style="color:#38bdf8;">📄 00_inbox 未分類資料</a></li>
 <li><a href="README.html" class="sidebar-link" style="color:#38bdf8;">📄 README 專案綱領</a></li>
 
@@ -77,6 +71,15 @@
 本文件是 <strong>知識研究專案</strong> 規則，與 Hub（<code>30_investment_hub</code>）規則不同；不要照搬 Hub 的寫入邊界到此 repo。<br />
 <strong>語言規範</strong>：本專案所有 Markdown 文件、研究報告、Review、Synthesis 以及 Agent 的所有輸出內容，必須統一使用 <strong>繁體中文</strong>（Traditional Chinese）。</p>
 </blockquote>
+<h2 id="investment-research-workspace">Investment Research Workspace</h2>
+<p>本 repo 參與 <strong>Investment Research Workspace</strong>（VS Code multi-root 邏輯分組；<strong>非</strong> monorepo）。</p>
+<p>跨庫任務（涉及 13／20／30 或改動會回寫 Hub）開始前，先讀：</p>
+<ul>
+<li><code>/home/arislee1979/0_project/30_investment_hub/WORKSPACE.md</code></li>
+<li><code>/home/arislee1979/0_project/30_investment_hub/REPOS.md</code></li>
+</ul>
+<p>本檔（repo-local <code>AGENTS.md</code>）對<strong>本庫檔案</strong>仍優先。<br />
+勿假設 VS Code multi-root 會改變 AGENTS 自動載入；Codex／Grok 從 cwd／project root 搜尋，不會自動讀 sibling 的 <code>30/WORKSPACE.md</code>。</p>
 <h2 id="1">1. 專案任務</h2>
 <p>本 repository 研究：</p>
 <ul>
@@ -113,16 +116,24 @@ Synthesis
 Maintenance
 Archived
 </code></pre>
+<p>語義（與 Hub Issue #2 對齊）：</p>
+<ul>
+<li><strong><code>stage</code> = 最高已通過的 maturity gate</strong>（不是「本週正在做的工作」）。</li>
+<li><strong><code>Next Action</code> = 唯一進行中工作</strong>。</li>
+<li>Review <strong>entry</strong> ≠ Review <strong>exit</strong>（exit 需弱點整理且結果被 README／正式 gate 採納）。</li>
+<li>缺正式 Current Synthesis <strong>只</strong>阻擋 <code>Synthesis</code>。</li>
+<li>現行：<strong>Analysis</strong>（角色清單 Review 暫停；critic 檔已刪，不恢復除非明確指示）。</li>
+</ul>
 <p>階段變更時：</p>
 <ol>
 <li>更新本專案 <code>README.md</code> 的 Knowledge Stage 與 Last Updated。</li>
-<li>若已在 Hub 註冊，同步更新 <code>30_investment_hub/README.md</code> 對應列（只改索引字段，不貼全文）。</li>
+<li>若已在 Hub 註冊，同步更新 Hub <strong><code>projects.yaml</code></strong>（再對齊 README Active 表），只改索引字段，不貼全文。</li>
 </ol>
 <h2 id="4">4. 多模型知識統合</h2>
 <blockquote>
 <p><strong>2026-07-27 暫停</strong>：老大指示 <strong>先暫停用 Writer→Critic→Evidence Checker→Synthesizer 這套格式做 Review</strong>。<br />
-未再指示前：不要自動開角色審查輪、不要為湊流程寫 <code>reviews/03_*</code>；<code>02_critic_review.md</code> 已判定價值低，勿當必讀範本。<br />
-有真正新洞見再落短檔；沒有就停。恢復時必須短、尖，禁止模板填空長文。</p>
+未再指示前：不要自動開角色審查輪、不要為湊流程寫 <code>reviews/*</code>。<br />
+主線維持 <code>01</code> 原文 + <code>02</code> 拆解／故事；<code>03</code> 融資核；<code>05</code> 友岸事件。有真正新洞見再落短檔；沒有就停。</p>
 </blockquote>
 <p>多個模型不等於多數決。<strong>僅在老大明確要求時</strong>再分配角色：</p>
 <table>
@@ -193,50 +204,40 @@ Archived
 <li>API key、帳密、個資、未授權付費全文不得進入 repository。</li>
 <li>既有正文覆寫、權限、刪除、外部發布等高風險操作必須檢查 diff 或取得人工確認。</li>
 </ol>
-<h2 id="8">8. 強制鏈接輸出格式</h2>
-<p>所有 agent 完成文件建立或修改後，最終回覆必須提供以下四行，禁止只給其中一種：</p>
+<h2 id="8-capability-aware">8. 輸出格式（capability-aware）</h2>
+<h3 id="81-agent-vault-shortlink">8.1 本機 agent（可存取 vault + shortlink）</h3>
+<p>最終回覆提供：</p>
 <pre><code class="language-text">Path: &lt;本機絕對路徑&gt;
 Tailscale: [&lt;短檔名&gt;](http://100.83.106.59:8084/s/&lt;code&gt;.md)
 ChromeOS: [&lt;短檔名&gt;](http://100.115.92.198:8084/s/&lt;code&gt;.md)
 IDE: [&lt;檔名&gt;](file:///本機絕對路徑)
 </code></pre>
-<h3 id="81-path">8.1 Path</h3>
-<ul>
-<li>必須是 canonical absolute path。</li>
-<li>不得只給相對路徑。</li>
-<li>路徑必須指向實際存在的文件。</li>
-</ul>
-<h3 id="82-tailscale-chromeos">8.2 Tailscale 與 ChromeOS</h3>
-<ul>
-<li>必須使用 Markdown inline link：<code>[顯示文字](URL)</code>。</li>
-<li>禁止只輸出裸 URL。</li>
-<li>Tailscale：<code>http://100.83.106.59:8084/</code></li>
-<li>ChromeOS：<code>http://100.115.92.198:8084/</code></li>
-</ul>
-<h3 id="83">8.3 長路徑或中文檔名</h3>
-<p>先建立 shortlink：</p>
+<p>長路徑或中文檔名先：</p>
 <pre><code class="language-bash">/home/arislee1979/bin/shortlink &lt;absolute-file-path&gt; &lt;short-code&gt;
 </code></pre>
-<p>然後使用：</p>
-<pre><code class="language-text">Tailscale: [&lt;short-code&gt;](http://100.83.106.59:8084/s/&lt;short-code&gt;.md)
-ChromeOS: [&lt;short-code&gt;](http://100.115.92.198:8084/s/&lt;short-code&gt;.md)
+<h3 id="82-github-only-agent">8.2 GitHub-only／雲端 agent</h3>
+<p><strong>禁止偽造</strong> Path／Tailscale／ChromeOS／IDE。改為：</p>
+<pre><code class="language-text">Remote: https://github.com/arislee1979-afk/17_deepseek_Kimi/blob/&lt;branch&gt;/&lt;path&gt;
+Commit: &lt;sha 或 PR URL&gt;
+Issue: &lt;相關 issue URL，若有&gt;
+Note: 未存取本機 vault；未建立 Tailscale／IDE 連結。
 </code></pre>
-<h3 id="84-ide">8.4 IDE</h3>
-<ul>
-<li>使用 <code>file:///</code> absolute path。</li>
-<li>顯示文字使用檔名。</li>
-</ul>
-<h3 id="85">8.5 本專案範例</h3>
+<h3 id="83">8.3 本專案範例（本機）</h3>
 <pre><code class="language-markdown">Path: /home/arislee1979/0_project/17_deepseek_Kimi/README.md
 Tailscale: [17_ds_readme](http://100.83.106.59:8084/s/17_ds_readme.md)
 ChromeOS: [17_ds_readme](http://100.115.92.198:8084/s/17_ds_readme.md)
 IDE: [README.md](file:///home/arislee1979/0_project/17_deepseek_Kimi/README.md)
 </code></pre>
-<p>若同時修改多個重要文件，至少對主要產物提供四行格式；其他文件可另外列出，但仍須提供 Path。</p>
-<h2 id="9-hub">9. 與 Hub 同步</h2>
-<p>當且僅當符合 Hub 更新條件時，編輯：</p>
-<p><code>/home/arislee1979/0_project/30_investment_hub/README.md</code></p>
-<p>的 Active Knowledge Projects 對應列：</p>
+<p>若同時修改多個重要文件，至少對主要產物提供對應格式。</p>
+<h2 id="9-hub">9. 與 Hub 同步與跨專案引用</h2>
+<h3 id="91">9.1 關係</h3>
+<ul>
+<li>本 repo = 敘事／算力邏輯層的<strong>生產者</strong>。</li>
+<li><code>30_investment_hub</code> = 索引與策略卡；<strong>允許讀取並引用</strong>本庫路徑，禁止複製長文。</li>
+<li><code>13_semiconductor</code>／<code>20_china-overcapacity</code> = 兄弟深挖庫；只連不抄。</li>
+</ul>
+<h3 id="92-hub">9.2 當且僅當符合 Hub 更新條件時</h3>
+<p>編輯 <code>/home/arislee1979/0_project/30_investment_hub/README.md</code> 的 Active 列：</p>
 <table>
 <thead>
 <tr>
@@ -255,15 +256,15 @@ IDE: [README.md](file:///home/arislee1979/0_project/17_deepseek_Kimi/README.md)
 </tr>
 <tr>
 <td>知識階段</td>
-<td>與本 README 一致</td>
+<td>與本 README 一致（maturity gate）</td>
 </tr>
 <tr>
 <td>當前 synthesis</td>
-<td>鏈接到本 repo 權威文件；未建立則寫「尚未建立」</td>
+<td>鏈接到本 repo 權威文件；未建立則寫「尚未建立」（<strong>勿</strong>連 <code>06</code> 當 synthesis）</td>
 </tr>
 <tr>
 <td>未決問題／下一行動</td>
-<td>各最多一項，簡短</td>
+<td>各最多一項，簡短；禁止分號串列</td>
 </tr>
 <tr>
 <td>最後更新</td>
@@ -271,7 +272,14 @@ IDE: [README.md](file:///home/arislee1979/0_project/17_deepseek_Kimi/README.md)
 </tr>
 </tbody>
 </table>
-<p>禁止把 synthesis 全文貼進 Hub。</p>
+<p>先改 Hub <code>projects.yaml</code>，再對齊 Hub README Active 表，並跑 Hub validator。</p>
+<p>若影響中美×台灣主軸命題，可薄更新 Hub <code>02</code> 策略卡（如 S3）上游連結與狀態；禁止把 synthesis 或講話全文貼進 Hub。</p>
+<h3 id="93-hub">9.3 Hub 如何引用本庫（供對照）</h3>
+<ul>
+<li>本機：<code>../17_deepseek_Kimi/README.md</code> 等（自 Hub 目錄出發）</li>
+<li>權威入口優先：<code>README.md</code> · <code>02_speech_deep_analysis.md</code></li>
+<li>證據身分：外傳講話＝Lead；<code>06</code>＝觀點統合，非正式 Current Synthesis</li>
+</ul>
 <h2 id="10">10. 完成驗收</h2>
 <p>任務完成前確認：</p>
 <ul>

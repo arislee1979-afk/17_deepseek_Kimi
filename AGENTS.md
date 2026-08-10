@@ -65,7 +65,7 @@ Archived
 - **`Next Action` = 唯一進行中工作**。
 - Review **entry** ≠ Review **exit**（exit 需弱點整理且結果被 README／正式 gate 採納）。
 - 缺正式 Current Synthesis **只**阻擋 `Synthesis`。
-- 現行：**Analysis**（critic 存在但未採納為 gate；角色清單 Review 暫停）。
+- 現行：**Analysis**（角色清單 Review 暫停；critic 檔已刪，不恢復除非明確指示）。
 
 階段變更時：
 
@@ -75,8 +75,8 @@ Archived
 ## 4. 多模型知識統合
 
 > **2026-07-27 暫停**：老大指示 **先暫停用 Writer→Critic→Evidence Checker→Synthesizer 這套格式做 Review**。  
-> 未再指示前：不要自動開角色審查輪、不要為湊流程寫 `reviews/03_*`；`02_critic_review.md` 已判定價值低，勿當必讀範本。  
-> 有真正新洞見再落短檔；沒有就停。恢復時必須短、尖，禁止模板填空長文。
+> 未再指示前：不要自動開角色審查輪、不要為湊流程寫 `reviews/*`。  
+> 主線維持 `01` 原文 + `02` 拆解／故事；`03` 融資核；`05` 友岸事件。有真正新洞見再落短檔；沒有就停。
 
 多個模型不等於多數決。**僅在老大明確要求時**再分配角色：
 
